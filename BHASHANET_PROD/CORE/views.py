@@ -154,6 +154,9 @@ def landingfunction(request):
     elif requesteddomainwithoutport == 'xn--c2bro4b8ab8d.xn--h2breg3eve': #
         response = HttpResponseRedirect(domain+'/गृहम्‌')
         return response
+    elif requesteddomainwithoutport == '10.208.208.118': # Staging Server 10.208.208.118
+        response = HttpResponseRedirect(domain+'/home')
+        return response
     else:
         response = render(request, 'core/errors/404.html')
         response.status_code = 404
