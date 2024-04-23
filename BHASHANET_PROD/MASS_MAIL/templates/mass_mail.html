@@ -1,0 +1,89 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block mass_mail %}
+    <div class="card-box ua-card-header--bg-blk" id="main-content">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+              <div class="ua-small-info-box">
+                  <div class="horizontal-rule">
+                    <h1 class=" h2 heading4">{% trans 'Mass Mail' %}</h1>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <div class="container mt-2">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumb-bar">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12 col-12">
+                    <div class="breadcrumb-list">
+                      <nav aria-label="breadcrumb" class="page-breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item">
+                            <a href="{% url 'home' %}">{% trans 'Home' %}</a>
+                          </li>
+                          <li class="breadcrumb-item">{% trans 'Mass Mail' %}</li>
+                        </ol>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-content ua-sec" id="main-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-8 mx-auto">
+            <div>
+              {% if messages %} 
+              {% for message in messages %}
+              <div class="alert alert-{{message.extra_tags}} alert-dismissible" role="alert">
+                <strong> {% if message.tags %}{{message}}{% endif %}</strong>
+              </div>
+              {% endfor %} {% endif %}
+            </div>
+            <div style="color: red"> 
+              {% if form.non_field_errors %} 
+              {% for error in form.non_field_errors %}
+              <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+              </div>
+              {% endfor %} {% endif %}
+            </div> 
+            <div class="support-wrap shadow-sm bg-white px-3 py-5">
+              <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% comment %} {{form}} {% endcomment %}
+                <div class="form-group">
+                  <label for="id_email_subject">{{form.email_subject.label|title}}</label>
+                  {{form.email_subject}}
+                </div>
+
+                <div class="form-group">
+                  <label for="id_email_body">Enter Message</label>
+                  {{form.email_body}}
+                </div>
+                <span title="To upload multiple documents press shift and then select">{{form.email_attachment}}</span>
+                <button class="btn btn-primary" type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+        
+      
+{% endblock %}

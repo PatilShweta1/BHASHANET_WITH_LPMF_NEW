@@ -1,0 +1,86 @@
+{
+  "https://ict-ipr.in": {
+    "Language": "English",
+    "domain_token": "",
+    "ssl_token": "",
+    "content_token": ""
+  },
+  "https://mha.gov.in": {
+    "Language": "English",
+    "domain_token": "",
+    "ssl_token": "",
+    "content_token": ""
+  },
+  "https://रक्षाजनसम्पर्कनिर्देशालय.सरकार.भारत": {
+    "Language": "Hindi",
+    "domain_token": "",
+    "ssl_token": "",
+    "content_token": ""
+  },
+  "https://cdac.in": {
+    "Language": "English",
+    "domain_token": "",
+    "ssl_token": "",
+    "content_token": ""
+  },
+  "https://nashik.gov.in": {
+    "Language": "English",
+    "domain_token": "",
+    "ssl_token": "",
+    "content_token": ""
+  },
+  "https://solapur.gov.in": {
+    "Language": "English",
+    "domain_token": "",
+    "ssl_token": "",
+    "content_token": ""
+  },
+  "https://bhopal.nic.in/en/": {
+    "Language": "English",
+    "domain_token": "",
+    "ssl_token": "",
+    "content_token": ""
+  },
+  "https://datamail.in": {
+    "Language": "English",
+    "domain_token": "",
+    "ssl_token": "",
+    "content_token": ""
+  },
+  "https://भारतीयनागरिकता.सरकार.भारत": {
+    "Language": "HIndi",
+    "domain_token": "",
+    "ssl_token": "",
+    "content_token": ""
+  },
+  "https://औषध.सरकार.भारत": {
+    "Language": "HIndi",
+    "domain_token": "",
+    "ssl_token": "",
+    "content_token": ""
+  },
+  "https://चलोभारत.सरकार.भारत": {
+    "Language": "Hindi",
+    "domain_token": "",
+    "ssl_token": "",
+    "content_token": ""
+  },
+  "https://प्रसारभारती.सरकार.भारत": {
+    "Language": "Hindi",
+    "domain_token": "",
+    "ssl_token": "",
+    "content_token": ""
+  },
+  "https://पीआईबी.सरकार.भारत": {
+    "Language": "Hindi",
+    "domain_token": "",
+    "ssl_token": "",
+    "content_token": ""
+  },
+  "mah.gov.in": {
+    "Language": "English",
+    "domain_token": "",
+    "ssl_token": "",
+    "content_token": ""
+  }
+}
