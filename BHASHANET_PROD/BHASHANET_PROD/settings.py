@@ -19,7 +19,7 @@ SECRET_KEY = 'django-insecure-984utnkw-xq6lmtge9b8c@_376z*4qrszqwx^cc6z-o485db7b
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = env('DEBUG')
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [ '127.0.0.1','192.168.56.1','localhost','10.208.208.118','भाषानेट.कॉम','भाषानेट.भारत','मराठी.भाषानेट.भारत',
                  'xn--d2b1ag0dl.xn--c2bro4b8ab8d.xn--h2brj9c','xn--c2bro4b8ab8d.xn--11b4c3d',
