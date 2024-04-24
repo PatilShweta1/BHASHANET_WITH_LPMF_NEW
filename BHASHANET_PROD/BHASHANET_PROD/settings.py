@@ -60,7 +60,7 @@ SYSTEM_APPS = [
 CKEDITOR_UPLOAD_PATH = "uploads/"
 # -----ADDED BY SANJAYB -----
 
-THIRD_PARTY_APPS = ['parler', 'rosetta','django_celery_results']
+THIRD_PARTY_APPS = ['rosetta','django_celery_results']
 APPLICATION_APPS = ['CORE', 'MASS_MAIL', 'discussion_forum']
 INSTALLED_APPS = SYSTEM_APPS + APPLICATION_APPS + THIRD_PARTY_APPS
 
@@ -70,6 +70,7 @@ INSTALLED_APPS = SYSTEM_APPS + APPLICATION_APPS + THIRD_PARTY_APPS
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -183,7 +184,8 @@ MEDIA_ROOT = MEDIA_DIR
 # Base url to serve media files
 MEDIA_URL = '/media/'
 
-
+LANGUAGE_SESSION_KEY = 'session_language_appname'
+LANGUAGE_COOKIE_NAME = 'cookie_language_appname'
 
 SERVER_EMAIL = env('SERVER_EMAIL')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')  # please enter password
@@ -214,3 +216,34 @@ CELERY_RESULT_BACKEND = 'django-db'
 CELERY_CACHE_BACKEND = 'default'
 
 
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale/',
+]
+
+
+LANGUAGES = (
+    ('en', 'English'),
+    ('hi', 'Hindi'),
+    ('mr', 'Marathi'),
+    ('ml', 'Malayalam'),
+    ('kn', 'Kannada'),
+    ('gu', 'Gujarati'),
+    ('bn', 'Bengali'),
+    ('ur', 'Urdu'),
+    ('mni', 'Manipuri'),
+    ('te','Telugu'),
+    ('pa','Panjabi'),
+    ('ta','Tamil'), 
+    ('kok','Konkani'),
+    ('ks','Kashmiri'),  
+    ('as','Assamese'),  
+    ('sdin','Sindhi'), 
+    ('or','Oriya'),  
+    ('sa','Sanskrit'),     
+    ('mai','Maithili'),   
+    ('sat','Santali'),  
+    ('brx','Bodo'),       
+    ('doi','Dogri'),   
+    ('ne','Nepali'),                                      
+)

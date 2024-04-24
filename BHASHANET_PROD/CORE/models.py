@@ -330,7 +330,7 @@ class BestPractices(models.Model):
             validate_image(self.BestPractices_image1)
             extension = self.BestPractices_image1.name.split('.')[-1].lower()
             if extension not in ['jpg', 'png', 'jpeg', 'svg']:
-                raise ValidationError(_('Invalid file extension for image1.'))
+                raise ValidationError('Invalid file extension for image1.')
 
 
 # ---------------------------------------------------------------------------------------------

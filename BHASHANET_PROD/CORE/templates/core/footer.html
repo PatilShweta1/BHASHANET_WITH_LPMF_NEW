@@ -44,15 +44,15 @@
                     <div class="footer-widget footer-menu">
                         <h2 class="footer-title">Other Links</h2>
                         <ul>
-                            <li><a onclick="renderPathFunction('home'); return false;"><i class="fa fa-link"></i>Home</a></li>
-                            <li><a onclick="renderPathFunction('FAQS'); return false;"><i class="fa fa-link"></i>FAQs </a></li>
-                            <li><a onclick="renderPathFunction('blogs'); return false;"><i class="fa fa-link"></i>Blogs </a></li>
+                            <li><a href="{% url 'home' %}"><i class="fa fa-link"></i>Home</a></li>
+                            <li><a href="{% url 'FAQs' %}"><i class="fa fa-link"></i>FAQs</a></li>
+                            <li><a href="{% url 'blogs' %}"><i class="fa fa-link"></i>Blogs</a></li>
                              <!-- Gallery -->
-                             <li id="gallery"><a onclick="renderPathFunction('gallery'); return false;"><i class="fa fa-link"  aria-hidden="true"></i>Gallery</a></li>
+                             <li id="gallery"><a href="{% url 'gallery' %}"><i class="fa fa-link"  aria-hidden="true"></i>Gallery</a></li>
                             {% comment %} <li><a href="{% url 'idn_websites_request' %}"><i class="fa fa-link"></i>Submit Your IDN Website' %}</a></li> {% endcomment %}
-                            <li><a onclick="renderPathFunction('privacypolicy'); return false;"><i class="fa fa-link"></i>Privacy Policy</a></li>
-                            <li><a onclick="renderPathFunction('termsandconditions'); return false;"><i class="fa fa-link"></i>Terms & Conditions</a></li>
-                            <li><a onclick="renderPathFunction('dashboard'); return false;"><i class="fa fa-link"></i>Dashboard</a></li>
+                            <li><a href="{% url 'privacypolicy' %}"><i class="fa fa-link"></i>Privacy Policy</a></li>
+                            <li><a href="{% url 'termsandconditions' %}"><i class="fa fa-link"></i>Terms & Conditions</a></li>
+                            <li><a href="{% url 'dashboard' %}"><i class="fa fa-link"></i>Dashboard</a></li>
 
 			    <!-- <li><a href="{% url 'blogs' %}"><i class="fa fa-link"></i>Blogs'%}</a></li>-->
                             {% comment %} <li><a href="https://registry.gov.in/idndomain_reporting_module/login_idnreport.php"><i class="fa fa-link"></i>Test'%}</a></li> {% endcomment %}
@@ -168,8 +168,8 @@
         }else if (location.hostname === 'xn--becro4b8ab8d.xn--gecrj9c'){
             document.getElementById('dropdownMenuLink').innerText='Gujarati-ગુજરાતી'
                 setLanguageForTranslation('Gujarati',true);
-        }else if (location.hostname === 'xn--mgbbh8aygy7awa.xn--hhbf40a'){
-            document.getElementById('dropdownMenuLink').innerText='Urdu'
+        }else if (location.hostname === 'xn-----btdbc3d4hd37blpqm.xn--mgbbh1a71e'){
+            document.getElementById('dropdownMenuLink').innerText='Urdu-اردو '
                 setLanguageForTranslation('Urdu',true);
         }else if (location.hostname === 'xn--n9bro8bukc7e.xn--s9brj9c'){
             document.getElementById('dropdownMenuLink').innerText='Punjabi-ਪੰਜਾਬੀ'
@@ -186,17 +186,39 @@
         }else if (location.hostname === 'xn--i1b1bb0d0hoc.xn--c2bro4b8ab8d.xn--h2brj9c'){
                 document.getElementById('dropdownMenuLink').innerText='Konkani-कोंकणी'
                     setLanguageForTranslation('Konkani',true);
-        }else if (location.hostname === '10.208.10.201'){
-                document.getElementById('dropdownMenuLink').innerText='Kannada-Kannada-test' //Kannada test
-                    setLanguageForTranslation('Kannada',true);
+        }else if (location.hostname === 'xn--yhcro4b8ab8d.xn--3hcrj9c'){
+                document.getElementById('dropdownMenuLink').innerText='Odia-ଓଡିଆ' //Odia-ଓଡିଆ
+                    setLanguageForTranslation('Oriya',true);
+        }else if (location.hostname === 'xn--c2brfy4bwnt8d.xn--h2brj9c8c'){
+                document.getElementById('dropdownMenuLink').innerText='Santali-संथाली' //Santali-संथाली
+                    setLanguageForTranslation('Santali',true);
+        }else if (location.hostname === 'xn--l2bey1cl2b.xn--c2bro4b8ab8d.xn--h2brj9c'){
+                document.getElementById('dropdownMenuLink').innerText='Nepali-नेपाली' //Nepali-नेपाली
+                    setLanguageForTranslation('Nepali',true);
+        }else if (location.hostname === 'xn--c2bazt9b7bb5f1b.xn--h2brj9c'){
+                document.getElementById('dropdownMenuLink').innerText='Dogri-डोगरी' //Dogri-डोगरी
+                    setLanguageForTranslation('Dogri',true);
+        }else if (location.hostname === 'xn--c2brxay7cbj7e.xn--h2brj9c'){
+                document.getElementById('dropdownMenuLink').innerText='Boro-Boro' //Boro-Boro
+                    setLanguageForTranslation('Boro',true);
+        }else if (location.hostname === 'xn----ymcac5dzf1p7v.xn--mgbbh1a'){
+                document.getElementById('dropdownMenuLink').innerText='Kashmiri-Kashmiri' //Kashmiri-Kashmiri
+                    setLanguageForTranslation('Kashmiri',true);
+        }else if (location.hostname === 'xn--i1b8e2b2ah.xn--c2bro4b8ab8d.xn--h2brj9c'){
+                document.getElementById('dropdownMenuLink').innerText='Sindhi-सिंधी' //Sindhi-सिंधी
+                    setLanguageForTranslation('Sindhi',true);
+        }else if (location.hostname === 'xn--i2brn5cg8b.xn--c2bro4b8ab8d.xn--h2brj9c'){
+                document.getElementById('dropdownMenuLink').innerText='Maithili-मैथिली' //Maithili-मैथिली
+                    setLanguageForTranslation('Maithili',true);
+        }else if (location.hostname === 'xn--c2bro4b8ab8d.xn--h2breg3eve'){
+                document.getElementById('dropdownMenuLink').innerText='Sanskrit-संस्कृत' //Sanskrit-संस्कृत
+                    setLanguageForTranslation('Sanskrit',true);
         }else{
             document.getElementById('dropdownMenuLink').innerText='Select language'
                 setLanguageForTranslation('None');
          }            
     }
 </script>
-
-
 
 <script>
     $(document).ready(function () {
@@ -265,7 +287,7 @@ $("#myModal").modal('show');
   
 
   
-<script src="{% static 'core/assets/js/serviceforlpmfintegration.js'%}"></script>
+
 
 
 

@@ -31,11 +31,7 @@ class TranslatedURL(template.Node):
         view = resolve(context['request'].path)
         requested_path=context['request'].path.split('/')[1]
         requested_english_path=context['request'].path.split('/')[1]
-        # print("context['request'].path.split('/')[1]----------",context['request'].path.split('/')[1])
         path=''
-        # domain='http://'+ maindomain.split(':')[0] Default domain server
-        # domain='http://bhashanet.in:8001' Default domain local
-        # domain=env('DOMAIN')
         domain=''
         with open(env('PATH_JSON'), 'r',encoding="utf8") as j:
             contents = json.loads(j.read())
@@ -47,18 +43,13 @@ class TranslatedURL(template.Node):
                     if value=='/'+requested_path:
                         path=contents[content]['mainpath'][request_language]
                         requested_english_path=contents[content]['mainpath']['en']
-        #domainjsonserver=settings.BASE_DIR+'CORE\domains.json'
-        # domainjsonwindows='CORE\domains.json'
         with open(env('DOMAIN_JSON'), 'r',encoding="utf8") as j:
             dom = json.loads(j.read())
         for data in range(len(dom)):
             for key,value in dom[data].items():
                 if key==request_language:
                     domain=value
-        # print("+++++++++++",path,domain)
-        # print("requested requested_english_path from custom tag",requested_english_path,context['request'].path,view.captured_kwargs)
         if requested_english_path == '/password_creation':
-            # print("inside main=-===================")
             uid=''
             try:
                 uid=view.captured_kwargs['uid']

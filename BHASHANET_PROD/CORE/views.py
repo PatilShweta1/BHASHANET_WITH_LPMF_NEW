@@ -60,9 +60,10 @@ import certifi
 
 def landingfunction(request):
     domain=''
+    lang ='en'
+    returnpath='/home'
     maindomain = request.build_absolute_uri().split('/')[2]
     requesteddomainwithoutport=maindomain.split(':')[0]
-    print("requested domain",requesteddomainwithoutport)
     with open(env('DOMAIN_JSON'), 'r',encoding="utf8") as j:
             dom = json.loads(j.read())
     for data in range(len(dom)):
@@ -72,90 +73,32 @@ def landingfunction(request):
             if requesteddomainwithoutport == filterdomain2 :
                 lang=key
                 domain=value
-                print("requested domain ijnside for loop",value,key)
                 status=True
-    returndomain='https://'+ maindomain.split(':')[0]
     requesteddomainwithoutport=maindomain.split(':')[0]
-    if requesteddomainwithoutport =='xn--c2bro4b8ab8d.xn--h2brj9c': #Hindi
-        response = HttpResponseRedirect(domain+'/होम')
+
+    with open(env('PATH_JSON'), 'r',encoding="utf8") as j:
+            contents = json.loads(j.read())
+    for content in range(len(contents)):
+        for cont in range(len(contents[content])):
+            for key, value in contents[content]['mainpath'].items():
+                requested_path='/home'
+                if value==requested_path:
+                    returnpath=contents[content]['mainpath'][lang]
+
+    if status:
+        request.session[settings.LANGUAGE_SESSION_KEY] = lang
+        response = HttpResponseRedirect(domain+returnpath)
+        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
         return response
-    elif requesteddomainwithoutport == 'xn--d2b1ag0dl.xn--c2bro4b8ab8d.xn--h2brj9c': # Marathi  
-        response = HttpResponseRedirect(domain+'/मुख्यपान')
-        return response
-    elif requesteddomainwithoutport == 'xn--gecho4b8a6c.xn--gecrj9c': # Gujarati  
-        response = HttpResponseRedirect(domain+"/ઘર")
-        return response
-    elif requesteddomainwithoutport == 'bhashanet.in':  #English
+    elif requesteddomainwithoutport == 'localhost': # For localhost
+        request.session[settings.LANGUAGE_SESSION_KEY] = 'en'
         response = HttpResponseRedirect(domain+'/home')
+        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, 'en')
         return response
-    elif requesteddomainwithoutport == '10.208.39.180':  #English
+    elif requesteddomainwithoutport == '10.208.208.118': # For staging
+        request.session[settings.LANGUAGE_SESSION_KEY] = 'en'
         response = HttpResponseRedirect(domain+'/home')
-        return response
-    elif requesteddomainwithoutport == 'xn--xscro4b8ab1dzc.xn--2scrj9c': #kannada
-        response = HttpResponseRedirect(domain+'/ಮುಖಪುಟ')
-        return response
-    elif requesteddomainwithoutport == 'xn--uwcjna1a5bb9d4cb.xn--rvc1e0am3e': #Malayalam
-        response = HttpResponseRedirect(domain+'/വീട്')
-        return response
-    elif requesteddomainwithoutport == 'xn--z5bro4b8ab8d.xn--45brj9c': #Bengali
-        response = HttpResponseRedirect(domain+'/বাড়ি')
-        return response
-    elif requesteddomainwithoutport == 'localhost': #Bengali
-        response = HttpResponseRedirect(domain+'/home')
-        return response
-    elif requesteddomainwithoutport == 'xn-----btdbc3d4hd37blpqm.xn--mgbbh1a71e': #Urdu
-        response = HttpResponseRedirect(domain+'/گھر')
-        return response
-    elif requesteddomainwithoutport == 'xn--becro4b8ab8d.xn--gecrj9c': #Gujarati
-        response = HttpResponseRedirect(domain+'/ઘર')
-        return response
-    elif requesteddomainwithoutport == 'xn--35bokk7eif.xn--z5bro4b8ab8d.xn--45brj9c': #Manipuri
-        response = HttpResponseRedirect(domain+"/মরুওইবা_লৈমাই")
-        return response
-    elif requesteddomainwithoutport == 'xn--n9bro8bukc7e.xn--s9brj9c': #Panjabi
-        response = HttpResponseRedirect(domain+'/ਘਰ')
-        return response
-    elif requesteddomainwithoutport == 'xn--mlcrf6c8ab1dzc.xn--xkc2dl3a5ee0h': #Tamil
-        response = HttpResponseRedirect(domain+'/வீடு')
-        return response
-    elif requesteddomainwithoutport == 'xn--9ocro4b8ab1dzc.xn--fpcrj9c3d': #Telugu
-        response = HttpResponseRedirect(domain+'/ఇల్లు')
-        return response
-    elif requesteddomainwithoutport == 'xn--z5bro4b8ab8d.xn--45br5cyl': #Asamee
-        response = HttpResponseRedirect(domain+'/গৃহ')
-        return response
-    elif requesteddomainwithoutport == 'xn--i1b1bb0d0hoc.xn--c2bro4b8ab8d.xn--h2brj9c': #Kokani
-        response = HttpResponseRedirect(domain+'/होमकोंकणी')
-        return response
-    elif requesteddomainwithoutport == 'xn--yhcro4b8ab8d.xn--3hcrj9c': #Oriya
-        response = HttpResponseRedirect(domain+'/ଘର')
-        return response
-    elif requesteddomainwithoutport == 'xn--c2brfy4bwnt8d.xn--h2brj9c8c': #Santali
-        response = HttpResponseRedirect(domain+'/ᱚᱲᱟᱜ')
-        return response
-    elif requesteddomainwithoutport == 'xn--l2bey1cl2b.xn--c2bro4b8ab8d.xn--h2brj9c': #
-        response = HttpResponseRedirect(domain+'/होमनेपाली')
-        return response
-    elif requesteddomainwithoutport == 'xn--c2bazt9b7bb5f1b.xn--h2brj9c': #
-        response = HttpResponseRedirect(domain+'/होमडोगरी')
-        return response
-    elif requesteddomainwithoutport == 'xn--c2brxay7cbj7e.xn--h2brj9c': #
-        response = HttpResponseRedirect(domain+'/नआव')
-        return response
-    elif requesteddomainwithoutport == 'xn----ymcac5dzf1p7v.xn--mgbbh1a': #
-        response = HttpResponseRedirect(domain+'/گَرٕ')
-        return response
-    elif requesteddomainwithoutport == 'xn--i1b8e2b2ah.xn--c2bro4b8ab8d.xn--h2brj9c': #
-        response = HttpResponseRedirect(domain+'/گهر')
-        return response
-    elif requesteddomainwithoutport == 'xn--i2brn5cg8b.xn--c2bro4b8ab8d.xn--h2brj9c': #
-        response = HttpResponseRedirect(domain+'/घरमैथिली')
-        return response
-    elif requesteddomainwithoutport == 'xn--c2bro4b8ab8d.xn--h2breg3eve': #
-        response = HttpResponseRedirect(domain+'/गृहम्‌')
-        return response
-    elif requesteddomainwithoutport == '10.208.208.118': # Staging Server 10.208.208.118
-        response = HttpResponseRedirect(domain+'/home')
+        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, 'en')
         return response
     else:
         response = render(request, 'core/errors/404.html')
@@ -163,124 +106,50 @@ def landingfunction(request):
         return response
 
 
-# def home(request):
-#     status=False
-#     lang=''
-#     maindomain = request.build_absolute_uri().split('/')[2]
-#     print("main domain view",maindomain)
-#     returndomain='https://'+ maindomain.split(':')[0]
-#     requesteddomainwithoutport=maindomain.split(':')[0]
-#     print("requested pathhhhhhuihuijkjh",requesteddomainwithoutport)
-    
-#     # return render(request, 'core/home.html',
-#     #               {'obj_testimonialsMessages': obj_testimonialsMessages, 'obj_announcements': obj_announcements,
-#     #                'obj_Objectives': obj_Objectives,
-#     #                'obj_Stackholder': obj_Stackholder, 'faq_data': faq_data})
-#     print("inside home page to cxheck domain punycode###################################### ",request.build_absolute_uri().split('/')[2])
-#     ### if request.build_absolute_uri().split('/')[2] =='xn--c2bro4b8ab8d.xn--h2brj9c:8001':http://
-#     if requesteddomainwithoutport =='xn--c2bro4b8ab8d.xn--h2brj9c':
-#         request.session[settings.LANGUAGE_SESSION_KEY] ='hi'
-#         status=True
-#         lang='hi'
-       
-#     elif requesteddomainwithoutport =='bhashanet.in':
-#         print("false")
-#         request.session[settings.LANGUAGE_SESSION_KEY] = 'en'
-#         status=True
-#         lang='en'
-       
-#     elif requesteddomainwithoutport =='bhashanet.com':
-#         print("false")
-#         request.session[settings.LANGUAGE_SESSION_KEY] = 'mr'
-#         status=True
-#         lang='mr'
-        
-#     else:
-#         response = render(request, 'core/errors/404.html')
-#         response.status_code = 404
-#         status=False
-#     if status:
-#         request.session[settings.LANGUAGE_SESSION_KEY] = lang
-#         TestimonialsMessagesModel = apps.get_model('CORE', 'TestimonialsMessages')
-#         TestimonialsMessagesTranslation = apps.get_model('CORE', 'TestimonialsMessagesTranslation')
-#         for object in TestimonialsMessagesModel.objects.all():
-#             obj_testimonialsMessages=TestimonialsMessagesTranslation.objects.all().filter(TestimonialsMessages_PublishStatus='Published').filter(language_code=lang)
-
-#         AnnouncementsModel = apps.get_model('CORE', 'Announcements')
-#         AnnouncementsTranslation = apps.get_model('CORE', 'AnnouncementsTranslation')
-#         for object in AnnouncementsModel.objects.all():
-#             obj_announcements=AnnouncementsTranslation.objects.all().filter(Announcement_PublishStatus='Published').filter(language_code=lang)
-        
-#         ObjectivesModel = apps.get_model('CORE', 'Objectives')
-#         ObjectivesTranslation = apps.get_model('CORE', 'ObjectivesTranslation')
-#         for object in ObjectivesModel.objects.all():
-#             obj_Objectives=ObjectivesTranslation.objects.all().filter(Objectives_PublishedStatus='Published').filter(language_code=lang)
-
-#         StackholderModel = apps.get_model('CORE', 'Stackholder')
-#         StackholderTranslation = apps.get_model('CORE', 'StackholderTranslation')
-#         for object in StackholderModel.objects.all():
-#             obj_Stackholder=StackholderTranslation.objects.all().filter(Stackholder_PublishedStatus='Published').filter(language_code=lang)
-
-#         FaqsModel = apps.get_model('CORE', 'Faqs')
-#         FaqsTranslation = apps.get_model('CORE', 'FaqsTranslation')
-#         for object in FaqsModel.objects.all():
-#             # faq_data=FaqsTranslation.objects.all().filter(Faqs_PublishStatus='Published')[:4].filter(language_code=lang)
-#             faq_data=FaqsTranslation.objects.all().filter(language_code=lang)
-
-#         response = render(request, 'core/home.html',
-#                   {'obj_testimonialsMessages': obj_testimonialsMessages, 'obj_announcements': obj_announcements,
-#                    'obj_Objectives': obj_Objectives,
-#                    'obj_Stackholder': obj_Stackholder, 'faq_data': faq_data})
-#         response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
-#         return response
-#     else:
-        
-#         return response
-
 def home(request):
-    lang=''
-    print("langing url",request.path,"domain",request.build_absolute_uri().split('/')[2])
-    domain=''
-    status=False
-    maindomain = request.build_absolute_uri().split('/')[2]
-    # print("main domain view",maindomain)
-    returndomain='https://'+ maindomain.split(':')[0]
-    requesteddomainwithoutport=maindomain.split(':')[0]
-    print("inside home",request.build_absolute_uri().split('/')[2])
+    # lang=''
+    # print("langing url",request.path,"domain",request.build_absolute_uri().split('/')[2])
+    # domain=''
+    # status=False
+    # maindomain = request.build_absolute_uri().split('/')[2]
+    # returndomain='https://'+ maindomain.split(':')[0]
+    # requesteddomainwithoutport=maindomain.split(':')[0]
+    # print("inside home",request.build_absolute_uri().split('/')[2])
     obj_testimonialsMessages=TestimonialsMessages.objects.all().filter(TestimonialsMessages_PublishStatus='Published').order_by('id').reverse()
     obj_announcements=Announcements.objects.all().filter(Announcement_PublishStatus='Published').order_by('id').reverse()
     obj_Objectives=Objectives.objects.all().filter(Objectives_PublishedStatus='Published')
     obj_Stackholder=Stackholder.objects.all().filter(Stackholder_PublishedStatus='Published')
     faq_data=Faqs.objects.all().filter(Faqs_PublishStatus='Published')[:4]
     SOPTechnologyDocumentData = SOPTechnologyDocument.objects.filter(SOPTechnologyDocument_PublishedStatus='Published')
-    with open(env('DOMAIN_JSON'), 'r',encoding="utf8") as j:
-            dom = json.loads(j.read())
-    for data in range(len(dom)):
-        for key,value in dom[data].items():
-            filterdomain1=value.split('/')[2]
-            filterdomain2=filterdomain1.split(':')[0]
-            # print("domain from file",filterdomain2)
-            if requesteddomainwithoutport == filterdomain2 :
-                domain=value
-                lang=key
-                status=True
-    if status:
-        response = render(request, 'core/home.html',
-                    {'obj_testimonialsMessages': obj_testimonialsMessages, 'obj_announcements': obj_announcements,
-                    'obj_Objectives': obj_Objectives,
-                    'obj_Stackholder': obj_Stackholder, 'faq_data': faq_data,'SOPTechnologyDocumentData':SOPTechnologyDocumentData})
-        return response
-    else:
-        response = render(request, 'core/errors/404.html')
-        response.status_code = 404
-        return response
+    # with open(env('DOMAIN_JSON'), 'r',encoding="utf8") as j:
+    #         dom = json.loads(j.read())
+    # for data in range(len(dom)):
+    #     for key,value in dom[data].items():
+    #         filterdomain1=value.split('/')[2]
+    #         filterdomain2=filterdomain1.split(':')[0]
+    #         if requesteddomainwithoutport == filterdomain2 :
+    #             domain=value
+    #             lang=key
+    #             status=True
+    # if status:
+        # request.session[settings.LANGUAGE_SESSION_KEY] = lang
+    response = render(request, 'core/home.html',
+                {'obj_testimonialsMessages': obj_testimonialsMessages, 'obj_announcements': obj_announcements,
+                'obj_Objectives': obj_Objectives,
+                'obj_Stackholder': obj_Stackholder, 'faq_data': faq_data,'SOPTechnologyDocumentData':SOPTechnologyDocumentData})
+    # response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
+    return response
+    # else:
+    #     response = render(request, 'core/errors/404.html')
+    #     response.status_code = 404
+    #     return response
 
     
 
 # -------------PRIVACY POLICY STARTS-----------------------
 
 def privacypolicy(request):
-    obj_data = PrivacyPolicy.objects.get(id=2)
+    obj_data = PrivacyPolicy.objects.get(id=1)
         
     print(obj_data)
     return render(request, 'core/privacypolicy.html', {'obj_data': obj_data})
@@ -298,7 +167,7 @@ def termsandconditions(request):
 
 def uaindiaprogramme(request):
     print("inside uaindiaprogrammeor")
-    obj_data = UAIndiaProgramme.objects.get(id=2)
+    obj_data = UAIndiaProgramme.objects.get(id=1)
     return render(request, 'core/uaindiaprogramme.html', {'obj_data': obj_data})
 
 
@@ -803,7 +672,7 @@ def home1(request):
 #     if domain == 'xn--c2bro4b8ab8d.xn--h2brj9c:8001':
 #         request.session[settings.LANGUAGE_SESSION_KEY] = 'hi'
 #         response = HttpResponseRedirect(request.META.get('HTTP_REFERER', 'घर/'))
-#         
+#         response.set_cookie(settings.LANGUAGE_COOKIE_NAME, 'hi')
 #         return response
 #     else:
 #         request.session[settings.LANGUAGE_SESSION_KEY] = 'en'
@@ -877,7 +746,7 @@ def home1(request):
 #         return response
 
 
-def RenderPageWithPathAndLang(request, path):
+def RenderPageWithPathAndLang(request, path,id=None):
     lang=''
     domain=''
     status1=False
@@ -910,7 +779,12 @@ def RenderPageWithPathAndLang(request, path):
                     print("pathhgcffgjgjhfhgffcjv",pathrender,lang)
     if status1 and status2:
         print("final path render and lang9099090909090900",domain+pathrender)
-        response = HttpResponseRedirect(domain+pathrender)
+        request.session[settings.LANGUAGE_SESSION_KEY] = lang
+        if id != None:
+            response = HttpResponseRedirect(domain+pathrender+'/'+id)
+        else:
+            response = HttpResponseRedirect(domain+pathrender)
+        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
         return response
     else:
         response = render(request, 'core/errors/404.html')
@@ -932,7 +806,6 @@ def RenderPageWithPathAndLangId(request, path,id):
         for key,value in dom[data].items():
             filterdomain1=value.split('/')[2]
             filterdomain2=filterdomain1.split(':')[0]
-            # print("domain from file",filterdomain2)
             if requesteddomainwithoutport == filterdomain2 :
                 domain=value
                 lang=key
@@ -949,11 +822,11 @@ def RenderPageWithPathAndLangId(request, path,id):
                     pathrender=value
                     lang=key
                     status2=True
-                    print("pathhgcffgjgjhfhgffcjv",pathrender,lang)
 
     if status1 and status2:
-        print("final path render and lang9099090909090900",domain+pathrender+'/'+id)
+        request.session[settings.LANGUAGE_SESSION_KEY] = lang
         response = HttpResponseRedirect(domain+pathrender+'/'+id)
+        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
         return response
     else:
         response = render(request, 'core/errors/404.html')
@@ -967,56 +840,17 @@ def bad_request(request, exception):
     return redirect(reverse('set_language'))
 
 
-# -------------  STARTS-----------------------
-
-# def documentPage(request):
-#     if request.path == '/दस्तावेज़_पृष्ठ/':
-
-#         request.session[settings.LANGUAGE_SESSION_KEY] = 'hi'
-#     else:
-#         request.session[settings.LANGUAGE_SESSION_KEY] = 'en'
-#     DocumentCategoryWithoutTrans.objects.all().update(DocumentCategory_Status=False)
-#     documentData = DocumentWithoutTrans.objects.all()
-#     categoryData = DocumentCategoryWithoutTrans.objects.all()
-#     page = Paginator(documentData, 5)
-#     page_list = request.GET.get('page')
-#     page = page.get_page(page_list)
-#     count = documentData.count()
-#     context = {
-#         'documentData': documentData,
-#         'categoryData': categoryData,
-#         'page': page,
-#         'count': count,
-#         'Pagination_Type': 'All_Data',
-#     }
-#     return render(request, 'core/uadocument.html', context)
-
 
 @preprocesslangset
 def documentPage(request):
-    DocumentCategoryModel = apps.get_model('CORE', 'DocumentCategory')
-    DocumentCategoryModelTranslation = apps.get_model('CORE', 'DocumentCategoryTranslation')
-    for object in DocumentCategoryModel.objects.all():
-        DocumentCategoryModelTranslation.objects.update(
-        DocumentCategory_Status=False
-        )
-    print("settings.LANGUAGE_SESSION_KEY------------",request.session[settings.LANGUAGE_SESSION_KEY])
-    active_lang=request.session[settings.LANGUAGE_SESSION_KEY]
-    DocumentModel = apps.get_model('CORE', 'Document')
-    DocumentModelTranslation = apps.get_model('CORE', 'DocumentTranslation')
-    for object in DocumentModel.objects.all():
-        documentData=DocumentModelTranslation.objects.all().filter(language_code=active_lang).order_by('master_id')
-
-    DocumentCategoryModel = apps.get_model('CORE', 'DocumentCategory')
-    DocumentCategoryModelTranslation = apps.get_model('CORE', 'DocumentCategoryTranslation')
-    for object in DocumentCategoryModel.objects.all():
-        categoryData=DocumentCategoryModelTranslation.objects.all().filter(language_code=active_lang).order_by('master_id')
-    page = Paginator(documentData, 5)
+    DocumentCategory.objects.update(DocumentCategory_Status=False)
+    documentData=Document.objects.all()
+    categoryData=DocumentCategory.objects.all()
+    page = Paginator(documentData, 3)
     page_list = request.GET.get('page')
     page = page.get_page(page_list)
     count = documentData.count()
     context = {
-        'documentData': documentData,
         'categoryData': categoryData,
         'page': page,
         'count': count,
@@ -1026,65 +860,24 @@ def documentPage(request):
 
 @preprocesslangset
 def documentData(request):
-    active_lang=request.session[settings.LANGUAGE_SESSION_KEY]
     documentData = Document.objects.all()
-    DocumentModel = apps.get_model('CORE', 'Document')
-    DocumentModelTranslation = apps.get_model('CORE', 'DocumentTranslation')
-    for object in DocumentModel.objects.all():
-        documentData=DocumentModelTranslation.objects.all().filter(language_code=active_lang).order_by('master_id')
+    categoryData=DocumentCategory.objects.all()
     pagestatus = False
-    selectedCatId=[]
-    page = Paginator(documentData, 5)
-    page_list = request.GET.get('page')
-    page = page.get_page(page_list)
-    count = documentData.count()
-    DocumentCategoryModel = apps.get_model('CORE', 'DocumentCategory')
-    DocumentCategoryModelTranslation = apps.get_model('CORE', 'DocumentCategoryTranslation')
-    for object in DocumentCategoryModel.objects.all():
-        documentCategory=DocumentCategoryModelTranslation.objects.all().filter(language_code=active_lang).order_by('master_id')
-        for data in documentCategory:
-            if data.DocumentCategory_Status == True:
-                selectedCatId.append(data.master_id)
-                pagestatus = True
-    if request.method == "POST":
-        active_lang=request.session[settings.LANGUAGE_SESSION_KEY]
-        DocumentCategoryModel = apps.get_model('CORE', 'DocumentCategory')
-        DocumentCategoryModelTranslation = apps.get_model('CORE', 'DocumentCategoryTranslation')
-        for object in DocumentCategoryModel.objects.all():
-            DocumentCategoryModelTranslation.objects.update(
-            DocumentCategory_Status=False
-            )
-            print("all category set to false")
-        checklist = request.POST.getlist('select_specialist')
-        array=[]
-        DocumentCategoryModel = apps.get_model('CORE', 'DocumentCategory')
-        DocumentCategoryModelTranslation = apps.get_model('CORE', 'DocumentCategoryTranslation')
-        for category_name in checklist:
-            for object in DocumentCategoryModel.objects.all():
-                data=DocumentCategoryModelTranslation.objects.get(DocumentCategory_Name=category_name)
-                array.append(data.master_id)
-        categoryIds=set(array)
-        for id in categoryIds:
-            for object in DocumentCategoryModel.objects.all():
-                    print("upfdate toi true id",id)
-                    data=DocumentCategoryModelTranslation.objects.filter(
-                    master_id=id).update(DocumentCategory_Status=True)
+    for cat in DocumentCategory.objects.all():
+        if cat.DocumentCategory_Status == True:
             pagestatus = True
-        documentCategory = DocumentCategory.objects.all()
-        DocumentCategoryModel = apps.get_model('CORE', 'DocumentCategory')
-        DocumentCategoryModelTranslation = apps.get_model('CORE', 'DocumentCategoryTranslation')
-        categorydata=None
-        for object in DocumentCategoryModel.objects.all(): 
-            categorydata=DocumentCategoryModelTranslation.objects.all().filter(language_code=active_lang).order_by('master_id')
-        DocumentModel = apps.get_model('CORE', 'Document')
-        DocumentModelTranslation = apps.get_model('CORE', 'DocumentTranslation')
-        filtered_DocumentDataWithCategory = DocumentModel.objects.none()
-        for id in categoryIds:
-            for object in DocumentModel.objects.all():
-                filtered_DocumentDataWithCategory = filtered_DocumentDataWithCategory | DocumentModelTranslation.objects.filter(
-                Document_CategoryType=id).filter(language_code=active_lang).order_by('master_id')
+    if request.method == "POST":
+        DocumentCategory.objects.update(DocumentCategory_Status=False)
+        filtered_DocumentDataWithCategory = Document.objects.none()
+        checklist = request.POST.getlist('select_specialist')
+        for category_name in checklist:
+                DocumentCategory.objects.filter(
+                DocumentCategory_Name=category_name).update(DocumentCategory_Status=True)
+                pagestatus = True
+        categorydata = DocumentCategory.objects.all()
+        filtered_DocumentDataWithCategory = Document.objects.filter(Document_CategoryType__DocumentCategory_Status=True)
         if pagestatus == True:
-            page = Paginator(filtered_DocumentDataWithCategory, 5)
+            page = Paginator(filtered_DocumentDataWithCategory, 3)
             page_list = request.GET.get('page')
             page = page.get_page(page_list)
             count = filtered_DocumentDataWithCategory.count()
@@ -1096,7 +889,9 @@ def documentData(request):
                 'document_title': 'none',
             }
         else:
-            page = Paginator(documentData, 5)
+            documentData = Document.objects.all()
+            categoryData=DocumentCategory.objects.all()
+            page = Paginator(documentData, 3)
             page_list = request.GET.get('page')
             page = page.get_page(page_list)
             count = documentData.count()
@@ -1107,35 +902,27 @@ def documentData(request):
                 'page': page,
                 'document_title': 'none',
             }
-        print("category", documentCategory)
         return render(request, 'core/uadocument.html', context)
     if pagestatus == True:
-        categoryIdsPage=set(selectedCatId)
-        DocumentModel = apps.get_model('CORE', 'Document')
-        DocumentModelTranslation = apps.get_model('CORE', 'DocumentTranslation')
-        filtered_DocumentDataWithCategoryPage = DocumentModel.objects.none()
-        for id in categoryIdsPage:
-            for object in DocumentModel.objects.all():
-                filtered_DocumentDataWithCategoryPage = filtered_DocumentDataWithCategoryPage | DocumentModelTranslation.objects.filter(
-                Document_CategoryType=id).filter(language_code=active_lang).order_by('master_id')
-        page = Paginator(filtered_DocumentDataWithCategoryPage, 5)
+        filtered_DocumentDataWithCategoryPage = Document.objects.filter(Document_CategoryType__DocumentCategory_Status=True)
+        page = Paginator(filtered_DocumentDataWithCategoryPage, 3)
         page_list = request.GET.get('page')
         page = page.get_page(page_list)
         count = filtered_DocumentDataWithCategoryPage.count()
         context = {
-            'categoryData': documentCategory,
+            'categoryData': categoryData,
             'Pagination_Type': 'Category_Data',
             'count': count,
             'page': page,
             'document_title': 'none',
         }
     else:
-        page = Paginator(documentData, 5)
+        page = Paginator(documentData, 3)
         page_list = request.GET.get('page')
         page = page.get_page(page_list)
         count = documentData.count()
         context = {
-            'categoryData': documentCategory,
+            'categoryData': categoryData,
             'Pagination_Type': 'All_Data',
             'count': count,
             'page': page,
@@ -1200,7 +987,7 @@ def gallery(request):
 
 
 def SOPTechnalogyPage(request):
-    SOPArticle = Article.objects.get(id=3)
+    SOPArticle = Article.objects.get(id=2)
     SOPTechnologyDocumentData = SOPTechnologyDocument.objects.all()
     count = SOPTechnologyDocumentData.count()
     context = {
@@ -1684,24 +1471,6 @@ def blog(request,id):
         return redirect('blogs')
 
 
-# def blog(request):
-#     if request.method == 'POST':
-#         print("Hello inside method ")
-#         print("-----------------",request.POST.get('blog_id'))
-#         id=request.POST.get('blog_id')
-#         blog_data=Blog.objects.get(id=id)
-#         user_obj=User.objects.get(id=blog_data.Blog_Author.id)
-#         profile_of_user_obj=UserProfile.objects.get(UserProfile_user=user_obj)
-#         blogs_data=Blog.objects.filter(Blog_Author=user_obj).order_by('-id')
-#         context={
-#             'blog_data':blog_data,
-#             'blogs_data':blogs_data,
-#             'profile_of_user_obj':profile_of_user_obj
-#         }
-#         return render(request,'core/blog_details.html',context)
-     
-
-
 def add_blog(request):
     if request.user.is_authenticated:
         user_obj=User.objects.get(id=request.user.id)
@@ -1729,12 +1498,7 @@ def add_blog(request):
                                 Best regards,
                                 Bhashanet Team
                                 """
-                            email_sent_to_user = send_mail("Submission: Blog Verification Request", RecipentMessage, env('SERVER_EMAIL'), [user_obj.email])
-                            # blog_link='http://bhashanet.in:8001/admin/CORE/blog/'+str(temp_obj.id)+'/change/'
-                            # AdminMessage= """
-                            #           Please verify the following blog and update its status:
-                            #           blog_link=blog_link
-                            #         """
+                            send_mail("Submission: Blog Verification Request", RecipentMessage, env('SERVER_EMAIL'), [user_obj.email])
                             blog_link = 'http://bhashanet.in/admin/CORE/blog/' + str(temp_obj.id) + '/change/'
                             AdminMessage = f"""
                                         Please verify the following blog and update its status:
@@ -2134,7 +1898,6 @@ def test_celery(request):
 
 
 def RenderPageWithPathAndLangIdToken(request,path,uid,token):
-    # print("+++++++++++++++++++++++++++++++++++++++++++++++++++++")
     lang=''
     domain=''
     status1=False
@@ -2147,7 +1910,6 @@ def RenderPageWithPathAndLangIdToken(request,path,uid,token):
         for key,value in dom[data].items():
             filterdomain1=value.split('/')[2]
             filterdomain2=filterdomain1.split(':')[0]
-            # print("domain from file",filterdomain2)
             if requesteddomainwithoutport == filterdomain2 :
                 domain=value
                 lang=key
@@ -2160,14 +1922,14 @@ def RenderPageWithPathAndLangIdToken(request,path,uid,token):
         for cont in range(len(contents[content])):
             for key, value in contents[content]['mainpath'].items():
                 if value == '/'+request.path.split('/')[1]:
-                    # print("valueeee",value,request.path)
                     pathrender=value
                     lang=key
                     status2=True
-                    # print("pathhgcffgjgjhfhgffcjv",pathrender,lang)
 
     if status1 and status2:
+        request.session[settings.LANGUAGE_SESSION_KEY] = lang
         response = HttpResponseRedirect(domain+pathrender+'/'+uid+'/'+token)
+        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
         return response
     else:
         response = render(request, 'core/errors/404.html')
