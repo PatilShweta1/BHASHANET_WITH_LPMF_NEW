@@ -1,9 +1,7 @@
 {% load static %}
 {% load i18n %}
 {% load my_custom_tags %}
-{% comment %} {% load my_custom_tags_en %}
-{% load my_custom_tags_hi %}
-{% load my_custom_tags_mr %} {% endcomment %}
+
 
 
 <!DOCTYPE html>
@@ -200,7 +198,7 @@
                                                 Feedback </a>
                                        
                                     </div>
-                                    <div>
+                                    {% comment %} <div>
                                         <a class="btn btn-outline-primary btn-sm dropdown-toggle NALOC" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                           </a>
                                         <ul class="dropdown-menu NALOC" aria-labelledby="dropdownMenuLink">
@@ -254,7 +252,57 @@
                                                         </form>
                                                     </li>
                                         </ul>
-                                    </li> {% endcomment %}
+                                    </li> 
+                                        </ul>
+                                    </div> {% endcomment %}
+
+                                    <div>
+                                        <a class="btn btn-outline-primary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                            {% get_current_language as LANGUAGE_CODE %}
+                                            {% if LANGUAGE_CODE == 'en' %} 
+                                                  Select languages
+                                            {% else %}
+                                                {{language_for_selection}}
+                                            {% endif %}
+                                          </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                           {% comment %} {% get_current_language as LANGUAGE_CODE %}
+                                            {% get_available_languages as LANGUAGES %} 
+                                            {% get_language_info_list for LANGUAGES as languages %} 
+                                            {% for lang in LANGUAGES %}
+                                                {{ lang }}
+                                            {% endfor %} TEST TEST {% endcomment %}
+            
+                                         
+                                            
+                                                <li><a class="dropdown-item" href="{% translate_url en %}" hreflang="en">English</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url hi %}" hreflang="hi">Hindi-हिंदी</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url as %}" hreflang="as">Assamese-অসমীয়া</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url bn %}" hreflang="bn">Bengali-বাংলা</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url brx %}" hreflang="brx">Bodo-बरʼ</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url doi %}" hreflang="doi">Dogri-डोगरी</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url gu %}" hreflang="gu">Gujarati-ગુજરાતી</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url kn %}" hreflang="kn">Kannada-ಕನ್ನಡ</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url ks %}" hreflang="ks">Kashmiri-کٲشُر</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url kok %}" hreflang="kok">Konkani-कोंकणी</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url mai %}" hreflang="mai">Maithili-मैथिली</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url ml %}" hreflang="ml">Malayalam-മലയാളം</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url mni %}" hreflang="mni">Manipuri-মণিপুরী</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url mr %}" hreflang="mr">Marathi-मराठी</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url ne %}" hreflang="ne">Nepali-नेपाली</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url or %}" hreflang="or">Odia-ଓଡିଆ</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url pa %}" hreflang="pa">Punjabi-ਪੰਜਾਬੀ</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url sa %}" hreflang="sa">Sanskrit-संस्कृत</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url sat %}" hreflang="sat">Santali-संथाली</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url sdin %}" hreflang="sdin">Sindhi-सिंधी</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url ta %}" hreflang="ta">Tamil-தமிழ்</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url te %}" hreflang="te">Telugu-తెలుగు</a></li>
+                                                <li><a class="dropdown-item" href="{% translate_url ur %}" hreflang="ur">Urdu- اردو</a></li>
+                                                
+                                                
+                                               </ul>
+                                            
+                                           
                                         </ul>
                                     </div>
                                     <div class="search-form my-1">
@@ -342,6 +390,68 @@
                                         </span>
                                     </a>
                                 </div>
+                                {% comment %} <div class="main-menu-wrapper">
+                                    <div class="menu-header">
+                                        <!-- Logo for mobile view -->
+                                        <a href="{% url 'home' %}" class="menu-logo">
+                                            <img src="{% static 'core/assets/img/logo.png' %}" class="img-fluid" alt=" Universal Acceptance Logo for mobile view">
+                                        </a>
+                                        <!-- Close menu button -->
+                                        <a id="menu_close" class="menu-close" href="javascript:void(0);" title="this is button to close menu in mobile view">
+                                            <i class="fas fa-times"></i>
+                                        </a>
+                                    </div>
+                                    <!-- Main navigation menu -->
+                                    <ul class="main-nav d-flex justify-content-start">
+                                        <!-- Home -->
+                                        <li id="home">
+                                            <a href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+                                        </li>
+                                        <!-- About -->
+                                        <li class="has-submenu" id="about">
+                                            <a href="#"><i class="fa fa-user" aria-hidden="true"></i>About<i class="fas fa-chevron-down"></i></a>
+                                            <ul class="submenu">
+                                                <!-- UA India Programme -->
+                                                <li><a onclick="renderPathFunction('uaindiaprogramme'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>UA India Programme</a></li>
+                                                <!-- IDN-ccTLDs -->
+                                                <li><a onclick="renderPathFunction('IDNCCTLD'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>.bharat IDN-ccTLDs</a></li>
+                                            </ul>
+                                        </li>
+                                        <!-- Resources -->
+                                        <li class="has-submenu" id="resource2">
+                                            <a href="#"><i class="fa fa-file" aria-hidden="true"></i>Resources<i class="fas fa-chevron-down"></i></a>
+                                            <ul class="submenu first-submenu">
+                                                <!-- Tools -->
+                                        <li id="tools">
+                                            <a onclick="renderPathFunction('tools'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>Tools</a>
+                                        </li>
+                                                <!-- UA & Multilingual Internet Report -->
+                                                <li><a href="{% static 'core/assets/documents/UA_multilingial_internet_report.pdf' %}" target="_blank"><i class="fa fa-angle-right" aria-hidden="true"></i>UA & Multilingual<br/> Internet Report</a></li>
+                                                <!-- UA Documents -->
+                                                <li><a onclick="renderPathFunction('documentPage'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>UA Documents</a></li>
+                                                <!-- Best Practices -->
+                                                <li><a onclick="renderPathFunction('bestpractices'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>Best Practices</a></li>
+                                                <!-- UA Sample Code -->
+                                                <li><a  href="https://github.com/icann/ua-code-samples" target="_blank" onclick="return myFunction()"><i class="fa fa-angle-right" aria-hidden="true"></i>UA Sample Code</a></li>
+                                            </ul>
+                                        </li>
+                                        
+                                        <!-- Events -->
+                                        <li id="feedback">
+                                            <a onclick="renderPathFunction('event'); return false;"><i class="fa fa-newspaper"  aria-hidden="true"></i>
+                                                Events</a>
+                                        </li>
+                                       
+                                       
+                                        <!-- Three inline buttons for mobile -->
+                                        <li class="d-grid gap-1 d-flex justify-content-center align-items-center flex-wrap">
+                                            <button class="btn btn-light mx-1 small-font-size" onclick="renderPathFunction('becomeuaready'); return false;">Become UA Ready</button>
+                                            <button class="btn btn-light mx-1 small-font-size" onclick="renderPathFunction('idn_websites'); return false;">IDN Websites</button>
+                                            <button class="btn btn-light mx-1 small-font-size" onclick="renderPathFunction('sop_tech_page'); return false;">Technical Corner</button>
+                                        </li>
+                                        <!-- End of three inline buttons -->
+                                    </ul>
+                                </div> {% endcomment %}
                                 <div class="main-menu-wrapper">
                                     <div class="menu-header">
                                         <!-- Logo for mobile view -->
@@ -418,6 +528,6 @@
 
 
         
-<script src="{% static 'core/assets/js/serviceforlpmfintegration.js'%}"></script>
+
  
 </header>

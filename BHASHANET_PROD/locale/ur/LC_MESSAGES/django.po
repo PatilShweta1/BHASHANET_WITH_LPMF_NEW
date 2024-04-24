@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: .\CORE\templates\core\idn_websites_request1.html:77
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-17 10:44+0530\n"
+"POT-Creation-Date: 2024-04-24 15:09+0530\n"
 "PO-Revision-Date: 2024-03-18 05:37+0000\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,1451 +17,248 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.9.8\n"
 
-#: .\BHASHANET_PROD\settings.py:225
-msgid "English"
-msgstr "English"
-
-#: .\BHASHANET_PROD\settings.py:226
-#: .\CORE\templates\core\transliteration.html:120
-msgid "Hindi"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:227
-#: .\CORE\templates\core\transliteration.html:123
-msgid "Marathi"
-msgstr "Marathi"
-
-#: .\BHASHANET_PROD\settings.py:228
-#: .\CORE\templates\core\transliteration.html:126
-msgid "Malayalam"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:229
-#: .\CORE\templates\core\transliteration.html:129
-msgid "Kannada"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:230
-#: .\CORE\templates\core\transliteration.html:122
-msgid "Gujarati"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:231
-#: .\CORE\templates\core\transliteration.html:125
-msgid "Bengali"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:232
-#: .\CORE\templates\core\transliteration.html:131
-msgid "Urdu"
-msgstr "اردواردو"
-
-#: .\BHASHANET_PROD\settings.py:233
-msgid "Manipuri"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:234
-#: .\CORE\templates\core\transliteration.html:128
-msgid "Telugu"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:235
-msgid "Panjabi"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:236
-#: .\CORE\templates\core\transliteration.html:127
-msgid "Tamil"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:237
-msgid "Konkani"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:238
-msgid "Kashmiri"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:239
-#: .\CORE\templates\core\transliteration.html:124
-msgid "Assamese"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:240
-msgid "Sindhi"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:241
-msgid "Oriya"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:242
-msgid "Sanskrit"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:243
-msgid "Maithili"
-msgstr "Marathi"
-
-#: .\BHASHANET_PROD\settings.py:244
-msgid "Santali"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:245
-msgid "Bodo"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:246
-msgid "Dogri"
-msgstr ""
-
-#: .\BHASHANET_PROD\settings.py:247
-msgid "Nepali"
-msgstr ""
-
-#: .\BHASHANET_PROD\urls.py:61
-msgid "add_blog"
-msgstr "add_blogur"
-
-#: .\BHASHANET_PROD\urls.py:62
-msgid "edit_blog/<str:id>"
-msgstr "edit_blogur/<str:id>"
-
-#: .\BHASHANET_PROD\urls.py:63
-msgid "delete_blog/<str:id>"
-msgstr "delete_blogur/<str:id>"
-
-#: .\BHASHANET_PROD\urls.py:64
-msgid "blog_datatable"
-msgstr "blog_datatableur"
-
-#: .\BHASHANET_PROD\urls.py:65
-msgid "login"
-msgstr "loginur"
-
-#: .\BHASHANET_PROD\urls.py:66
-msgid "register"
-msgstr "registerur"
-
-#: .\BHASHANET_PROD\urls.py:68
-msgid "logout"
-msgstr "logoutur"
-
-#: .\BHASHANET_PROD\urls.py:69
-msgid "change_password"
-msgstr "change_passwordur"
-
-#: .\BHASHANET_PROD\urls.py:70
-msgid "forgot_password"
-msgstr "forgot_passwordur"
-
-#: .\BHASHANET_PROD\urls.py:71
-msgid "password_creation/<uid>/<token>"
-msgstr "password_creationur/<uid>/<token>"
-
-#: .\BHASHANET_PROD\urls.py:72
-msgid "discussion_forum_topic_list"
-msgstr "discussion_forum_topic_listur"
-
-#: .\BHASHANET_PROD\urls.py:73
-msgid "discussion_forum_user_topic_list"
-msgstr "discussion_forum_user_topic_listur"
-
-#: .\BHASHANET_PROD\urls.py:74
-msgid "discussion_forum_add_topic"
-msgstr "discussion_forum_add_topicur"
-
-#: .\BHASHANET_PROD\urls.py:75
-msgid "discussion_forum_view_topic_discussion/<slug:topic_slug>"
-msgstr "discussion_forum_view_topic_discussionur/<slug:topic_slug>"
-
-#: .\BHASHANET_PROD\urls.py:76
-msgid "submit_answer/<slug:topic_slug>"
-msgstr "submit_answerur/<slug:topic_slug>"
-
-#: .\BHASHANET_PROD\urls.py:79
-msgid "upvote_answer"
-msgstr "upvote_answerur"
-
-#: .\BHASHANET_PROD\urls.py:80
-msgid "test_task"
-msgstr "test_taskur"
-
-#: .\BHASHANET_PROD\urls.py:86
+#: .\BHASHANET_PROD\urls.py:178
 msgid "home"
 msgstr "گھر"
 
-#: .\BHASHANET_PROD\urls.py:87
+#: .\BHASHANET_PROD\urls.py:179
 msgid "privacypolicy"
 msgstr "privacypolicyUR"
 
-#: .\BHASHANET_PROD\urls.py:88
+#: .\BHASHANET_PROD\urls.py:180
 msgid "termsandconditions"
 msgstr "termsandconditionsUR"
 
-#: .\BHASHANET_PROD\urls.py:89
+#: .\BHASHANET_PROD\urls.py:181
 msgid "uaindiaprogramme"
 msgstr "uaindiaprogrammeUR"
 
-#: .\BHASHANET_PROD\urls.py:90
+#: .\BHASHANET_PROD\urls.py:182
 msgid "IDNCCTLD"
 msgstr "IDNCCTLDUR"
 
-#: .\BHASHANET_PROD\urls.py:91
+#: .\BHASHANET_PROD\urls.py:183
 msgid "bestpractices"
 msgstr "bestpracticesUR"
 
-#: .\BHASHANET_PROD\urls.py:92
+#: .\BHASHANET_PROD\urls.py:184
 msgid "EAI"
 msgstr "EAIUR"
 
-#: .\BHASHANET_PROD\urls.py:93
+#: .\BHASHANET_PROD\urls.py:185
 msgid "UA"
 msgstr "UAUR"
 
-#: .\BHASHANET_PROD\urls.py:94
+#: .\BHASHANET_PROD\urls.py:186
 msgid "tools"
 msgstr "toolsUR"
 
-#: .\BHASHANET_PROD\urls.py:95
+#: .\BHASHANET_PROD\urls.py:187
 msgid "unicode_punycode_generator"
 msgstr "unicode_punycode_generatorUR"
 
-#: .\BHASHANET_PROD\urls.py:96
+#: .\BHASHANET_PROD\urls.py:188
 msgid "unicode_fonts"
 msgstr "unicode_fontsUR"
 
-#: .\BHASHANET_PROD\urls.py:97
+#: .\BHASHANET_PROD\urls.py:189
 msgid "transliteration"
 msgstr "transliterationUR"
 
-#: .\BHASHANET_PROD\urls.py:98
+#: .\BHASHANET_PROD\urls.py:190
 msgid "script_detection"
 msgstr "script_detectionUR"
 
-#: .\BHASHANET_PROD\urls.py:99
+#: .\BHASHANET_PROD\urls.py:191
 msgid "domain_validator"
 msgstr "domain_validatorUR"
 
-#: .\BHASHANET_PROD\urls.py:100
+#: .\BHASHANET_PROD\urls.py:192
 msgid "email_validator"
 msgstr "email_validatorUR"
 
-#: .\BHASHANET_PROD\urls.py:101
+#: .\BHASHANET_PROD\urls.py:193
 msgid "feedback"
 msgstr "feedbackUR"
 
-#: .\BHASHANET_PROD\urls.py:102
+#: .\BHASHANET_PROD\urls.py:194
 msgid "becomeuaready"
 msgstr "becomeuareadyUR"
 
-#: .\BHASHANET_PROD\urls.py:103
+#: .\BHASHANET_PROD\urls.py:195
 msgid "FAQS"
 msgstr "FAQSUR"
 
-#: .\BHASHANET_PROD\urls.py:104
+#: .\BHASHANET_PROD\urls.py:196
 msgid "documentPage"
 msgstr "documentPageUR"
 
-#: .\BHASHANET_PROD\urls.py:105
+#: .\BHASHANET_PROD\urls.py:197
 msgid "documentData"
 msgstr "documentDataUR"
 
-#: .\BHASHANET_PROD\urls.py:106
+#: .\BHASHANET_PROD\urls.py:198
 msgid "support"
 msgstr "supportUR"
 
-#: .\BHASHANET_PROD\urls.py:107
+#: .\BHASHANET_PROD\urls.py:199
 msgid "testimonial"
 msgstr ""
 
-#: .\BHASHANET_PROD\urls.py:108 .\CORE\templates\core\footer.html:178
+#: .\BHASHANET_PROD\urls.py:200
 msgid "search_results"
 msgstr "search_resultsUR"
 
-#: .\BHASHANET_PROD\urls.py:109
+#: .\BHASHANET_PROD\urls.py:201
 msgid "testimonials"
 msgstr ""
 
-#: .\BHASHANET_PROD\urls.py:111
+#: .\BHASHANET_PROD\urls.py:202
 msgid "idn_websites/<str:id>"
 msgstr "ఐడిఎన్వెబ్‌సైట్‌లు/<str:id>"
 
-#: .\BHASHANET_PROD\urls.py:112
+#: .\BHASHANET_PROD\urls.py:203
 msgid "event"
 msgstr "eventUR"
 
-#: .\BHASHANET_PROD\urls.py:113
+#: .\BHASHANET_PROD\urls.py:204
 msgid "gallery"
 msgstr "galleryUR"
 
-#: .\BHASHANET_PROD\urls.py:114
+#: .\BHASHANET_PROD\urls.py:205
 msgid "language_detection"
 msgstr "language_detectionUR"
 
-#: .\BHASHANET_PROD\urls.py:115
+#: .\BHASHANET_PROD\urls.py:206
 msgid "cdac_keyboard"
 msgstr "cdac_keyboardur"
 
-#: .\BHASHANET_PROD\urls.py:119
+#: .\BHASHANET_PROD\urls.py:207
 msgid "sop_tech_page"
 msgstr "sop_tech_pageur"
 
-#: .\BHASHANET_PROD\urls.py:120
+#: .\BHASHANET_PROD\urls.py:208
 msgid "sop_document_page"
 msgstr "sop_document_pageur"
 
-#: .\BHASHANET_PROD\urls.py:121
+#: .\BHASHANET_PROD\urls.py:209
 msgid "sop_document"
 msgstr "sop_documentur"
 
-#: .\BHASHANET_PROD\urls.py:122
+#: .\BHASHANET_PROD\urls.py:210
 msgid "tld_validator"
 msgstr "tld_validatorur"
 
-#: .\BHASHANET_PROD\urls.py:123
+#: .\BHASHANET_PROD\urls.py:211
 msgid "dashboard"
 msgstr "dashboardur"
 
-#: .\BHASHANET_PROD\urls.py:124
+#: .\BHASHANET_PROD\urls.py:212
 msgid "admindashboard"
-msgstr "dashboardur"
+msgstr "admindashboardur"
 
-#: .\BHASHANET_PROD\urls.py:125
+#: .\BHASHANET_PROD\urls.py:213
 msgid "blogs"
 msgstr "blogsur"
 
-#: .\BHASHANET_PROD\urls.py:126
+#: .\BHASHANET_PROD\urls.py:214
 msgid "cat_selected/<str:id>"
 msgstr "cat_selectedur/<str:id>"
 
-#: .\BHASHANET_PROD\urls.py:127
+#: .\BHASHANET_PROD\urls.py:215
 msgid "blog/<str:id>"
 msgstr "blogur/<str:id>"
 
-#: .\BHASHANET_PROD\urls.py:128
+#: .\BHASHANET_PROD\urls.py:216
 msgid "test_support"
 msgstr "supportUR"
 
-#: .\BHASHANET_PROD\urls.py:129
+#: .\BHASHANET_PROD\urls.py:217
 msgid "mass_mail"
 msgstr ""
 
-#: .\BHASHANET_PROD\urls.py:130
+#: .\BHASHANET_PROD\urls.py:218
 msgid "idn_websites_request"
 msgstr "idn_websites_requestur"
 
-#: .\BHASHANET_PROD\urls.py:131
+#: .\BHASHANET_PROD\urls.py:219
 msgid "idn_websites_request1"
 msgstr "idn_websites_requestur"
 
-#: .\CORE\models.py:357
-msgid "Invalid file extension for image1."
-msgstr ""
-
-#: .\CORE\templates\core\Admin_Dashboard.html:280
-#: .\CORE\templates\core\dashboard.html:232
-msgid "*SOURCE :"
-msgstr ":نوٹ"
-
-#: .\CORE\templates\core\EAI.html:11 .\CORE\templates\core\EAI.html:26
-msgid "Email address Internationalization (EAI)"
-msgstr "ای میل ایڈریس انٹرنیشنلائزیشن (ای اے آئی)"
-
-#: .\CORE\templates\core\EAI.html:25 .\CORE\templates\core\FAQs.html:27
-#: .\CORE\templates\core\IDN_CCTLD.html:31 .\CORE\templates\core\UA.html:25
-#: .\CORE\templates\core\add_blog.html:36
-#: .\CORE\templates\core\admin_blog_datatable.html:27
-#: .\CORE\templates\core\becomeuaready.html:27
-#: .\CORE\templates\core\best_practices.html:26
-#: .\CORE\templates\core\blog_details.html:26
-#: .\CORE\templates\core\blog_list.html:28
-#: .\CORE\templates\core\cdac_keyboard.html:30
-#: .\CORE\templates\core\email_validator.html:30
-#: .\CORE\templates\core\event.html:26 .\CORE\templates\core\feedback.html:33
-#: .\CORE\templates\core\footer.html:47 .\CORE\templates\core\gallery.html:25
-#: .\CORE\templates\core\gallery_old.html:25
-#: .\CORE\templates\core\header.html:388
-#: .\CORE\templates\core\home_not_in_use.html:348
-#: .\CORE\templates\core\idn_websites_request1.html:33
-#: .\CORE\templates\core\idn_websites_request_AJAX.html:33
-#: .\CORE\templates\core\language_detection.html:30
-#: .\CORE\templates\core\privacypolicy.html:25
-#: .\CORE\templates\core\script_detection.html:30
-#: .\CORE\templates\core\search_results.html:31
-#: .\CORE\templates\core\sop_tech_document.html:28
-#: .\CORE\templates\core\support.html:26
-#: .\CORE\templates\core\support_new.html:26
-#: .\CORE\templates\core\termsandconditions.html:25
-#: .\CORE\templates\core\tld_validator.html:104
-#: .\CORE\templates\core\tools.html:32
-#: .\CORE\templates\core\transliteration.html:83
-#: .\CORE\templates\core\uadocument.html:36
-#: .\CORE\templates\core\uaindiaprogramme.html:25
-#: .\CORE\templates\core\unicode_punnycode_generator.html:33
-#: .\CORE\templates\core\user\change_password.html:30
-#: .\CORE\templates\core\user\forgot_password.html:30
-#: .\CORE\templates\core\user\password_creation.html:30
-#: .\CORE\templates\core\user\user_login.html:30
-#: .\CORE\templates\core\user\user_register.html:30
-#: .\MASS_MAIL\templates\mass_mail.html:31
-#: .\discussion_forum\templates\discussion_forum\add_topic.html:27
-#: .\discussion_forum\templates\discussion_forum\topic_list.html:27
-#: .\discussion_forum\templates\discussion_forum\user_topic_list.html:27
-#: .\discussion_forum\templates\discussion_forum\view_topic_discussion.html:27
-msgid "Home"
-msgstr "ہوم"
-
-#: .\CORE\templates\core\FAQs.html:13
-msgid "Frequently Asked Questions"
-msgstr "اکثر پوچھے جانے والے سوالات"
-
-#: .\CORE\templates\core\FAQs.html:28 .\CORE\templates\core\footer.html:48
-msgid "FAQs"
-msgstr "اکثر پوچھے جانے والے سوالات"
-
-#: .\CORE\templates\core\IDN_CCTLD.html:12
-#: .\CORE\templates\core\IDN_CCTLD.html:32
-msgid ".bharat IDN ccTLDs"
-msgstr "بھارت. آئی ڈی این سی سی ٹی ایل ڈ."
-
-#: .\CORE\templates\core\IDN_CCTLD.html:68
-msgid "Sr.No."
-msgstr "سیریل نمبر"
-
-#: .\CORE\templates\core\IDN_CCTLD.html:71
-msgid "Internationalized Domain Name (IDN) ccTLDs"
-msgstr "بین الاقوامی ڈومین نام (آئی ڈی این) سی سی ٹی ایل ڈی"
-
-#: .\CORE\templates\core\IDN_CCTLD.html:74
-msgid "Script"
-msgstr "اسکرپٹ"
-
-#: .\CORE\templates\core\IDN_CCTLD.html:77
-msgid "Language(s) supported"
-msgstr "زبان(زبانوں) کو سپورٹ کرتی ہے-"
-
-#: .\CORE\templates\core\IDN_CCTLD.html:80
-msgid "Language(s) Policy"
-msgstr ""
-
-#: .\CORE\templates\core\IDN_CCTLD.html:110
-#: .\CORE\templates\core\best_practices.html:110
-msgid "Register .in/.भारत Domain"
-msgstr ".in/.भारत. ڈومین پر رجسٹر کریں-"
-
-#: .\CORE\templates\core\IDN_CCTLD.html:112
-#: .\CORE\templates\core\best_practices.html:107
-msgid "Register .gov Domain"
-msgstr "gov. ڈومین میں رجسٹر کریں-"
-
-#: .\CORE\templates\core\UA-complient-websites.html:26
-msgid "UA Compliant Websites"
-msgstr "یو اے کے مطابق ویب سائٹس"
-
-#: .\CORE\templates\core\UA-complient-websites.html:33
-msgid "Websites in Hindi language"
-msgstr ""
-
-#: .\CORE\templates\core\UA.html:11 .\CORE\templates\core\UA.html:26
-#: .\CORE\templates\core\home.html:170 .\CORE\templates\core\home2.html:170
-msgid "Universal Acceptance (UA)"
-msgstr "عالمی قبولیت (یو اے)"
-
-#: .\CORE\templates\core\UA.html:57
-msgid "More info"
-msgstr "مزید معلومات"
-
-#: .\CORE\templates\core\add_blog.html:14
-#: .\CORE\templates\core\add_blog.html:45
-msgid "Add Blog"
-msgstr ""
-
-#: .\CORE\templates\core\add_blog.html:16
-#: .\CORE\templates\core\add_blog.html:47
-msgid "Update Blog"
-msgstr ""
-
-#: .\CORE\templates\core\add_blog.html:39
-#: .\CORE\templates\core\admin_blog_datatable.html:28
-#: .\CORE\templates\core\blog_details.html:27
-#: .\CORE\templates\core\blog_list.html:13
-#: .\CORE\templates\core\blog_list.html:32
-#: .\CORE\templates\core\footer.html:49 .\CORE\templates\core\footer.html:58
-msgid "Blogs"
-msgstr "بلاگز"
-
-#: .\CORE\templates\core\add_blog.html:42
-msgid "Blog Data Table"
-msgstr ""
-
-#: .\CORE\templates\core\add_blog.html:92
-msgid "Blog Title"
-msgstr ""
-
-#: .\CORE\templates\core\add_blog.html:96
-msgid "Blog Description"
-msgstr "تفصیل"
-
-#: .\CORE\templates\core\add_blog.html:100
-msgid "Blog Category"
-msgstr "زمرہ"
-
-#: .\CORE\templates\core\add_blog.html:104
-msgid "Blog Body"
-msgstr ""
-
-#: .\CORE\templates\core\add_blog.html:109
-msgid "Blog Thumbnail"
-msgstr ""
-
-#: .\CORE\templates\core\add_blog.html:114
-msgid "Blog Document File"
-msgstr "یواے دستاویز "
-
-#: .\CORE\templates\core\add_blog.html:123
-#: .\CORE\templates\core\email_validator.html:183
-#: .\CORE\templates\core\feedback.html:149
-msgid "Submit"
-msgstr "سبمٹ کریں"
-
-#: .\CORE\templates\core\admin_blog_datatable.html:12
-#: .\CORE\templates\core\admin_blog_datatable.html:29
-#: .\CORE\templates\core\blog_details.html:29
-#: .\CORE\templates\core\blog_list.html:30
-msgid "Blog List Table"
-msgstr ""
-
-#: .\CORE\templates\core\becomeuaready.html:13
-#: .\CORE\templates\core\becomeuaready.html:28
-msgid "Become Universal Acceptance Ready"
-msgstr "عالمی قبولیت کے لئے تیار کریں"
-
-#: .\CORE\templates\core\best_practices.html:11
-#: .\CORE\templates\core\best_practices.html:29
-#: .\CORE\templates\core\header.html:413
-#: .\CORE\templates\core\home_not_in_use.html:364
-msgid "Best Practices"
-msgstr "بہترین طریقہ کار"
-
-#: .\CORE\templates\core\blog_details.html:11
-#: .\CORE\templates\core\blog_details.html:31
-msgid "Blog Details"
-msgstr ""
-
-#: .\CORE\templates\core\cdac_keyboard.html:10
-#: .\CORE\templates\core\cdac_keyboard.html:35
-msgid "C-DAC Keyboard"
-msgstr ""
-
-#: .\CORE\templates\core\cdac_keyboard.html:33
-#: .\CORE\templates\core\email_validator.html:33
-#: .\CORE\templates\core\header.html:406
-#: .\CORE\templates\core\home_not_in_use.html:369
-#: .\CORE\templates\core\language_detection.html:33
-#: .\CORE\templates\core\script_detection.html:33
-#: .\CORE\templates\core\tld_validator.html:107
-#: .\CORE\templates\core\tools.html:12 .\CORE\templates\core\tools.html:34
-#: .\CORE\templates\core\transliteration.html:86
-#: .\CORE\templates\core\unicode_punnycode_generator.html:36
-msgid "Tools"
-msgstr "ٹول"
-
-#: .\CORE\templates\core\dashboard.html:178
-#: .\CORE\templates\core\email_validator.html:186
-#: .\CORE\templates\core\language_detection.html:91
-#: .\CORE\templates\core\tld_validator.html:175
-#: .\CORE\templates\core\tld_validator.html:216
-#: .\CORE\templates\core\transliteration.html:158
-msgid "*NOTE :"
-msgstr ":نوٹ"
-
-#: .\CORE\templates\core\email_validator.html:11
-#: .\CORE\templates\core\email_validator.html:36
-msgid "IDN Email Syntax Checker"
-msgstr "آئی ڈی این ای میل سنٹیکس چیکر "
-
-#: .\CORE\templates\core\email_validator.html:124
-msgid "Email Address : "
-msgstr "ای میل ایڈریس: "
-
-#: .\CORE\templates\core\email_validator.html:186
-#, python-format
-msgid ""
-"The service may not give 100%% accuracy. This tool uses library from uasg."
-msgstr ""
-": یہ ٹول یو اے ایس جی ڈاٹ حوالہ شدہ دستاویز سے لائبریری استعمال کرتا ہے- "
-
-#: .\CORE\templates\core\email_validator.html:186
-msgid "Referenced Document"
-msgstr ""
-
-#: .\CORE\templates\core\event.html:12 .\CORE\templates\core\header.html:422
-#: .\CORE\templates\core\home_not_in_use.html:377
-msgid "Events"
-msgstr "ایونٹس"
-
-#: .\CORE\templates\core\event.html:27
-msgid "Event"
-msgstr "ایونٹ"
-
-#: .\CORE\templates\core\event.html:40
-msgid "Upcoming Events"
-msgstr "آنے والے ایونٹ"
-
-#: .\CORE\templates\core\event.html:43
-msgid "Past Event"
-msgstr "ماضی کے ایونٹ"
-
-#: .\CORE\templates\core\event.html:68
-msgid "To be held on 12 April 2024, Jaipur (Rajasthan) India"
-msgstr ""
-
-#: .\CORE\templates\core\event.html:77
-msgid "Click Here For Details"
-msgstr ""
-
-#: .\CORE\templates\core\event.html:129
-msgid "To be held on May 09, 2023"
-msgstr ""
-
-#: .\CORE\templates\core\event.html:129
-msgid "Time - 03:00 PM - 04:10 PM"
-msgstr ""
-
-#: .\CORE\templates\core\event.html:132 .\CORE\templates\core\event.html:160
-msgid "Mode : Virtual"
-msgstr ""
-
-#: .\CORE\templates\core\event.html:152
-msgid "Local India UA Chapter Technical Training Workshop"
-msgstr ""
-
-#: .\CORE\templates\core\event.html:153
-msgid ""
-"Bridging the Language Gap with Universal Acceptance and it's Capacity "
-"building"
-msgstr ""
-
-#: .\CORE\templates\core\event.html:157
-msgid "Held on April 25, 2023"
-msgstr ""
-
-#: .\CORE\templates\core\event.html:157
-msgid "Time - 03:00 PM - 04:30 PM"
-msgstr ""
-
-#: .\CORE\templates\core\event.html:178
-msgid "Universal Acceptance (UA) Day-23"
-msgstr "عالمی قبولیت (یو اے) دن -23"
-
-#: .\CORE\templates\core\event.html:181
-msgid "Held on March 27-28, 2023"
-msgstr "27-28 مارچ، 2023 کو منعقد ہوا"
-
-#: .\CORE\templates\core\event.html:198
-msgid "Multilingual Internet for Women in India"
-msgstr "یو اے اور کثیر اللسانی انٹرنیٹ رپورٹ"
-
-#: .\CORE\templates\core\event.html:201
-msgid ""
-"FICCI's Indian Language internet Alliance (FICCI-ILIA) Session on Digital "
-"Inclusion (Multilingual Internet for Women in India) on 22nd November 2023, "
-"03:00 PM - 04:00 PM. Join us and be a part of creating a more inclusive and "
-"connected digital enviornment in India."
-msgstr ""
-
-#: .\CORE\templates\core\event.html:202
-msgid "Held on 22nd November 2023, 03:00 PM - 04:00 PM"
-msgstr ""
-
-#: .\CORE\templates\core\feedback.html:14
-#: .\CORE\templates\core\header.html:208
-#: .\CORE\templates\core\home_not_in_use.html:385
-msgid "Feedback"
-msgstr "فیڈبیک"
-
-#: .\CORE\templates\core\feedback.html:35
-msgid "Feeback"
-msgstr "فیڈبیک"
-
-#: .\CORE\templates\core\feedback.html:117
-msgid "Name"
-msgstr "نام"
-
-#: .\CORE\templates\core\feedback.html:121 .\CORE\templates\core\home.html:722
-#: .\CORE\templates\core\home2.html:722
-#: .\CORE\templates\core\user\user_login.html:69
-#: .\CORE\templates\core\user\user_register.html:69
-msgid "Email"
-msgstr "ای میل"
-
-#: .\CORE\templates\core\feedback.html:125
-msgid "Category"
-msgstr "زمرہ"
-
-#: .\CORE\templates\core\feedback.html:129
-msgid "Description"
-msgstr "تفصیل"
-
-#: .\CORE\templates\core\feedback.html:137
-#: .\CORE\templates\core\idn_websites_request1.html:196
-#: .\CORE\templates\core\idn_websites_request_AJAX.html:176
-#: .\CORE\templates\core\user\forgot_password.html:77
-#: .\CORE\templates\core\user\user_login.html:81
-#: .\CORE\templates\core\user\user_register.html:89
-msgid "Captcha"
-msgstr "کیپچا"
-
-#: .\CORE\templates\core\footer.html:31
-msgid "Useful Links"
-msgstr "کارآمد لنکس"
-
-#: .\CORE\templates\core\footer.html:33
-msgid "registry.in"
-msgstr ""
-
-#: .\CORE\templates\core\footer.html:34
-msgid "registry.gov.in"
-msgstr ""
-
-#: .\CORE\templates\core\footer.html:35
-msgid "coednssecurity.in"
-msgstr ""
-
-#: .\CORE\templates\core\footer.html:36
-msgid "mailindia.in"
-msgstr ""
-
-#: .\CORE\templates\core\footer.html:37
-msgid "unicode.org"
-msgstr ""
-
-#: .\CORE\templates\core\footer.html:38
-msgid "iana.org"
-msgstr ""
-
-#: .\CORE\templates\core\footer.html:39
-msgid "registrars list"
-msgstr "رجسٹر"
-
-#: .\CORE\templates\core\footer.html:45
-msgid "Other Links"
-msgstr "دیگر لنکس"
-
-#: .\CORE\templates\core\footer.html:51 .\CORE\templates\core\gallery.html:11
-#: .\CORE\templates\core\gallery.html:26
-#: .\CORE\templates\core\gallery_old.html:11
-#: .\CORE\templates\core\gallery_old.html:26
-#: .\CORE\templates\core\home.html:519 .\CORE\templates\core\home2.html:519
-#: .\CORE\templates\core\home_not_in_use.html:381
-msgid "Gallery"
-msgstr "گیلری"
-
-#: .\CORE\templates\core\footer.html:54
-#: .\CORE\templates\core\privacypolicy.html:11
-#: .\CORE\templates\core\privacypolicy.html:26
-msgid "Privacy Policy"
-msgstr "پرائیویسی پالیسی"
-
-#: .\CORE\templates\core\footer.html:55
-#: .\CORE\templates\core\termsandconditions.html:11
-#: .\CORE\templates\core\termsandconditions.html:26
-msgid "Terms & Conditions"
-msgstr "شرائط و ضوابط"
-
-#: .\CORE\templates\core\footer.html:56
-msgid "Dashboard"
-msgstr "ڈیش بورڈ"
-
-#: .\CORE\templates\core\footer.html:66
-msgid "Contact us"
-msgstr "ہم سے رابطہ قائم کریں"
-
-#: .\CORE\templates\core\footer.html:73
-msgid ""
-"National Internet Exchange of India (NIXI) 9th Floor, B-Wing, Statesman "
-"House,148, Barakhamba Road, New Delhi 110001"
-msgstr ""
-"نیشنل انٹرنیٹ ایکسچینج آف انڈیا (نکسی) کی نویں منزل، بی-ونگ، اسٹیٹس مین "
-"ہاؤس، 148، بارکھمبا روڈ، نئی دہلی-110001"
-
-#: .\CORE\templates\core\footer.html:78
-msgid "Email: uasupport[at]nixi[dot]in"
-msgstr "ای میل : uasupport[at]nixi[dot]in"
-
-#: .\CORE\templates\core\footer.html:82
-msgid " Phone: +91-11-48202000"
-msgstr "فون: +91-11-48202000"
-
-#: .\CORE\templates\core\footer.html:84
-msgid "Go to Top"
-msgstr "ہوم پیج پر جائیں"
-
-#: .\CORE\templates\core\footer.html:98
-msgid ""
-"Contents on website are under continuous updation. 2024 © Copyright NIXI All "
-"rights reserved."
-msgstr ""
-"ویب سائٹ پر مواد مسلسل اپ ڈیٹ کیے جا رہے ہیں۔ 2024 © کاپی رائٹ نکسی -تمام "
-"مواد کے جملہ حقوق محفوظ ہیں۔"
-
-#: .\CORE\templates\core\gallery_old.html:40
-msgid "UA Day Event Held on 27th-28th March 2023"
-msgstr ""
-
-#: .\CORE\templates\core\gallery_old.html:190
-msgid "UA Informative Videos"
-msgstr ""
-
-#: .\CORE\templates\core\header.html:33
-#: .\CORE\templates\core\home_not_in_use.html:33
-msgid "Bhashanet : Empowering Multilingual Internet"
-msgstr "بھاشا نیٹ: کثیراللسانی انٹرنیٹ کو بااختیار بنانا"
-
-#: .\CORE\templates\core\header.html:173
-#: .\CORE\templates\core\home_not_in_use.html:145
-msgid "Skip to main Content"
-msgstr "مرکزی مواد پر جائیں"
-
-#: .\CORE\templates\core\header.html:203
-#: .\CORE\templates\core\home_not_in_use.html:174
-msgid "Assistance"
-msgstr "مدد "
-
-#: .\CORE\templates\core\header.html:215
-#: .\CORE\templates\core\home_not_in_use.html:179
-msgid "Select languages"
-msgstr "زبان منتخب کریں-"
-
-#: .\CORE\templates\core\header.html:292
-#: .\CORE\templates\core\home_not_in_use.html:256
-msgid "Go"
-msgstr "جائیں"
-
-#: .\CORE\templates\core\header.html:311
-#: .\CORE\templates\core\home_not_in_use.html:275
-msgid "My Blogs"
-msgstr "blogsur"
-
-#: .\CORE\templates\core\header.html:313
-#: .\CORE\templates\core\home_not_in_use.html:276
-msgid "Admin Dashboard"
-msgstr "dashboardur"
-
-#: .\CORE\templates\core\header.html:315
-#: .\CORE\templates\core\home_not_in_use.html:277
-msgid "Discussion Forum"
-msgstr ""
-
-#: .\CORE\templates\core\header.html:316
-#: .\CORE\templates\core\home_not_in_use.html:278
-#: .\CORE\templates\core\user\change_password.html:11
-#: .\CORE\templates\core\user\change_password.html:32
-#: .\CORE\templates\core\user\change_password.html:82
-msgid "Change Password"
-msgstr ""
-
-#: .\CORE\templates\core\header.html:317
-#: .\CORE\templates\core\home_not_in_use.html:279
-msgid "Logout"
-msgstr ""
-
-#: .\CORE\templates\core\header.html:392
-#: .\CORE\templates\core\home_not_in_use.html:351
-msgid "About"
-msgstr "کے بارے میں"
-
-#: .\CORE\templates\core\header.html:395
-#: .\CORE\templates\core\home_not_in_use.html:354
-#: .\CORE\templates\core\uaindiaprogramme.html:11
-#: .\CORE\templates\core\uaindiaprogramme.html:26
-msgid "UA India Programme"
-msgstr "یو اے انڈیا پروگرام"
-
-#: .\CORE\templates\core\header.html:397
-#: .\CORE\templates\core\home_not_in_use.html:355
-msgid ".bharat IDN-ccTLDs"
-msgstr "بھارت. آئی ڈی این سی سی ٹی ایل ڈی"
-
-#: .\CORE\templates\core\header.html:402
-#: .\CORE\templates\core\home_not_in_use.html:359
-msgid "Resources"
-msgstr "وسائل"
-
-#: .\CORE\templates\core\header.html:409
-msgid "UA & Multilingual<br/> Internet Report"
-msgstr "یو اے اور کثیر اللسانی انٹرنیٹ رپورٹ"
-
-#: .\CORE\templates\core\header.html:411
-#: .\CORE\templates\core\home_not_in_use.html:363
-#: .\CORE\templates\core\uadocument.html:16
-#: .\CORE\templates\core\uadocument.html:40
-msgid "UA Documents"
-msgstr "یواے دستاویز "
-
-#: .\CORE\templates\core\header.html:415
-#: .\CORE\templates\core\home_not_in_use.html:365
-msgid "UA Sample Code"
-msgstr "یواے کا نمونہ کوڈ"
-
-#: .\CORE\templates\core\header.html:428
-#: .\CORE\templates\core\home_not_in_use.html:391
-msgid "Become UA Ready"
-msgstr "یو اے کے لیے تیار ہو جائیں"
-
-#: .\CORE\templates\core\header.html:429
-#: .\CORE\templates\core\home_not_in_use.html:394
-msgid "IDN Websites"
-msgstr "آئی ڈی این ویب سائٹس"
-
-#: .\CORE\templates\core\header.html:430
-#: .\CORE\templates\core\home_not_in_use.html:397
-#: .\CORE\templates\core\sop_tech_document.html:14
-#: .\CORE\templates\core\sop_tech_document.html:29
-msgid "Technical Corner"
-msgstr "تکنیکی گوشہ"
-
-#: .\CORE\templates\core\home.html:26 .\CORE\templates\core\home2.html:26
-msgid "BhashaNet"
-msgstr "بھاشا نیٹ"
-
-#: .\CORE\templates\core\home.html:27 .\CORE\templates\core\home2.html:27
-msgid "A Multilingual Internet and Universal Acceptance Initiative"
-msgstr "ایک کثیراللسانی انٹرنیٹ اور عالمی قبولیت کا اقدام"
-
-#: .\CORE\templates\core\home.html:28 .\CORE\templates\core\home2.html:28
-msgid ""
-"Provides an eco system to enable citizen to easily create, communicate, "
-"transact, process and retrieve information with ease in digital medium "
-"without language barrier."
-msgstr ""
-"ایک کثیر لسانی انٹرنیٹ اور عالمی قبولیت کی پیش قدمی شہریوں کو زبان کی رکاوٹ "
-"کے بغیر ڈیجیٹل میڈیم میں آسانی سے تخلیق کرنے ، بات چیت کرنے ، لین دین کرنے ، "
-"عمل کرنے اور معلومات حاصل کرنے کے قابل بنانے کے لیے ایک ماحولیاتی نظام فراہم "
-"کرتا ہے۔"
-
-#: .\CORE\templates\core\home.html:54 .\CORE\templates\core\home.html:426
-#: .\CORE\templates\core\home2.html:54 .\CORE\templates\core\home2.html:426
-msgid "Read More"
-msgstr "مزید پڑھیں"
-
-#: .\CORE\templates\core\home.html:134 .\CORE\templates\core\home2.html:134
-msgid "Internationalized Domain Names (IDN)"
-msgstr "بین الاقوامی ڈومین نام (آئی ڈی این)"
-
-#: .\CORE\templates\core\home.html:137 .\CORE\templates\core\home2.html:137
-msgid "Website address in local language"
-msgstr "مقامی زبان میں ویب سائٹ کا پتہ"
-
-#: .\CORE\templates\core\home.html:140 .\CORE\templates\core\home2.html:140
-msgid "(निक्सी.भारत)"
-msgstr "(نکسی ڈاٹ بھارت)"
-
-#: .\CORE\templates\core\home.html:152 .\CORE\templates\core\home2.html:152
-msgid "Email Address Internationalization (EAI)"
-msgstr "ای میل ایڈریس انٹرنیشنلائزیشن (ای اے آئی)"
-
-#: .\CORE\templates\core\home.html:155 .\CORE\templates\core\home2.html:155
-msgid "E-mail ID in local language"
-msgstr "مقامی زبان میں ای میل آئی ڈی  "
-
-#: .\CORE\templates\core\home.html:158 .\CORE\templates\core\home2.html:158
-msgid "(मेरानाम@निक्सी.भारत)"
-msgstr "(میرانام@نکسی ڈاٹ بھارت)"
-
-#: .\CORE\templates\core\home.html:173 .\CORE\templates\core\home2.html:173
-msgid ""
-"All web applications, devices should support the local language website name "
-"and email address."
-msgstr ""
-"تمام ویب ایپلی کیشنز ، ڈیوائسز کو مقامی زبان کی ویب سائٹ کا نام اور ای میل "
-"ایڈریس کو سپورٹ کرنا چاہیے۔"
-
-#: .\CORE\templates\core\home.html:195 .\CORE\templates\core\home2.html:195
-msgid "BhashaNet Initiative"
-msgstr "بھاشانیٹ کا اقدام"
-
-#: .\CORE\templates\core\home.html:397 .\CORE\templates\core\home2.html:397
-msgid "Announcements"
-msgstr "اعلانات"
-
-#: .\CORE\templates\core\home.html:466 .\CORE\templates\core\home2.html:466
-msgid "FICCI ILIA"
-msgstr ""
-
-#: .\CORE\templates\core\home.html:468 .\CORE\templates\core\home2.html:468
-msgid "and Local India UA Chapter Future Skilling Session"
-msgstr ""
-
-#: .\CORE\templates\core\home.html:477 .\CORE\templates\core\home2.html:477
-msgid " 09 May 2023 "
-msgstr ""
-
-#: .\CORE\templates\core\home.html:485 .\CORE\templates\core\home2.html:485
-#: .\CORE\templates\core\user\user_register.html:11
-#: .\CORE\templates\core\user\user_register.html:32
-#: .\CORE\templates\core\user\user_register.html:102
-msgid "Register"
-msgstr "رجسٹر"
-
-#: .\CORE\templates\core\home.html:497 .\CORE\templates\core\home2.html:497
-msgid "Websites In IDN"
-msgstr "آئی ڈی این میں ویب سائٹس"
-
-#: .\CORE\templates\core\home.html:504 .\CORE\templates\core\home2.html:504
-msgid ""
-"Universal Acceptance Websites compliance with Internationalized Domain Names "
-"(IDNs) list"
-msgstr ""
-"عالمی قبولیت ویب سائٹس بین الاقوامی ڈومین ناموں (آئی ڈی این) کی فہرست پر عمل "
-"کرتی ہیں۔"
-
-#: .\CORE\templates\core\home.html:506 .\CORE\templates\core\home2.html:506
-msgid "View List"
-msgstr "فہرست دیکھیں"
-
-#: .\CORE\templates\core\home.html:535 .\CORE\templates\core\home2.html:535
-msgid "View Gallery"
-msgstr "گیلری دیکھیں-"
-
-#: .\CORE\templates\core\home.html:553 .\CORE\templates\core\home2.html:553
-msgid "Making your website Universal Acceptance ready: Way Forward"
-msgstr "اپنی ویب سائٹ کو عالمی قبولیت کے لیے تیار کرنا: آگے کیسے بڑھیں-"
-
-#: .\CORE\templates\core\home.html:567 .\CORE\templates\core\home2.html:567
-msgid "Workshop on Making Your email platform UA Ready"
-msgstr "اپنے ای میل پلیٹ فارم یو  اے کو تیار کرنے کا ورکشاپ"
-
-#: .\CORE\templates\core\home.html:581 .\CORE\templates\core\home2.html:581
-msgid "Curtain Raiser"
-msgstr "پیش نظارہ"
-
-#: .\CORE\templates\core\home.html:602 .\CORE\templates\core\home2.html:602
-msgid "Frequently asked Questions"
-msgstr "اکثر پوچھے جانے والے سوالات"
-
-#: .\CORE\templates\core\home.html:677 .\CORE\templates\core\home2.html:677
-#: .\CORE\templates\core\support.html:12 .\CORE\templates\core\support.html:27
-#: .\CORE\templates\core\support_new.html:12
-#: .\CORE\templates\core\support_new.html:27
-msgid "Help Desk"
-msgstr "ہیلپ ڈیسک "
-
-#: .\CORE\templates\core\home.html:693 .\CORE\templates\core\home2.html:693
-msgid "For Registering Domain Names Under सरकार.भारत (or equivalent)"
-msgstr "ڈومین ناموں کو سرکار ڈاٹ بھارت (یا مساوی) کے تحت رجسٹر کرنے کے لیے"
-
-#: .\CORE\templates\core\home.html:698 .\CORE\templates\core\home2.html:698
-#: .\CORE\templates\core\support.html:59
-msgid "Toll Free Number"
-msgstr "ٹول فری نمبر"
-
-#: .\CORE\templates\core\home.html:698 .\CORE\templates\core\home2.html:698
-msgid "1800111555, 011-24305000"
-msgstr ": 1800111555, 011-24305000"
-
-#: .\CORE\templates\core\home.html:703 .\CORE\templates\core\home2.html:703
-#: .\CORE\templates\core\support.html:64
-msgid "Website"
-msgstr "ویب سائٹ "
-
-#: .\CORE\templates\core\home.html:715 .\CORE\templates\core\home2.html:715
-msgid "For Registering Domain Names Under .भारत (or equivalent )"
-msgstr "ڈومین ناموں کو ڈاٹ بھارت (یا مساوی) کے تحت رجسٹر کرنے کے لیے"
-
-#: .\CORE\templates\core\home.html:719 .\CORE\templates\core\home2.html:719
-msgid "Contact"
-msgstr "رابطہ کریں"
-
-#: .\CORE\templates\core\home.html:719 .\CORE\templates\core\home2.html:719
-msgid "+91-11-48202040, +91-11-48202011,"
-msgstr "+91-11-48202040, +91-11-48202011"
-
-#: .\CORE\templates\core\home.html:719 .\CORE\templates\core\home2.html:719
-msgid "+91-11-48202002"
-msgstr " +91-11-48202002"
-
-#: .\CORE\templates\core\home.html:753 .\CORE\templates\core\home2.html:753
-msgid " Welcome to Bhashnet Portal"
-msgstr ""
-
-#: .\CORE\templates\core\home.html:755 .\CORE\templates\core\home.html:759
-#: .\CORE\templates\core\home2.html:755 .\CORE\templates\core\home2.html:759
-msgid "Empowering Multilingual Internet"
-msgstr ""
-
-#: .\CORE\templates\core\home.html:758 .\CORE\templates\core\home.html:790
-#: .\CORE\templates\core\home.html:824 .\CORE\templates\core\home.html:836
-#: .\CORE\templates\core\home2.html:758 .\CORE\templates\core\home2.html:790
-#: .\CORE\templates\core\home2.html:824 .\CORE\templates\core\home2.html:836
-msgid "About the Event"
-msgstr "ایونٹ کے بارے میں"
-
-#: .\CORE\templates\core\home.html:785 .\CORE\templates\core\home.html:819
-#: .\CORE\templates\core\home.html:831 .\CORE\templates\core\home2.html:785
-#: .\CORE\templates\core\home2.html:819 .\CORE\templates\core\home2.html:831
-msgid " UA DAY India Event"
-msgstr ""
-
-#: .\CORE\templates\core\home.html:787 .\CORE\templates\core\home.html:833
-#: .\CORE\templates\core\home2.html:787 .\CORE\templates\core\home2.html:833
-msgid "28 March 2023, New Delhi"
-msgstr ""
-
-#: .\CORE\templates\core\home.html:821 .\CORE\templates\core\home2.html:821
-msgid "28 March 2023, Pune"
-msgstr ""
-
-#: .\CORE\templates\core\home_not_in_use.html:362
-msgid "UA & Multilingual Internet Report"
-msgstr "یو اے اور کثیر اللسانی انٹرنیٹ رپورٹ"
-
-#: .\CORE\templates\core\idn_ready_websites.html:28
-msgid "IDN Ready Websites"
-msgstr ""
-
-#: .\CORE\templates\core\idn_ready_websites.html:84
-#: .\CORE\templates\core\uadocument.html:81
-msgid "Categories"
-msgstr ""
-
-#: .\CORE\templates\core\idn_ready_websites.html:94
-msgid "Languages"
-msgstr "زبان منتخب کریں"
-
-#: .\CORE\templates\core\idn_websites_request1.html:13
-#: .\CORE\templates\core\idn_websites_request1.html:36
-#: .\CORE\templates\core\idn_websites_request_AJAX.html:13
-#: .\CORE\templates\core\idn_websites_request_AJAX.html:36
-msgid "Submit Your IDN Website"
-msgstr ""
-
-#: .\CORE\templates\core\idn_websites_request1.html:212
-msgid "OTP"
-msgstr ""
-
-#: .\CORE\templates\core\language_detection.html:11
-#: .\CORE\templates\core\language_detection.html:36
-msgid "Language Detection"
-msgstr ""
-
-#: .\CORE\templates\core\language_detection.html:62
-msgid ""
-" This service uses Bhashini Textual Language Detection model(IIT-H Textual "
-"Language Detection v1.0) to detect language from the provided text. The "
-"model currently supports 16 languages Assamese, Bhojpuri, Bengali, English, "
-"Gujarati, Hindi, Kashmiri, Kannada, Malayalam, Manipuri, Marathi, Oriya, "
-"Punjabi, Tamil, Telugu and Urdu. For more details may visit the website:"
-"<span class=\"text-primary\"> <a href=\"https://bhashini.gov.in/ulca/search-"
-"model/631736990154d6459973318e\" target=\"_blank\">https://bhashini.gov.in/"
-"ulca/search-model/631736990154d6459973318e</a></span>"
-msgstr ""
-
-#: .\CORE\templates\core\language_detection.html:67
-#: .\CORE\templates\core\script_detection.html:99
-msgid "Enter String in Indian Languages"
-msgstr ""
-
-#: .\CORE\templates\core\language_detection.html:80
-msgid "Detected Languge"
-msgstr ""
-
-#: .\CORE\templates\core\language_detection.html:86
-msgid "Identify Language"
-msgstr ""
-
-#: .\CORE\templates\core\language_detection.html:91
-#, python-format
-msgid ""
-"The service may not give 100%% accuracy. Language detection accuracy depends "
-"upon model accuracy and other factors that affect like dialect, slang or "
-"other contextual factors."
-msgstr ""
-
-#: .\CORE\templates\core\script_detection.html:10
-#: .\CORE\templates\core\script_detection.html:35
-msgid "Script Detection"
-msgstr "سکرپٹ کا پتہ لگانا"
-
-#: .\CORE\templates\core\script_detection.html:94
-msgid "This tool is identifying the language or script used in input strings."
-msgstr ""
-
-#: .\CORE\templates\core\script_detection.html:112
-msgid "This text seems to be"
-msgstr ""
-
-#: .\CORE\templates\core\script_detection.html:118
-msgid "Identify Script"
-msgstr ""
-
-#: .\CORE\templates\core\search_results.html:11
-msgid "Search Results"
-msgstr ""
-
-#: .\CORE\templates\core\search_results.html:33
-#: .\CORE\templates\core\search_results.html:87
-msgid "Search"
-msgstr "تلاش کریں-"
-
-#: .\CORE\templates\core\success_stories.html:23
-msgid "Websites in IDN"
-msgstr "آئی ڈی این میں ویب سائٹس"
-
-#: .\CORE\templates\core\support.html:53 .\CORE\templates\core\support.html:78
-msgid "For Registering Domain Names Under"
-msgstr ""
-
-#: .\CORE\templates\core\support.html:53
-msgid "सरकार.भारत (or equivalent)"
-msgstr ""
-
-#: .\CORE\templates\core\support.html:78
-msgid " .भारत (or equivalent )"
-msgstr ""
-
-#: .\CORE\templates\core\support.html:83
-msgid ""
-"<strong>Contact</strong> : +91-11-48202040, +91-11-48202011,<br/> +91-11-"
-"48202002"
-msgstr ""
-
-#: .\CORE\templates\core\support.html:85
-#: .\CORE\templates\core\support_new.html:59
-msgid ""
-"<strong>Email</strong> : uasupport@nixi.in, rishab@nixi.in, rajiv@nixi.in, "
-"support@bhashanet.in"
-msgstr ""
-
-#: .\CORE\templates\core\support_new.html:48
-msgid "<strong>Toll Free Number</strong> : 1800111555, 011-24305000  "
-msgstr ""
-
-#: .\CORE\templates\core\support_new.html:49
-msgid "<strong>Website</strong>"
-msgstr ""
-
-#: .\CORE\templates\core\support_new.html:58
-msgid ""
-"<strong>Contact</strong> : +91-11-48202040, +91-11-48202011, +91-11-48202002"
-msgstr "+91-11-48202040, +91-11-48202011"
-
-#: .\CORE\templates\core\tld_validator.html:84
-#: .\CORE\templates\core\tld_validator.html:109
-msgid "TLD Existence Checker"
-msgstr ""
-
-#: .\CORE\templates\core\tld_validator.html:167
-msgid ""
-"This service uses IANA Top-Level Domain(TLD) list to detect TLD exists or "
-"not from the provided input. This tool supports all languages TLD's and its "
-"punycode. For more details may visit the website:"
-msgstr ""
-
-#: .\CORE\templates\core\tld_validator.html:174
-msgid "Please visit this link for TLD's and its type: "
-msgstr ""
-
-#: .\CORE\templates\core\tld_validator.html:175
-msgid "The domains of type 'unassigned' are treated as 'does not exist'"
-msgstr ""
-
-#: .\CORE\templates\core\tld_validator.html:183
-msgid "Enter Domain/TLD"
-msgstr ""
-
-#: .\CORE\templates\core\tld_validator.html:198
-msgid "Output : "
-msgstr ""
-
-#: .\CORE\templates\core\tld_validator.html:200
-msgid "Input TLD's Example: "
-msgstr ""
-
-#: .\CORE\templates\core\transliteration.html:63
-#: .\CORE\templates\core\transliteration.html:88
-msgid "Transliteration"
-msgstr ""
-
-#: .\CORE\templates\core\transliteration.html:108
-msgid ""
-"Transliteration is a phonetic transliteration mechanism that transliterates "
-"English data to Indian Language."
-msgstr ""
-
-#: .\CORE\templates\core\transliteration.html:117
-msgid "Target Language"
-msgstr ""
-
-#: .\CORE\templates\core\transliteration.html:121
-msgid "Punjabi"
-msgstr ""
-
-#: .\CORE\templates\core\transliteration.html:130
-msgid "Odia"
-msgstr ""
-
-#: .\CORE\templates\core\transliteration.html:136
-msgid "Enter English Text"
-msgstr ""
-
-#: .\CORE\templates\core\transliteration.html:143
-msgid "(On Tab)"
-msgstr ""
-
-#: .\CORE\templates\core\transliteration.html:146
-msgid "Transliterated Text"
-msgstr ""
-
-#: .\CORE\templates\core\transliteration.html:153
-msgid "(Double-click for suggestions)"
-msgstr ""
-
-#: .\CORE\templates\core\transliteration.html:158
-#, python-format
-msgid ""
-"The service may not give 100%% accuracy. Transliteration accuracy depends "
-"upon model accuracy and other factors."
-msgstr ""
-
-#: .\CORE\templates\core\uadocument.html:120
-msgid "Filter"
-msgstr ""
-
-#: .\CORE\templates\core\uadocument.html:125
-msgid "Reset"
-msgstr ""
-
-#: .\CORE\templates\core\unicode_punnycode_generator.html:12
-#: .\CORE\templates\core\unicode_punnycode_generator.html:39
-msgid "Unicode-Punycode Generator"
-msgstr ""
-
-#: .\CORE\templates\core\unicode_punnycode_generator.html:98
-msgid ""
-"Punycode is an encoding algorithm that represents Unicode characters using "
-"only the ASCII character set."
-msgstr ""
-
-#: .\CORE\templates\core\unicode_punnycode_generator.html:107
-msgid "Enter Unicode Text :"
-msgstr ""
-
-#: .\CORE\templates\core\unicode_punnycode_generator.html:169
-msgid "Convert to Punycode"
-msgstr ""
-
-#: .\CORE\templates\core\unicode_punnycode_generator.html:176
-msgid "Enter Punycode :"
-msgstr ""
-
-#: .\CORE\templates\core\unicode_punnycode_generator.html:202
-msgid "Convert to Unicode"
-msgstr ""
-
-#: .\CORE\templates\core\user\change_password.html:69
-msgid "Old Password"
-msgstr ""
-
-#: .\CORE\templates\core\user\change_password.html:73
-#: .\CORE\templates\core\user\password_creation.html:70
-msgid "New Password"
-msgstr ""
-
-#: .\CORE\templates\core\user\change_password.html:77
-msgid "Confirm New Password"
-msgstr ""
-
-#: .\CORE\templates\core\user\forgot_password.html:11
-#: .\CORE\templates\core\user\forgot_password.html:32
-msgid "Forgot Password"
-msgstr ""
-
-#: .\CORE\templates\core\user\forgot_password.html:69
-msgid "Email Address"
-msgstr "ای میل ایڈریس: "
-
-#: .\CORE\templates\core\user\forgot_password.html:90
-#: .\CORE\templates\core\user\password_creation.html:80
-#: .\CORE\templates\core\user\user_login.html:11
-#: .\CORE\templates\core\user\user_login.html:32
-#: .\CORE\templates\core\user\user_login.html:94
-msgid "Login"
-msgstr ""
-
-#: .\CORE\templates\core\user\password_creation.html:11
-msgid "Password Creation"
-msgstr ""
-
-#: .\CORE\templates\core\user\password_creation.html:32
-msgid "Create New Password"
-msgstr ""
-
-#: .\CORE\templates\core\user\password_creation.html:74
-#: .\CORE\templates\core\user\user_register.html:79
-msgid "Confirm Password"
-msgstr ""
-
-#: .\CORE\templates\core\user\user_login.html:73
-#: .\CORE\templates\core\user\user_register.html:73
-msgid "Password"
-msgstr ""
-
-#: .\MASS_MAIL\templates\mass_mail.html:11
-#: .\MASS_MAIL\templates\mass_mail.html:33
-msgid "Mass Mail"
-msgstr ""
-
-#: .\discussion_forum\templates\discussion_forum\add_topic.html:28
-msgid "Add Topic"
-msgstr ""
-
-#: .\discussion_forum\templates\discussion_forum\topic_list.html:28
-msgid "Discussion Topics"
-msgstr ""
-
-#: .\discussion_forum\templates\discussion_forum\user_topic_list.html:28
-msgid "My Topics"
-msgstr ""
-
-#: .\discussion_forum\templates\discussion_forum\view_topic_discussion.html:28
-msgid "View Discussion"
-msgstr ""
-
-#~ msgid "submit_reply_to_answer/<slug:topic_slug>/<answer_id>"
-#~ msgstr "submit_reply_to_answerur/<slug:topic_slug>/<answer_id>"
-
-#~ msgid "submit_reply_to_answer_2/<slug:topic_slug>/<answer_id>/<reply_id>"
-#~ msgstr "submit_reply_to_answer_2ur/<slug:topic_slug>/<answer_id>/<reply_id>"
-
-#~ msgid "No upcoming event"
-#~ msgstr "کوئی آنے والا ایونٹ نہیں ہے-"
-
-#~ msgid ""
-#~ "All web applications, devices should support the local language website "
-#~ "name and email address ,<br/><br/>"
-#~ msgstr ""
-#~ "تمام ویب ایپلی کیشنز ، ڈیوائسز کو مقامی زبان کی ویب سائٹ کا نام اور ای "
-#~ "میل ایڈریس کو سپورٹ کرنا چاہیے۔"
-
-#~ msgid "About The Event"
-#~ msgstr "ایونٹ کے بارے میں"
-
-#~ msgid "blog"
-#~ msgstr "blogur"
-
-#~ msgid "SOP Documents"
-#~ msgstr "یواے دستاویز "
-
-#~ msgid "success_stories"
-#~ msgstr "success_storiesUR"
-
-#~ msgid "UrduData"
-#~ msgstr "documentDataUR"
-
-#~ msgid "Register Your Domain"
-#~ msgstr "اپنا ڈومین رجسٹر کریں"
-
-#~ msgid "Agenda"
-#~ msgstr "ایجنڈا"
+#: .\BHASHANET_PROD\urls.py:220
+msgid "add_blog"
+msgstr "add_blogur"
+
+#: .\BHASHANET_PROD\urls.py:221
+msgid "edit_blog/<str:id>"
+msgstr "edit_blogur/<str:id>"
+
+#: .\BHASHANET_PROD\urls.py:222
+msgid "delete_blog/<str:id>"
+msgstr "delete_blogur/<str:id>"
+
+#: .\BHASHANET_PROD\urls.py:223
+msgid "blog_datatable"
+msgstr "blog_datatableur"
+
+#: .\BHASHANET_PROD\urls.py:224
+#, fuzzy
+#| msgid "edit_blog/<str:id>"
+msgid "search_blog/<str:id>"
+msgstr "edit_blogur/<str:id>"
+
+#: .\BHASHANET_PROD\urls.py:225
+msgid "login"
+msgstr "loginur"
+
+#: .\BHASHANET_PROD\urls.py:226
+msgid "register"
+msgstr "registerur"
+
+#: .\BHASHANET_PROD\urls.py:228
+msgid "logout"
+msgstr "logoutur"
+
+#: .\BHASHANET_PROD\urls.py:229
+msgid "change_password"
+msgstr "change_passwordur"
+
+#: .\BHASHANET_PROD\urls.py:230
+msgid "forgot_password"
+msgstr "forgot_passwordur"
+
+#: .\BHASHANET_PROD\urls.py:231
+msgid "password_creation/<uid>/<token>"
+msgstr "password_creationur/<uid>/<token>"
+
+#: .\BHASHANET_PROD\urls.py:232
+msgid "discussion_forum_topic_list"
+msgstr "discussion_forum_topic_listur"
+
+#: .\BHASHANET_PROD\urls.py:233
+msgid "discussion_forum_user_topic_list"
+msgstr "discussion_forum_user_topic_listur"
+
+#: .\BHASHANET_PROD\urls.py:234
+msgid "discussion_forum_add_topic"
+msgstr "discussion_forum_add_topicur"
+
+#: .\BHASHANET_PROD\urls.py:235
+msgid "discussion_forum_view_topic_discussion/<slug:topic_slug>"
+msgstr "discussion_forum_view_topic_discussionur/<slug:topic_slug>"
+
+#: .\BHASHANET_PROD\urls.py:236
+msgid "submit_answer/<slug:topic_slug>"
+msgstr "submit_answerur/<slug:topic_slug>"
+
+#: .\BHASHANET_PROD\urls.py:237
+msgid "upvote_answer"
+msgstr "upvote_answerur"
+
+#: .\BHASHANET_PROD\urls.py:238
+msgid "test_task"
+msgstr "test_taskur"
+
+#: .\BHASHANET_PROD\urls.py:239
+msgid "user_profile"
+msgstr "user_profileur"
