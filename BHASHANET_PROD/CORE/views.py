@@ -91,9 +91,9 @@ def landingfunction(request):
         response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
         return response
     elif requesteddomainwithoutport == 'localhost': # For localhost
-        request.session[settings.LANGUAGE_SESSION_KEY] = 'en'
-        response = HttpResponseRedirect(domain+'/home')
-        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, 'en')
+        request.session[settings.LANGUAGE_SESSION_KEY] = 'hi'
+        response = HttpResponseRedirect(domain+'/होम')
+        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, 'hi')
         return response
     elif requesteddomainwithoutport == '10.208.208.118': # For staging
         request.session[settings.LANGUAGE_SESSION_KEY] = 'en'

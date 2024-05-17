@@ -213,9 +213,13 @@
         }else if (location.hostname === 'xn--c2bro4b8ab8d.xn--h2breg3eve'){
                 document.getElementById('dropdownMenuLink').innerText='Sanskrit-संस्कृत' //Sanskrit-संस्कृत
                     setLanguageForTranslation('Sanskrit',true);
+        }else if (location.hostname === '10.208.208.118'){
+                    document.getElementById('dropdownMenuLink').innerText='Marathi-मराठी'
+                        setLanguageForTranslation('Marathi',true);
         }else{
+            console.log("Inside else loop for localhost loop")
             document.getElementById('dropdownMenuLink').innerText='Select language'
-                setLanguageForTranslation('None');
+                setLanguageForTranslation('Hindi',true);
          }            
     }
 </script>
