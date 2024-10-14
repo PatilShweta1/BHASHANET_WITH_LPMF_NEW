@@ -62,7 +62,7 @@ urlpatterns = [
 
 Translation_urlpatterns = [
     path((''), core_views.landingfunction, name='home'),
-    path('home', preprocesslangset(core_views.home), name='home'),
+    path('home', core_views.home, name='home'),
     path('privacypolicy', preprocesslangset(core_views.privacypolicy), name='privacypolicy'),
     path('termsandconditions', preprocesslangset(core_views.termsandconditions), name='termsandconditions'),
     path('uaindiaprogramme', preprocesslangset(core_views.uaindiaprogramme), name='uaindiaprogramme'),

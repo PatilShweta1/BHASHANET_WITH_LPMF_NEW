@@ -88,9 +88,9 @@ def landingfunction(request):
     elif requesteddomainwithoutport == 'bhashanet.in':  #English
         response = HttpResponseRedirect(domain+'/home')
         return response
-    # elif requesteddomainwithoutport == 'bhashanet.com':  #English
-    #     response = HttpResponseRedirect(domain+'/home')
-    #     return response
+    elif requesteddomainwithoutport == 'bhashanet.com':  #English
+        response = HttpResponseRedirect(domain+'/home')
+        return response
     elif requesteddomainwithoutport == 'xn--xscro4b8ab1dzc.xn--2scrj9c': #kannada
         #  print("inside kannada")
         response = HttpResponseRedirect(domain+'/ಮುಖಪುಟ')
