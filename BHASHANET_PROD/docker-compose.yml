@@ -1,0 +1,22 @@
+version: '4.0'
+
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8001
+    volumes:
+      -  .:/app
+    ports:
+      - "8001:8001"
+
+    environment:
+      - MYSQL_DATABASE=BHASHANET_PROD_LPMF_DB      # The database name you created in MySQL
+      - MYSQL_USER=root              # Your MySQL username
+      - MYSQL_PASSWORD=manager      # Your MySQL password
+      - MYSQL_HOST=mysql_c1          # Use the name of your existing MySQL container
+      - MYSQL_PORT=3306
+    env_file:
+      - .env  # If you are using .env for other environment variables
+   

@@ -60,10 +60,9 @@ import certifi
 
 def landingfunction(request):
     domain=''
-    lang ='en'
-    returnpath='/home'
     maindomain = request.build_absolute_uri().split('/')[2]
     requesteddomainwithoutport=maindomain.split(':')[0]
+    #  print("requested domain",requesteddomainwithoutport)
     with open(env('DOMAIN_JSON'), 'r',encoding="utf8") as j:
             dom = json.loads(j.read())
     for data in range(len(dom)):
@@ -73,32 +72,64 @@ def landingfunction(request):
             if requesteddomainwithoutport == filterdomain2 :
                 lang=key
                 domain=value
+                #  print("requested domain ijnside for loop",value,key)
                 status=True
+    returndomain='https://'+ maindomain.split(':')[0]
     requesteddomainwithoutport=maindomain.split(':')[0]
-
-    with open(env('PATH_JSON'), 'r',encoding="utf8") as j:
-            contents = json.loads(j.read())
-    for content in range(len(contents)):
-        for cont in range(len(contents[content])):
-            for key, value in contents[content]['mainpath'].items():
-                requested_path='/home'
-                if value==requested_path:
-                    returnpath=contents[content]['mainpath'][lang]
-
-    if status:
-        request.session[settings.LANGUAGE_SESSION_KEY] = lang
-        response = HttpResponseRedirect(domain+returnpath)
-        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
-        return response
-    elif requesteddomainwithoutport == 'localhost': # For localhost
-        request.session[settings.LANGUAGE_SESSION_KEY] = 'hi'
+    if requesteddomainwithoutport =='xn--c2bro4b8ab8d.xn--h2brj9c': #Hindi
         response = HttpResponseRedirect(domain+'/होम')
-        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, 'hi')
         return response
-    elif requesteddomainwithoutport == '10.208.208.118': # For staging
-        request.session[settings.LANGUAGE_SESSION_KEY] = 'en'
+    elif requesteddomainwithoutport == 'xn--d2b1ag0dl.xn--c2bro4b8ab8d.xn--h2brj9c': # Marathi  
+        response = HttpResponseRedirect(domain+'/मुख्यपान')
+        return response
+    elif requesteddomainwithoutport == 'xn--gecho4b8a6c.xn--gecrj9c': # Gujarati 
+        response = HttpResponseRedirect(domain+"/ઘર")
+        return response
+    elif requesteddomainwithoutport == 'bhashanet.in':  #English
         response = HttpResponseRedirect(domain+'/home')
-        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, 'en')
+        return response
+    # elif requesteddomainwithoutport == 'bhashanet.com':  #English
+    #     response = HttpResponseRedirect(domain+'/home')
+    #     return response
+    elif requesteddomainwithoutport == 'xn--xscro4b8ab1dzc.xn--2scrj9c': #kannada
+        #  print("inside kannada")
+        response = HttpResponseRedirect(domain+'/ಮುಖಪುಟ')
+        return response
+    elif requesteddomainwithoutport == 'xn--uwcjna1a5bb9d4cb.xn--rvc1e0am3e': #Malayalam
+        response = HttpResponseRedirect(domain+'/വീട്')
+        return response
+    elif requesteddomainwithoutport == 'xn--z5bro4b8ab8d.xn--45brj9c': #Bengali
+        response = HttpResponseRedirect(domain+'/বাড়ি')
+        return response
+    elif requesteddomainwithoutport == 'localhost': #Bengali
+        response = HttpResponseRedirect(domain+'/home')
+        return response
+    elif requesteddomainwithoutport == 'xn--mgbbh8aygy7awa.xn--hhbf40a': #Urdu
+        response = HttpResponseRedirect(domain+'/homeUR')
+        return response
+    elif requesteddomainwithoutport == 'xn--becro4b8ab8d.xn--gecrj9c': #Gujarati
+        response = HttpResponseRedirect(domain+'/ઘર')
+        return response
+    elif requesteddomainwithoutport == 'xn--35bokk7eif.xn--z5bro4b8ab8d.xn--45brj9c': #Manipuri
+        response = HttpResponseRedirect(domain+"/মরুওইবা_লৈমাই")
+        return response
+    elif requesteddomainwithoutport == 'xn--n9bro8bukc7e.xn--s9brj9c': #Panjabi
+        response = HttpResponseRedirect(domain+'/ਘਰ')
+        return response
+    elif requesteddomainwithoutport == 'xn--9ocro4b8ab1dzc.xn--fpcrj9c3d': #Telugu
+        response = HttpResponseRedirect(domain+'/homeTE')
+        return response
+    elif requesteddomainwithoutport == 'xn--mlcrf6c8ab1dzc.xn--xkc2dl3a5ee0h': #Tamil
+        response = HttpResponseRedirect(domain+'/homeTA')
+        return response
+    elif requesteddomainwithoutport == 'xn--z5bro4b8ab8d.xn--45br5cyl': #Assamese
+        response = HttpResponseRedirect(domain+'/homeASS')
+        return response
+    elif requesteddomainwithoutport == 'xn--i1b1bb0d0hoc.xn--c2bro4b8ab8d.xn--h2brj9c': #Konkani
+        response = HttpResponseRedirect(domain+'/homekon')
+        return response
+    elif requesteddomainwithoutport == '10.208.10.201': #Kannada test
+        response = HttpResponseRedirect(domain+'/home')
         return response
     else:
         response = render(request, 'core/errors/404.html')
@@ -106,43 +137,20 @@ def landingfunction(request):
         return response
 
 
+
 def home(request):
-    # lang=''
-    # print("langing url",request.path,"domain",request.build_absolute_uri().split('/')[2])
-    # domain=''
-    # status=False
-    # maindomain = request.build_absolute_uri().split('/')[2]
-    # returndomain='https://'+ maindomain.split(':')[0]
-    # requesteddomainwithoutport=maindomain.split(':')[0]
-    # print("inside home",request.build_absolute_uri().split('/')[2])
     obj_testimonialsMessages=TestimonialsMessages.objects.all().filter(TestimonialsMessages_PublishStatus='Published').order_by('id').reverse()
     obj_announcements=Announcements.objects.all().filter(Announcement_PublishStatus='Published').order_by('id').reverse()
     obj_Objectives=Objectives.objects.all().filter(Objectives_PublishedStatus='Published')
     obj_Stackholder=Stackholder.objects.all().filter(Stackholder_PublishedStatus='Published')
     faq_data=Faqs.objects.all().filter(Faqs_PublishStatus='Published')[:4]
     SOPTechnologyDocumentData = SOPTechnologyDocument.objects.filter(SOPTechnologyDocument_PublishedStatus='Published')
-    # with open(env('DOMAIN_JSON'), 'r',encoding="utf8") as j:
-    #         dom = json.loads(j.read())
-    # for data in range(len(dom)):
-    #     for key,value in dom[data].items():
-    #         filterdomain1=value.split('/')[2]
-    #         filterdomain2=filterdomain1.split(':')[0]
-    #         if requesteddomainwithoutport == filterdomain2 :
-    #             domain=value
-    #             lang=key
-    #             status=True
-    # if status:
-        # request.session[settings.LANGUAGE_SESSION_KEY] = lang
     response = render(request, 'core/home.html',
                 {'obj_testimonialsMessages': obj_testimonialsMessages, 'obj_announcements': obj_announcements,
                 'obj_Objectives': obj_Objectives,
                 'obj_Stackholder': obj_Stackholder, 'faq_data': faq_data,'SOPTechnologyDocumentData':SOPTechnologyDocumentData})
-    # response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
     return response
-    # else:
-    #     response = render(request, 'core/errors/404.html')
-    #     response.status_code = 404
-    #     return response
+    
 
     
 
@@ -150,7 +158,6 @@ def home(request):
 
 def privacypolicy(request):
     obj_data = PrivacyPolicy.objects.get(id=1)
-        
     print(obj_data)
     return render(request, 'core/privacypolicy.html', {'obj_data': obj_data})
 
@@ -302,6 +309,7 @@ def email_validator(request):
 def success_stories(request):
     return render(request, 'core/idn_ready_websites.html')
 
+
 def idn_websites(request, id):
     id=int(id)
     form = IDN_Ready_Websites()
@@ -445,7 +453,7 @@ def idn_websites(request, id):
             
  
 
-    return render(request, 'core/idn_ready_websites.html',{'success_stories': success_stories, 'form': form, 'idn_websites': idn_websites, 'page_obj':page_object, 'paginator':paginator, 'selected_languages':selected_languages, 'selected_categories': selected_categories, 'last_updated_date':last_updated_date})
+    return render(request, 'core/idn_ready_websites.html',{'success_stories': success_stories, 'form': form, 'idn_websites': idn_websites, 'page':page_object, 'paginator':paginator, 'selected_languages':selected_languages, 'selected_categories': selected_categories, 'last_updated_date':last_updated_date})
     # else:
     #     path=''
     #     with open(env('PATH_JSON'), 'r',encoding="utf8") as j:
@@ -746,92 +754,7 @@ def home1(request):
 #         return response
 
 
-def RenderPageWithPathAndLang(request, path,id=None):
-    lang=''
-    domain=''
-    status1=False
-    status2=False
-    maindomain = request.build_absolute_uri().split('/')[2]
-    requesteddomainwithoutport=maindomain.split(':')[0]
-    with open(env('DOMAIN_JSON'), 'r',encoding="utf8") as j:
-            dom = json.loads(j.read())
-    for data in range(len(dom)):
-        for key,value in dom[data].items():
-            filterdomain1=value.split('/')[2]
-            filterdomain2=filterdomain1.split(':')[0]
-            # print("domain from file",filterdomain2)
-            if requesteddomainwithoutport == filterdomain2 :
-                domain=value
-                lang=key
-                status1=True
-    
-    with open(env('PATH_JSON'), 'r',encoding="utf8") as j:
-        contents = json.loads(j.read())
-    pathrender='/'
-    for content in range(len(contents)):
-        for cont in range(len(contents[content])):
-            for key, value in contents[content]['mainpath'].items():
-                if value == request.path:
-                    print("valueeee",value,request.path)
-                    pathrender=value
-                    lang=key
-                    status2=True
-                    print("pathhgcffgjgjhfhgffcjv",pathrender,lang)
-    if status1 and status2:
-        print("final path render and lang9099090909090900",domain+pathrender)
-        request.session[settings.LANGUAGE_SESSION_KEY] = lang
-        if id != None:
-            response = HttpResponseRedirect(domain+pathrender+'/'+id)
-        else:
-            response = HttpResponseRedirect(domain+pathrender)
-        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
-        return response
-    else:
-        response = render(request, 'core/errors/404.html')
-        response.status_code = 404
-        return response
 
-
-
-def RenderPageWithPathAndLangId(request, path,id):
-    lang=''
-    domain=''
-    status1=False
-    status2=False
-    maindomain = request.build_absolute_uri().split('/')[2]
-    requesteddomainwithoutport=maindomain.split(':')[0]
-    with open(env('DOMAIN_JSON'), 'r',encoding="utf8") as j:
-            dom = json.loads(j.read())
-    for data in range(len(dom)):
-        for key,value in dom[data].items():
-            filterdomain1=value.split('/')[2]
-            filterdomain2=filterdomain1.split(':')[0]
-            if requesteddomainwithoutport == filterdomain2 :
-                domain=value
-                lang=key
-                status1=True
-    
-    with open(env('PATH_JSON'), 'r',encoding="utf8") as j:
-        contents = json.loads(j.read())
-    pathrender='/'
-    for content in range(len(contents)):
-        for cont in range(len(contents[content])):
-            for key, value in contents[content]['mainpath'].items():
-                if value == '/'+request.path.split('/')[1]:
-                    print("valueeee",value,request.path)
-                    pathrender=value
-                    lang=key
-                    status2=True
-
-    if status1 and status2:
-        request.session[settings.LANGUAGE_SESSION_KEY] = lang
-        response = HttpResponseRedirect(domain+pathrender+'/'+id)
-        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
-        return response
-    else:
-        response = render(request, 'core/errors/404.html')
-        response.status_code = 404
-        return response
 
 
 
@@ -841,7 +764,7 @@ def bad_request(request, exception):
 
 
 
-@preprocesslangset
+
 def documentPage(request):
     DocumentCategory.objects.update(DocumentCategory_Status=False)
     documentData=Document.objects.all()
@@ -858,15 +781,16 @@ def documentPage(request):
     }
     return render(request, 'core/uadocument.html', context)
 
-@preprocesslangset
+
 def documentData(request):
+   # DocumentCategory.objects.update(DocumentCategory_Status=False)
     documentData = Document.objects.all()
     categoryData=DocumentCategory.objects.all()
     pagestatus = False
     for cat in DocumentCategory.objects.all():
         if cat.DocumentCategory_Status == True:
             pagestatus = True
-    if request.method == "POST":
+    if request.method == 'POST' and 'filter-button' in request.POST:
         DocumentCategory.objects.update(DocumentCategory_Status=False)
         filtered_DocumentDataWithCategory = Document.objects.none()
         checklist = request.POST.getlist('select_specialist')
@@ -903,6 +827,22 @@ def documentData(request):
                 'document_title': 'none',
             }
         return render(request, 'core/uadocument.html', context)
+    if request.method == 'POST' and 'reset-button' in request.POST:
+        DocumentCategory.objects.update(DocumentCategory_Status=False)
+        documentData=Document.objects.all()
+        categoryData=DocumentCategory.objects.all()
+        page = Paginator(documentData, 3)
+        page_list = request.GET.get('page')
+        page = page.get_page(page_list)
+        count = documentData.count()
+        context = {
+            'categoryData': categoryData,
+            'page': page,
+            'count': count,
+            'Pagination_Type': 'All_Data',
+        }
+        return render(request, 'core/uadocument.html', context)
+
     if pagestatus == True:
         filtered_DocumentDataWithCategoryPage = Document.objects.filter(Document_CategoryType__DocumentCategory_Status=True)
         page = Paginator(filtered_DocumentDataWithCategoryPage, 3)
@@ -1027,7 +967,7 @@ def sop_document(request):
     for category in SOPTechnologyCategoryData:
         if category.SOPTechnologyCategory_Status == True:
             pagestatus = True
-    if request.method == "POST":
+    if request.method == 'POST' and 'filter-button' in request.POST:
         print("Hellooooo Inside post method ")
         SOPTechnologyCategory.objects.all().update(SOPTechnologyCategory_Status=False)
         SOPTechnologyDocumentData = SOPTechnologyDocument.objects.none()
@@ -1081,6 +1021,25 @@ def sop_document(request):
                     'page': page,
                 }
         return render(request, 'core/sop_docuemnts_page.html', context)
+    
+    if request.method == 'POST' and 'reset-button' in request.POST:
+        SOPTechnologyDocumentData = SOPTechnologyDocument.objects.all()
+        SOPTechnologyCategory.objects.all().update(SOPTechnologyCategory_Status=False)
+        SOPTechnologyCategoryData = SOPTechnologyCategory.objects.all()
+        page = Paginator(SOPTechnologyDocumentData, 3)
+        page_list = request.GET.get('page')
+        page = page.get_page(page_list)
+        count = SOPTechnologyDocumentData.count()
+        context = {
+            'SOPTechnologyCategoryData':SOPTechnologyCategoryData,
+            'tools_title': 'none',
+            "page": page,
+            'status_All_Checked': 'True',
+            'Pagination_Type': 'All_Data',
+            'count': count,
+        }
+        return render(request, 'core/sop_docuemnts_page.html', context)
+    
     if pagestatus == True:
         SOPTechnologyDocumentData = SOPTechnologyDocument.objects.filter(
             SOPTechnologyDocument_CategoryType__SOPTechnologyCategory_Status=True)
@@ -1302,7 +1261,7 @@ def tld_validator(request):
     return render(request, 'core/tld_validator.html')
 
 
-def blogs(request):
+def cat_selected(request):
     blogs_data=Blog.objects.all()
     BlogCategory.objects.update(BlogCategory_Status=False)
     BlogCategory_data=BlogCategory.objects.all()
@@ -1323,29 +1282,37 @@ def blogs(request):
 
 
 
-def cat_selected(request,id):
+def blogs(request,id=None):
     if id:
         blogname = request.session.get('search_blog_string')
         print("blogname==========",blogname)
         if blogname:
-            print("blogname==========",blogname)
+            #  print("blogname==========",blogname)
             blog_title=blogname
         else:
-            print("blogname++++++++++++++",blogname)
+            #  print("blogname++++++++++++++",blogname)
             blog_title='none'
-        print("inside post metthod")
         BlogCategory.objects.update(BlogCategory_Status=False)
         BlogCategory_obj=BlogCategory.objects.get(id=id)
         BlogCategory_obj.BlogCategory_Status=True
         BlogCategory_obj.save()
         BlogCategory_obj=BlogCategory.objects.get(id=id)
-        print("cat object",BlogCategory_obj.BlogCategory_Name)
+        #  print("cat object=================",BlogCategory_obj.BlogCategory_Name)
         BlogCategory_data=BlogCategory.objects.all()
+        # #  print("======================")
        # blogs_data=Blog.objects.filter(Blog_CategoryType__BlogCategory_Name__contains=BlogCategory_obj.BlogCategory_Name)
-        if blog_title=='none':
+        # if blog_title=='none':
+        blogs_data=Blog.objects.filter(Blog_CategoryType__BlogCategory_Name=BlogCategory_obj.BlogCategory_Name)
+        # else:
+        #     blogs_data=Blog.objects.filter(Q(Blog_CategoryType__BlogCategory_Name__icontains=BlogCategory_obj.BlogCategory_Name) | Q(Blog_Title__icontains = blogname))
+        
+        #  print("objects of data",blogs_data)
+
+        if request.method == 'POST' and 'Search-button' in request.POST:
+
             blogs_data=Blog.objects.filter(Blog_CategoryType__BlogCategory_Name=BlogCategory_obj.BlogCategory_Name)
-        else:
-            blogs_data=Blog.objects.filter(Blog_CategoryType__BlogCategory_Name=BlogCategory_obj.BlogCategory_Name,Blog_Title__contains = blogname)
+
+
         page = Paginator(blogs_data, 2)
         page_list = request.GET.get('page')
         page = page.get_page(page_list)
@@ -1357,9 +1324,69 @@ def cat_selected(request,id):
             'page':page,
             'all_data': 'cat_data',
             'selected_id':id,
-            'blog_title' : blog_title
+            'blog_title' : ''
         }
         return render(request,'core/blog_list.html',context)
+    elif request.method == 'POST' and 'Search-button' in request.POST:
+        #  print("inside post method---------------------")
+        try:
+            blogname = request.POST.get('blogname')
+        except:
+            blogname=''
+            return redirect('blogs')
+        #  print("blogname==========",blogname)
+        request.session['search_blog_string'] = blogname
+        blog_cat=[]
+        Blog_Category_with_satus_true=BlogCategory.objects.filter(BlogCategory_Status=True)
+        if Blog_Category_with_satus_true and blogname != 'none':
+            for category in Blog_Category_with_satus_true:
+                blog_cat.append(category.id)
+            cat_id=blog_cat[0]
+            blogs_data=Blog.objects.none()
+            status=True
+            for cat_id in blog_cat:
+                blog_cat_obj=BlogCategory.objects.get(id=cat_id)
+                blogs_data = blogs_data | Blog.objects.filter(Blog_Title__contains = blogname,Blog_CategoryType=blog_cat_obj)
+        else:
+            cat_id=None
+            status=False
+            blogs_data=Blog.objects.none()
+            blogs_data = blogs_data | Blog.objects.filter(Blog_Title__contains = blogname)
+        #  print("blogs_data",blogs_data)
+        BlogCategory_data=BlogCategory.objects.all()
+        page = Paginator(blogs_data, 2)
+        page_list = request.GET.get('page')
+        page = page.get_page(page_list)
+        count = blogs_data.count()
+        context={
+        'blogs_data':blogs_data,
+        'BlogCategory_data':BlogCategory_data,
+        'Status':status,
+        'page':page,
+        'selected_id':cat_id,
+        'all_data': 'Search',
+        'blog_title' : blogname,
+        }
+        return render(request,'core/blog_list.html',context)  
+    else:
+        blogs_data=Blog.objects.all()
+        BlogCategory.objects.update(BlogCategory_Status=False)
+        BlogCategory_data=BlogCategory.objects.all()
+        page = Paginator(blogs_data, 2)
+        page_list = request.GET.get('page')
+        page = page.get_page(page_list)
+        count = blogs_data.count()
+        context={
+            'blogs_data':blogs_data,
+            'BlogCategory_data':BlogCategory_data,
+            'Status':False,
+            'page':page,
+            'all_data': 'all_data',
+            'selected_id':None,
+            'blog_title' : 'none'
+        }
+        return render(request,'core/blog_list.html',context)
+
     
 
 def search_blog(request,id):
@@ -1380,7 +1407,7 @@ def search_blog(request,id):
         except:
             blogname=''
             return redirect('blogs')
-        print("blogname==========",blogname)
+        #  print("blogname==========",blogname)
         request.session['search_blog_string'] = blogname
         blog_cat=[]
         Blog_Category_with_satus_true=BlogCategory.objects.filter(BlogCategory_Status=True)
@@ -1398,7 +1425,7 @@ def search_blog(request,id):
             status=False
             blogs_data=Blog.objects.none()
             blogs_data = blogs_data | Blog.objects.filter(Blog_Title__contains = blogname)
-        print("blogs_data",blogs_data)
+        #  print("blogs_data",blogs_data)
         BlogCategory_data=BlogCategory.objects.all()
         page = Paginator(blogs_data, 2)
         page_list = request.GET.get('page')
@@ -1509,7 +1536,7 @@ def add_blog(request):
                             print("error while sending email")
                         return redirect('admin_blog_datatable')
                     else:
-                        print("Error")
+                        #  #  print("Error")
                         context={
                             'Blog_form_obj':Blog_form_obj,
                             'flag_blog':'Add'
@@ -1530,15 +1557,15 @@ def add_blog(request):
 
 
 def edit_blog(request,id):
-    print("id for blog edit",id)
+    #  print("id for blog edit",id)
     if request.user.is_authenticated:
         Blog_obj = Blog.objects.get(id=id)
-        print("blog edit",Blog_obj)
+        #  print("blog edit",Blog_obj)
         if request.method == 'POST':
-            print("Inside post method of edit")
+            #  print("Inside post method of edit")
             user_obj=User.objects.get(id=request.user.id)
             Blog_form_obj = Blog_form(request.POST,request.FILES, instance=Blog_obj)
-            print("Blog obj",Blog_form_obj)
+            #  print("Blog obj",Blog_form_obj)
             if Blog_form_obj.is_valid():
                 temp_obj = Blog_form_obj.save(commit=False)
                 if temp_obj.Blog_Author == user_obj:
@@ -1591,7 +1618,7 @@ def admin_blog_datatable(request):
     
 
 def generate_otp(email):
-    print("In generate otp")
+    #  print("In generate otp")
     
     ## Generate OTP for 
     fixed_digits = 6 
@@ -1600,12 +1627,12 @@ def generate_otp(email):
     otp_already_exists = OTP_For_IDNRequestForUserWebsites.objects.filter(OTP_Email=email)
     
     if otp_already_exists:
-        print("email already exists")
+        #  print("email already exists")
         # check OTP count 
         if otp_already_exists[0].OTP_Entered_Count < 10:
             # check time difference between current otp and last otp
             
-                print("OTP count for this email is less than max count")
+                #  print("OTP count for this email is less than max count")
                 otp_already_exists[0].OTP_Value = otp_value
                 otp_already_exists[0].OTP_Entered_Count+=1
                 otp_already_exists[0].save()
@@ -1613,18 +1640,18 @@ def generate_otp(email):
                 data={'status': 'success', 'message': "OTP generated"}
                 
         else:
-            print("OTP count limit exceeded")
+            #  print("OTP count limit exceeded")
             expiry_time = otp_already_exists[0].OTP_Created_Date + timedelta(minutes=120) ## timedelta is of 2 hours
             current_time = datetime.now(timezone.utc)
             
-            print("expiry_time : ", expiry_time)
-            print("current_time : ", current_time)
+            #  print("expiry_time : ", expiry_time)
+            #  print("current_time : ", current_time)
             
             time_diff = current_time - expiry_time 
-            print("Time difference : ", time_diff)
+            #  print("Time difference : ", time_diff)
             
             if expiry_time > current_time:
-                print("OTP count limit exceeded and offset time still not reached")
+                #  print("OTP count limit exceeded and offset time still not reached")
                 data={'status': 'error', 'message': "OTP generate limit exceeded"}
             else:
                 otp_already_exists[0].OTP_Value = otp_value
@@ -1632,7 +1659,7 @@ def generate_otp(email):
                 otp_already_exists[0].save()
                 data={'status': 'success', 'message': "OTP generated"}
     else:
-        print("email not exists")
+        #  print("email not exists")
         otp_obj = OTP_For_IDNRequestForUserWebsites.objects.create(
             OTP_Email = email,
             OTP_Value = otp_value,
@@ -1646,7 +1673,7 @@ def generate_otp(email):
     RecipentMessage = "OTP for IDN websites request is " + str(otp_value); 
     try:
         email_sent_status = send_mail("OTP for IDN wesbites request", RecipentMessage, env('SERVER_EMAIL'), [email])
-        print("email status : ", email_sent_status)
+        #  print("email status : ", email_sent_status)
     except:
         print("error while sending email")
 
@@ -1654,9 +1681,9 @@ def generate_otp(email):
         
 
 def validate_otp(email, otp_value):
-    print("in validate OTP for IDN website request")
-    print("Email : ", email)
-    print("OTP value : ", otp_value)
+    #  print("in validate OTP for IDN website request")
+    #  print("Email : ", email)
+    #  print("OTP value : ", otp_value)
     
     # check email exists
     otp_obj = OTP_For_IDNRequestForUserWebsites.objects.filter(OTP_Email=email)
@@ -1671,35 +1698,35 @@ def validate_otp(email, otp_value):
         expiry_time = otp_generation_date + timedelta(minutes=5) ## otp expiry time is 5 minutes
         
         if expiry_time > current_time:
-            print("OTP not expired")
+            #  print("OTP not expired")
             if otp_value == otp:
                 if otp_status == True:
-                    print("OTP expired: Already verified")
+                    #  print("OTP expired: Already verified")
                     return False
                 else:
-                    print("OTP verified")
+                    #  print("OTP verified")
                     return True
             else:
-                print("wrong OTP")
+                #  print("wrong OTP")
                 return False
         else:
-            print("OTP expired")
+            #  print("OTP expired")
             return False 
     
 # # not in use
 def idn_websites_request1(request):
     if request.method == 'POST':
-        print("In POST Request")
+        #  print("In POST Request")
         form = IDNRequestForUserWebsitesForm(request.POST)
         email = request.POST.get('IDN_Email')
         otp_value = request.POST.get('otp_value')
         
         # submit form with data
         if 'formsubmit' in request.POST:
-            print("In POST Request : formsubmit")
+            #  print("In POST Request : formsubmit")
             # Check OTP is valid 
             if validate_otp(email, otp_value):
-                print("OTP valid")
+                #  print("OTP valid")
                 form.save()
                 messages.success(request, "Your request for IDN website submitted successfully", extra_tags="success")
             else:
@@ -1707,16 +1734,16 @@ def idn_websites_request1(request):
                     
         # submit form for OTP send
         elif 'otpsend' in request.POST:
-            print("In POST request: otpsend")
+            #  print("In POST request: otpsend")
             
             if form.is_valid():
-                print("send OTP")
+                #  print("send OTP")
                 for field in form:
                     field.field.widget.attrs['disabled'] = 'disabled'
                 ## generate OTP
                 resp_data = generate_otp(email)
-                print("email ", email)
-                print("Response Data : ", resp_data)
+                #  print("email ", email)
+                #  print("Response Data : ", resp_data)
                 
                 if resp_data['status'] == 'success':
                     messages.success(request, "OTP is sent to " + email, extra_tags="success")
@@ -1725,19 +1752,19 @@ def idn_websites_request1(request):
                     
                 return render(request, 'core/idn_websites_request.html', {'form': form})
             else:
-                # print("error ", form.errors)
-                print("Invalid Form")
+                # #  print("error ", form.errors)
+                #  print("Invalid Form")
                 captcha_value = random_captcha_generator()
                 captcha_img_generator(captcha_value)
                 form.data['captcha_input'] = ''
                 form.data['captcha_hidden'] = make_password(captcha_value)
         
     else:
-        print("In GET request")
+        #  print("In GET request")
         form = IDNRequestForUserWebsitesForm()
         captcha_value = random_captcha_generator()
         captcha_img_generator(captcha_value)
-        print("captcha value ", captcha_value)
+        #  print("captcha value ", captcha_value)
         form.fields['captcha_hidden'].initial = make_password(captcha_value)
          
     return render(request, 'core/idn_websites_request.html', {'form': form})
@@ -1746,10 +1773,10 @@ def idn_websites_request1(request):
 @csrf_exempt
 def idn_websites_request_AJAX(request):
     categories = IDNRequestForUserWebsitesCategories.objects.filter(website_status="Active")
-    print("categories: ", categories)
+    #  print("categories: ", categories)
     
     if request.method == 'POST':
-        print("In POST Request")
+        #  print("In POST Request")
         org_name = request.POST.get('orgName')
         email = request.POST.get('email')
         category = request.POST.get('categories')
@@ -1762,23 +1789,23 @@ def idn_websites_request_AJAX(request):
         assistLang = request.POST.get('assistLang')
         remark = request.POST.get('remark')
         
-        print("ORG Name ", org_name)
-        print("Email ", email)
-        print("Category ", category)
-        print("IDN_English_Domain ", IDN_English_Domain)
-        print("IDN categories ", idn_lang)
-        print("IDN categories ", idn_urls)
-        print("assistance ", assistance)
-        print("captcha_hidden ", assistLang)
-        print("captcha_hidden ", remark)
-        print("captcha_value ", captcha_value)
-        print("captcha_hidden ", captcha_hidden)
+        #  print("ORG Name ", org_name)
+        #  print("Email ", email)
+        #  print("Category ", category)
+        #  print("IDN_English_Domain ", IDN_English_Domain)
+        #  print("IDN categories ", idn_lang)
+        #  print("IDN categories ", idn_urls)
+        #  print("assistance ", assistance)
+        #  print("captcha_hidden ", assistLang)
+        #  print("captcha_hidden ", remark)
+        #  print("captcha_value ", captcha_value)
+        #  print("captcha_hidden ", captcha_hidden)
         
         # validate the form data
         response = validate_IDNRequestForUserWebsitesAJAXForm(org_name, email, category, IDN_English_Domain, captcha_value, captcha_hidden, assistance, assistLang, remark)
         if response['status'] == 'error':
-            print("error in field : ", response['field_name'])
-            print("error message : ", response['message'])
+            #  print("error in field : ", response['field_name'])
+            #  print("error message : ", response['message'])
             return JsonResponse({'message': response['message']}, status=400)
         
         # get all IDN URLs 
@@ -1843,7 +1870,7 @@ def admindashboard(request):
     try:  
         cur.execute("select name from  ost_ticket_status INNER JOIN ost_ticket ON ost_ticket_status.id = ost_ticket.status_id")  
         open_ticket_data = cur.fetchall()
-        print(open_ticket_data)
+        #  print(open_ticket_data)
         for x in open_ticket_data: 
             if x[0] == "Open":
                 Open_Ticket_count += 1 
@@ -1860,14 +1887,14 @@ def admindashboard(request):
     try:  
         cur2.execute("SELECT ost_ticket_status.name AS ticket_status, ost_ticket.lastupdate AS ticket_lastupdate_date,ost_user.name AS assigned_user,ost_ticket.created AS ticket_created ,ost_ticket.number AS ticket_number FROM ost_ticket JOIN ost_ticket_status ON ost_ticket.status_id = ost_ticket_status.id JOIN ost_user ON ost_ticket.user_id = ost_user.id")  
         ticket_data = cur2.fetchall()
-        print(ticket_data)
+        #  print(ticket_data)
 
     except:  
         myconn.rollback()  
         
     myconn.close()  
 
-    print(Open_Ticket_count)
+    #  print(Open_Ticket_count)
     
     with open('updated_file.json') as f:
         Tabledata = json.load(f) 
@@ -1892,50 +1919,10 @@ def admindashboard(request):
 def test_celery(request):
     data = test_func.delay()
     response = data.get()
-    print("Return Data : ", response)
+    #  print("Return Data : ", response)
     return HttpResponse("Done")
 
 
-
-def RenderPageWithPathAndLangIdToken(request,path,uid,token):
-    lang=''
-    domain=''
-    status1=False
-    status2=False
-    maindomain = request.build_absolute_uri().split('/')[2]
-    requesteddomainwithoutport=maindomain.split(':')[0]
-    with open(env('DOMAIN_JSON'), 'r',encoding="utf8") as j:
-            dom = json.loads(j.read())
-    for data in range(len(dom)):
-        for key,value in dom[data].items():
-            filterdomain1=value.split('/')[2]
-            filterdomain2=filterdomain1.split(':')[0]
-            if requesteddomainwithoutport == filterdomain2 :
-                domain=value
-                lang=key
-                status1=True
-    
-    with open(env('PATH_JSON'), 'r',encoding="utf8") as j:
-        contents = json.loads(j.read())
-    pathrender='/'
-    for content in range(len(contents)):
-        for cont in range(len(contents[content])):
-            for key, value in contents[content]['mainpath'].items():
-                if value == '/'+request.path.split('/')[1]:
-                    pathrender=value
-                    lang=key
-                    status2=True
-
-    if status1 and status2:
-        request.session[settings.LANGUAGE_SESSION_KEY] = lang
-        response = HttpResponseRedirect(domain+pathrender+'/'+uid+'/'+token)
-        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
-        return response
-    else:
-        response = render(request, 'core/errors/404.html')
-        response.status_code = 404
-        return response
-    
     
     
 # IDN READINESS VIEWS
@@ -1995,7 +1982,7 @@ def idn_rediness_dashboard(request):
             # CHECK IF SSL IS VALID OR NOT 
             try:
                 response = requests.get(url,verify=certifi.where())
-                print("SSL RESPONSE ", response)
+                #  print("SSL RESPONSE ", response)
                 if response.status_code == 200:
                     data[url]["ssl_token"] =  True                  
             except requests.ConnectionError:
@@ -2007,7 +1994,7 @@ def idn_rediness_dashboard(request):
             try:
                 # Fetch HTML content from the URL
                 response = requests.get(url,verify=False)
-                print("RESPONSE CODE ---------------------------- ",response.status_code)
+                #  print("RESPONSE CODE ---------------------------- ",response.status_code)
                 if response.status_code == 200:
                     # Parse HTML content
                     soup = BeautifulSoup(response.content, 'html.parser')
@@ -2023,19 +2010,19 @@ def idn_rediness_dashboard(request):
                         x = requests.post(service_url, headers=headers, json= myobj)
                         data[url]["content_token"] = json.loads(x.text)['Output']
                     except requests.ConnectionError as e:
-                        print("Exception -----", e)
-                        print("Service Not Available ")
+                        #  print("Exception -----", e)
+                        #  print("Service Not Available ")
                         data[url]["content_token"] = "Service Not Available"
                 else:
-                    print(f"Failed to fetch URL. Status code: {response.status_code}")
+                    #  print(f"Failed to fetch URL. Status code: {response.status_code}")
                     data[url]["content_token"] = False
 
             except requests.ConnectionError as e:
-                print(f"Connection error: {e}")
+                #  print(f"Connection error: {e}")
                 data[url]["content_token"] = False
 
             except Exception as e:
-                print(f"Error occurred: {e}")
+                #  print(f"Error occurred: {e}")
                 data[url]["content_token"] = False
     # Convert dictionary back to JSON
     updated_json_data = json.dumps(data)
@@ -2044,5 +2031,138 @@ def idn_rediness_dashboard(request):
     with open('updated_file.json', 'w') as outfile:
         outfile.write(updated_json_data)
     # Print updated JSON
-    print(updated_json_data)
+    #  print(updated_json_data)
     return render(request,'core/home.html',{'updated_json_data':updated_json_data})
+
+
+
+
+
+def RenderPageWithPathAndLang(request, path):
+    lang=''
+    domain=''
+    status1=False
+    status2=False
+    maindomain = request.build_absolute_uri().split('/')[2]
+    requesteddomainwithoutport=maindomain.split(':')[0]
+    with open(env('DOMAIN_JSON'), 'r',encoding="utf8") as j:
+            dom = json.loads(j.read())
+    for data in range(len(dom)):
+        for key,value in dom[data].items():
+            filterdomain1=value.split('/')[2]
+            filterdomain2=filterdomain1.split(':')[0]
+            # print("domain from file",filterdomain2)
+            if requesteddomainwithoutport == filterdomain2 :
+                domain=value
+                lang=key
+                status1=True
+    
+    with open(env('PATH_JSON'), 'r',encoding="utf8") as j:
+        contents = json.loads(j.read())
+    pathrender='/'
+    for content in range(len(contents)):
+        for cont in range(len(contents[content])):
+            for key, value in contents[content]['mainpath'].items():
+                if value == request.path:
+                    #  print("valueeee",value,request.path)
+                    pathrender=value
+                    lang=key
+                    status2=True
+                    #  print("pathhgcffgjgjhfhgffcjv",pathrender,lang)
+    if status1 and status2:
+        #  print("final path render and lang9099090909090900",domain+pathrender)
+        response = HttpResponseRedirect(domain+pathrender)
+        return response
+    else:
+        response = render(request, 'core/errors/404.html')
+        response.status_code = 404
+        return response
+
+
+
+def RenderPageWithPathAndLangId(request, path,id):
+    lang=''
+    domain=''
+    status1=False
+    status2=False
+    maindomain = request.build_absolute_uri().split('/')[2]
+    requesteddomainwithoutport=maindomain.split(':')[0]
+    with open(env('DOMAIN_JSON'), 'r',encoding="utf8") as j:
+            dom = json.loads(j.read())
+    for data in range(len(dom)):
+        for key,value in dom[data].items():
+            filterdomain1=value.split('/')[2]
+            filterdomain2=filterdomain1.split(':')[0]
+            # print("domain from file",filterdomain2)
+            if requesteddomainwithoutport == filterdomain2 :
+                domain=value
+                lang=key
+                status1=True
+    
+    with open(env('PATH_JSON'), 'r',encoding="utf8") as j:
+        contents = json.loads(j.read())
+    pathrender='/'
+    for content in range(len(contents)):
+        for cont in range(len(contents[content])):
+            for key, value in contents[content]['mainpath'].items():
+                if value == '/'+request.path.split('/')[1]:
+                    #  print("valueeee",value,request.path)
+                    pathrender=value
+                    lang=key
+                    status2=True
+                    #  print("pathhgcffgjgjhfhgffcjv",pathrender,lang)
+
+    if status1 and status2:
+        #  print("final path render and lang9099090909090900",domain+pathrender+'/'+id)
+        response = HttpResponseRedirect(domain+pathrender+'/'+id)
+        return response
+    else:
+        response = render(request, 'core/errors/404.html')
+        response.status_code = 404
+        return response
+
+
+
+def RenderPageWithPathAndLangIdToken(request,path,uid,token):
+    # print("+++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    lang=''
+    domain=''
+    status1=False
+    status2=False
+    maindomain = request.build_absolute_uri().split('/')[2]
+    requesteddomainwithoutport=maindomain.split(':')[0]
+    with open(env('DOMAIN_JSON'), 'r',encoding="utf8") as j:
+            dom = json.loads(j.read())
+    for data in range(len(dom)):
+        for key,value in dom[data].items():
+            filterdomain1=value.split('/')[2]
+            filterdomain2=filterdomain1.split(':')[0]
+            # print("domain from file",filterdomain2)
+            if requesteddomainwithoutport == filterdomain2 :
+                domain=value
+                lang=key
+                status1=True
+    
+    with open(env('PATH_JSON'), 'r',encoding="utf8") as j:
+        contents = json.loads(j.read())
+    pathrender='/'
+    for content in range(len(contents)):
+        for cont in range(len(contents[content])):
+            for key, value in contents[content]['mainpath'].items():
+                if value == '/'+request.path.split('/')[1]:
+                    # print("valueeee",value,request.path)
+                    pathrender=value
+                    lang=key
+                    status2=True
+                    # print("pathhgcffgjgjhfhgffcjv",pathrender,lang)
+
+    if status1 and status2:
+        # print("final path render and lang9099090909090900",domain+pathrender+'/'+uid +'/'+token)
+        response = HttpResponseRedirect(domain+pathrender+'/'+uid+'/'+token)
+        return response
+    else:
+        response = render(request, 'core/errors/404.html')
+        response.status_code = 404
+        return response
+    
+    

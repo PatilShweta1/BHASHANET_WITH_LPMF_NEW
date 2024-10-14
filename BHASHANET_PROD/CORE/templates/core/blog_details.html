@@ -24,10 +24,10 @@
                 <div class="breadcrumb-list">
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href={% url "home" %}>Home</a></li>
-                            <li class="breadcrumb-item"><a href={% url "blogs" %}>Blogs</a></li>
+                            <li class="breadcrumb-item"><a href="#" onclick="renderPathFunction('home'); return false;">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#" onclick="renderPathFunction('blogs'); return false;">Blogs</a></li>
                             {% if request.user.is_authenticated %}
-                            <li class="breadcrumb-item"><a href={% url "admin_blog_datatable" %}>Blog List Table</a></li>
+                            <li class="breadcrumb-item"><a href="#" onclick="renderPathFunction('admin_blog_datatable'); return false;">Blog List Table</a></li>
                             {% endif %}
                             <li class="breadcrumb-item">Blog Details</li>
                         </ol>
@@ -67,7 +67,7 @@
                       </div>
                     <div class="nav tag-cloud mt-4">
                         {% for slug in blog_data.get_slug_splited%}
-                        <a href="{% url 'blog' blog_data.id %}">{{slug}}</a>
+                        <a href="" onclick="renderPathForBlogCategoryFunction('blog','{{ blog_data.id }}'); return false;">{{slug}}</a>
                         {% endfor %}
                     </div>
                    <br/>
@@ -142,7 +142,7 @@
                     <div class="widget-body">
                         <div class="nav tag-cloud">
                             {% for slug in blog_data.get_slug_splited%}
-                        <a href="{% url 'blog' blog_data.id %}">{{slug}}</a>
+                        <a href="" onclick="renderPathForBlogCategoryFunction('blog','{{ blog_data.id }}'); return false;">{{slug}}</a>
                         {% endfor %}
                        
                         </div>
@@ -164,11 +164,11 @@
                         <div class="latest-post-aside media">
                             <div class="lpa-left media-body">
                                 <div class="lpa-title">
-                                    <h5><a href="{% url 'blog' blog.id %}">{{blog.Blog_Title}}</a></h5>
+                                    <h5><a href="" onclick="renderPathForBlogCategoryFunction('blog','{{ blog.id }}'); return false;">{{blog.Blog_Title}}</a></h5>
                                 </div>
                             </div>
                             <div class="lpa-right mt-1">
-                                <a href="{% url 'blog' blog.id %}">
+                                <a href="" onclick="renderPathForBlogCategoryFunction('blog','{{ blog.id }}'); return false;">
                                     <img src="/media/{{blog.Blog_Thumbnail}}" title="" alt="">
                                 </a>
                             </div>

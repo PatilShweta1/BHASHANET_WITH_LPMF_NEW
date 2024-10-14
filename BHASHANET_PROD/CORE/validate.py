@@ -280,6 +280,10 @@ def validate_registerform(self):
         print("VALIDATE.PY FILE : REGISTER FORM CONFIRM PASSWORD VALIDATION FAILED ERROR RAISED")
         raise forms.ValidationError("Enter valid confirm password")
     
+    if register_user_password != register_user_password:
+        print("VALIDATE.PY FILE : REGISTER FORM MACHING PASSWORDS FAILED ERROR RAISED")
+        raise forms.ValidationError("The passwords do not match")
+    
     if captcha_input is None:
         print("VALIDATE.PY FILE : REGISTER FORM captcha_input VALIDATION FAILED ERROR RAISED ")
         raise forms.ValidationError("Please Enter Captcha")
@@ -351,10 +355,10 @@ def validate_login_form(self):
         print("VALIDATE.PY FILE : LOGIN FORM EMAIL VALIDATION FAILED ERROR RAISED ")
         raise forms.ValidationError("The maximum total length of a email is 60 characters.")
 
-    if password is None or not re.fullmatch(password_regex, password):
-        # self._errors['feedback_message'] = self.error_class(['3 characters and more is required for this field'])
-        print("VALIDATE.PY FILE : LOGIN FORM PASSWORD VALIDATION FAILED ERROR RAISED ")
-        raise forms.ValidationError("Incorrect login credentials")
+    # if password is None or not re.fullmatch(password_regex, password):
+    #     # self._errors['feedback_message'] = self.error_class(['3 characters and more is required for this field'])
+    #     print("VALIDATE.PY FILE : LOGIN FORM PASSWORD VALIDATION FAILED ERROR RAISED 111")
+    #     raise forms.ValidationError("Incorrect login credentials")
     
     print("VALIDATE.PY FILE : LOGIN FORM VALIDATION PASSED : RETURNING CLEAN DATA  ")
     return self.cleaned_data

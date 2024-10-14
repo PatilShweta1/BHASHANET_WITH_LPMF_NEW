@@ -19,9 +19,9 @@ SECRET_KEY = 'django-insecure-984utnkw-xq6lmtge9b8c@_376z*4qrszqwx^cc6z-o485db7b
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = env('DEBUG')
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [ '127.0.0.1','192.168.56.1','localhost','10.208.208.118','भाषानेट.कॉम','भाषानेट.भारत','मराठी.भाषानेट.भारत',
+ALLOWED_HOSTS = [ '127.0.0.1','localhost','भाषानेट.कॉम','भाषानेट.भारत','मराठी.भाषानेट.भारत',
                  'xn--d2b1ag0dl.xn--c2bro4b8ab8d.xn--h2brj9c','xn--c2bro4b8ab8d.xn--11b4c3d',
                  'bhashanet.in','bhashanet.com', 'xn--c2bro4b8ab8d.xn--h2brj9c',
                  'xn--xscro4b8ab1dzc.xn--2scrj9c','ಭಾಷಾನೆಟ್.ಭಾರತ',
@@ -54,14 +54,13 @@ SYSTEM_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
-    'ckeditor',
     
 ]
 CKEDITOR_UPLOAD_PATH = "uploads/"
 # -----ADDED BY SANJAYB -----
 
-THIRD_PARTY_APPS = ['rosetta','django_celery_results']
-APPLICATION_APPS = ['CORE', 'MASS_MAIL', 'discussion_forum']
+THIRD_PARTY_APPS = ['django_celery_results', 'tinymce','ckeditor']
+APPLICATION_APPS = ['CORE', 'MASS_MAIL', 'discussion_forum','dashboard','blog']
 INSTALLED_APPS = SYSTEM_APPS + APPLICATION_APPS + THIRD_PARTY_APPS
 
 
@@ -132,8 +131,23 @@ DATABASES = {
         'PASSWORD': 'manager',
         'HOST': 'localhost',
         'PORT': '3306',
-    }
+    },
+    'dashboard': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'BHASHANET_ADMIN_DASHBOARD_DB2',
+        'USER': 'root',
+        'PASSWORD': 'g!$t',
+        'HOST': 'db1-staging.pune.cdac.in',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"',
+            'charset': 'utf8mb4',
+        },
+        'CONN_MAX_AGE': 600,  # 10 minutes in seconds
+    },
 }
+
+DATABASE_ROUTERS = ['CORE.db_routers.MyAppRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -187,18 +201,31 @@ MEDIA_URL = '/media/'
 LANGUAGE_SESSION_KEY = 'session_language_appname'
 LANGUAGE_COOKIE_NAME = 'cookie_language_appname'
 
-SERVER_EMAIL = env('SERVER_EMAIL')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')  # please enter password
 
+# SERVER_EMAIL = env('SERVER_EMAIL')
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.cdac.in'
+# EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')  # please enter password
+# EMAIL_HOST_USER = SERVER_EMAIL
+# EMAIL_PORT = 587
+# # EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+
+SERVER_EMAIL = ''
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = env('EMAIL_HOST')
-EMAIL_HOST_USER = env('SERVER_EMAIL')
-EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_HOST = 'smtp.cdac.in'
+EMAIL_HOST_PASSWORD = ''  # please enter password
+EMAIL_HOST_USER = SERVER_EMAIL
+EMAIL_PORT = 587
 # EMAIL_USE_TLS = True
-# EMAIL_USE_SSL=True
-DEFAULT_FROM_EMAIL = SERVER_EMAIL
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-LOGIN_URL="login_view"
+
+
+
+# LOGIN_URL="login_view"
 
 
 # CELERY SETTINGS 
@@ -247,3 +274,5 @@ LANGUAGES = (
     ('doi','Dogri'),   
     ('ne','Nepali'),                                      
 )
+
+LOGIN_URL = '/admin_login'

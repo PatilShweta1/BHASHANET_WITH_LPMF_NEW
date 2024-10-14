@@ -26,9 +26,9 @@
                 <div class="breadcrumb-list">
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href={% url "home" %}>Home</a></li>
+                            <li class="breadcrumb-item"><a href="#" onclick="renderPathFunction('home'); return false;">Home</a></li>
                             {% if request.user.is_authenticated %}
-                            <li class="breadcrumb-item"><a href={% url "admin_blog_datatable" %}>Blog List Table</a></li>
+                            <li class="breadcrumb-item"><a href="#" onclick="renderPathFunction('admin_blog_datatable'); return false;">Blog List Table</a></li>
                             {% endif %}
                             <li class="breadcrumb-item">Blogs</li>
                         </ol>
@@ -45,7 +45,7 @@
 
 
 <div class="container">
-    <form action="{% url 'search_blog' blog_title %}" method="POST"> 
+    <form method="POST"> 
         {% csrf_token %}
         <div class="row p-3">
             <div class="col-6">
@@ -56,9 +56,10 @@
                 {% endif %} 
             </div>
             <div class="col-6">
-                <input class="btn" type="submit" style="background-color:#3598db ;border-color:#219EBC;color:white;" value="Search" /> 
+                <button class="btn mb-3 me-3" style="background-color:#3598db ;border-color:#219EBC;color:white;" name="Search-button" type="submit"
+                                 value="Fetch">Search</button>
                 {% if blog_title != 'none' %}
-                <a class="btn" style="background-color:#3598db ;border-color:#219EBC; color:white;" href="{% url 'blogs' %}" >Clear</a>
+                <a class="btn mb-3 me-3" style="background-color:#3598db ;border-color:#219EBC; color:white;" href="#" onclick="renderPathFunction('blogs'); return false;">Clear</a>
                 {% endif %}
             </div>
         </div>
@@ -68,14 +69,14 @@
         <b>Category : </b>&nbsp;&nbsp;
         {% for blogcat in BlogCategory_data %}
         {%if blogcat.BlogCategory_Status %}
-       <a style="background: #eb6120" href="{% url 'cat_selected' blogcat.id %}">{{blogcat.BlogCategory_Name}}</a>
+       <a style="background: #eb6120" href="#" onclick="renderPathForBlogCategoryFunction('blogs','{{ blogcat.id }}'); return false;">{{blogcat.BlogCategory_Name}}</a>
        {% else %}
-       <a href="{% url 'cat_selected' blogcat.id %}">{{blogcat.BlogCategory_Name}}</a>
+       <a href="#" onclick="renderPathForBlogCategoryFunction('blogs','{{ blogcat.id }}'); return false;">{{blogcat.BlogCategory_Name}}</a>
        {% endif %}
         {% endfor %}
         
         {% if Status %}
-        <a style="background:Black; color:white;" href="{% url 'blogs' %}" ><i class="fa fa-times" aria-hidden="true"></i></a>
+        <a style="background:Black; color:white;" href="#" onclick="renderPathFunction('blogs'); return false;"><i class="fa fa-times" aria-hidden="true"></i></a>
         {% endif %}
        
     </div>
@@ -87,7 +88,7 @@
        <div class="col-8">
         <!-- <h4 class="mt-2" style="font-weight: bold;">{{blog.Blog_Title}}</h4>  <span>&#8226;</span> &nbsp;&nbsp; -->
        <p class="fs-4 fw-bold text-secondory mt-3" style="color:#3598db;">
-        <a href="{% url 'blog' blog.id %}"> {{blog.Blog_Title}}</a></p>
+        <a href="" onclick="renderPathForBlogCategoryFunction('blog','{{ blog.id }}'); return false;"> {{blog.Blog_Title}}</a></p>
         {% comment %} <form action="{% url 'blog' %}" method="POST">
             {% csrf_token %}
             <input type="hidden" value="{{ blog.id  }}" id="blog_id" name="blog_id"  />
@@ -119,16 +120,16 @@
            <p>Page:{{page.number}}/{{ page.paginator.num_pages}}</p>
            <ul class="pagination lms-page lms-pagination">
               <li class="page-item prev"> {% if page.has_previous %} <a class="page-link"
-                    href="{% url 'blogs' %}?page={{page.previous_page_number}}" tabindex="-1">Prev</a>
+                    href="?page={{page.previous_page_number}}" tabindex="-1">Prev</a>
                  {% endif %} </li> {% for num_page in page.paginator.page_range %} {% if page.number == num_page %}
               <li class="page-item active"> <a class="page-link"
-                    href="{% url 'blogs' %}?page={{num_page}}">{{num_page}}<span
+                    href="?page={{num_page}}">{{num_page}}<span
                        class="sr-only">(current)</span></a> </li> {% else %}
               <li class="page-item"> <a class="page-link"
-                    href="{% url 'blogs' %}?page={{num_page}}">{{num_page}}<span
+                    href="?page={{num_page}}">{{num_page}}<span
                        class="sr-only">(current)</span></a> </li> {% endif %} {% endfor %}
               <li class="page-item next"> {% if page.has_next %} <a class="page-link"
-                    href="{% url 'blogs' %}?page={{page.next_page_number}}">Next</a> {% endif %} </li>
+                    href="?page={{page.next_page_number}}">Next</a> {% endif %} </li>
            </ul>
         </div>
 {% elif all_data == 'cat_data' %}
@@ -137,16 +138,16 @@
        <p>Page:{{page.number}}/{{ page.paginator.num_pages}}</p>
        <ul class="pagination lms-page lms-pagination">
           <li class="page-item prev"> {% if page.has_previous %} <a class="page-link"
-                href="{% url 'cat_selected' selected_id %}?page={{page.previous_page_number}}" tabindex="-1">Prev</a>
+                href="?page={{page.previous_page_number}}" tabindex="-1">Prev</a>
              {% endif %} </li> {% for num_page in page.paginator.page_range %} {% if page.number == num_page %}
           <li class="page-item active"> <a class="page-link"
-                href="{% url 'cat_selected' selected_id %}?page={{num_page}}">{{num_page}}<span
+                href="?page={{num_page}}">{{num_page}}<span
                    class="sr-only">(current)</span></a> </li> {% else %}
           <li class="page-item"> <a class="page-link"
-                href="{% url 'cat_selected' selected_id %}?page={{num_page}}">{{num_page}}<span
+                href="?page={{num_page}}">{{num_page}}<span
                    class="sr-only">(current)</span></a> </li> {% endif %} {% endfor %}
           <li class="page-item next"> {% if page.has_next %} <a class="page-link"
-                href="{% url 'cat_selected' selected_id %}?page={{page.next_page_number}}">Next</a> {% endif %} </li>
+                href="?page={{page.next_page_number}}">Next</a> {% endif %} </li>
        </ul>
     </div>
 
@@ -157,16 +158,16 @@
            <p>Page:{{page.number}}/{{ page.paginator.num_pages}}</p>
            <ul class="pagination lms-page lms-pagination">
               <li class="page-item prev"> {% if page.has_previous %} <a class="page-link"
-                    href="{% url 'search_blog' blog_title %}?page={{page.previous_page_number}}" tabindex="-1">Prev</a>
+                    href="?page={{page.previous_page_number}}" tabindex="-1">Prev</a>
                  {% endif %} </li> {% for num_page in page.paginator.page_range %} {% if page.number == num_page %}
               <li class="page-item active"> <a class="page-link"
-                    href="{% url 'search_blog' blog_title %}?page={{num_page}}">{{num_page}}<span
+                    href="?page={{num_page}}">{{num_page}}<span
                        class="sr-only">(current)</span></a> </li> {% else %}
               <li class="page-item"> <a class="page-link"
-                    href="{% url 'search_blog' blog_title %}?page={{num_page}}">{{num_page}}<span
+                    href="?page={{num_page}}">{{num_page}}<span
                        class="sr-only">(current)</span></a> </li> {% endif %} {% endfor %}
               <li class="page-item next"> {% if page.has_next %} <a class="page-link"
-                    href="{% url 'search_blog' blog_title %}?page={{page.next_page_number}}">Next</a> {% endif %} </li>
+                    href="?page={{page.next_page_number}}">Next</a> {% endif %} </li>
            </ul>
         </div>
 

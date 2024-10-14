@@ -1459,3 +1459,18 @@ class OTP_For_IDNRequestForUserWebsites(models.Model):
         return self.OTP_Email
     
 
+class OTP_For_UserRegistration(models.Model):
+    OTP_Email = models.CharField(max_length=500, blank=True, null=True)
+    OTP_Value = models.IntegerField()
+    OTP_Entered_Count = models.IntegerField()
+    OTP_Status = models.BooleanField(default=False, blank=True, null=True)
+    OTP_Created_Date = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "OTP FOR User Registration"
+        verbose_name_plural = "OTP FOR User Registration"
+
+    def __str__(self):
+        return self.OTP_Email+'For User'
+    
+

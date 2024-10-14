@@ -24,8 +24,8 @@
                 <div class="breadcrumb-list">
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href={% url "home" %}>Home</a></li>
-                            <li class="breadcrumb-item"><a href={% url "blogs" %}>Blogs</a></li>
+                            <li class="breadcrumb-item"><a href="#" onclick="renderPathFunction('home'); return false;">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#" onclick="renderPathFunction('blogs'); return false;">Blogs</a></li>
                             <li class="breadcrumb-item">Blog List Table</li>
                         </ol>
                     </nav>
@@ -44,7 +44,7 @@
         </div>
         <div class="col-6">
           <h5 class="text-end mb-4">
-            <a class="btn btn-primary rounded-3" href="{% url 'add_blog' %}">Add New Blog</a>
+            <a class="btn btn-primary rounded-3" href="#" onclick="renderPathFunction('add_blog'); return false;">Add New Blog</a>
           </h5>
         </div>
       </div>
@@ -69,7 +69,7 @@
                 <th>Publish Status</th>
                 <th>View Details</th>
                 <th>Edit</th>
-                <th>Delete</th>
+                {% comment %} <th>Delete</th> {% endcomment %}
 
             </tr>
             </thead>
@@ -83,9 +83,9 @@
                 <td>{{data.Blog_LastUpdatedDate}}</td>
                 <td>{{data.Blog_Author}}</td>
                 <td>{{data.Blog_PublishedStatus}}</td>
-                <td><a class="btn btn-primary rounded-3" href="{% url 'blog' data.id %}">View Details</a></td>
-                <td><a class="btn btn-primary rounded-3" href="{% url 'edit_blog' data.id %}">Edit</a></td>
-                <td><a class="btn btn-primary rounded-3 confirm-delete" href="{% url 'delete_blog' data.id %}">Delete</a></td>
+                <td><a class="btn btn-primary rounded-3" href="#" onclick="renderPathForBlogCategoryFunction('blog','{{ data.id }}'); return false;">View Details</a></td>
+                <td><a class="btn btn-primary rounded-3" href="#" onclick="renderPathForBlogCategoryFunction('edit_blog','{{ data.id }}'); return false;">Edit</a></td>
+                {% comment %} <td><a class="btn btn-primary rounded-3 confirm-delete" href="{% url 'delete_blog' data.id %}">Delete</a></td> {% endcomment %}
             </tr>
             {% endfor %} 
 

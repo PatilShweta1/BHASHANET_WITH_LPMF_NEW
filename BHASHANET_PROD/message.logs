@@ -1,0 +1,50 @@
+views.py [ 212 ] --> Running Counts Statistics are  <QuerySet []>
+views.py [ 220 ] --> SSL Statistics are [0, 0]
+views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 290 ] -->Records are --->[][]
+views.py [ 212 ] --> Running Counts Statistics are  <QuerySet []>
+views.py [ 220 ] --> SSL Statistics are [0, 0]
+views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 290 ] -->Records are --->[][]
+views.py [ 212 ] --> Running Counts Statistics are  <QuerySet []>
+views.py [ 220 ] --> SSL Statistics are [0, 0]
+views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 290 ] -->Records are --->[][]
+views.py [ 212 ] --> Running Counts Statistics are  <QuerySet []>
+views.py [ 220 ] --> SSL Statistics are [0, 0]
+views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 290 ] -->Records are --->[][]
+views.py [ 212 ] --> Running Counts Statistics are  <QuerySet []>
+views.py [ 220 ] --> SSL Statistics are [0, 0]
+views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 290 ] -->Records are --->[][]
+views.py [ 212 ] --> Running Counts Statistics are  <QuerySet []>
+views.py [ 220 ] --> SSL Statistics are [0, 0]
+views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 290 ] -->Records are --->[][]
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 731 ] -->POST Method Called
+views.py [ 734 ] -->Form is Valid 
+views.py [ 743 ] -->user is  None and user is not staff
+views.py [ 726 ] -->admin_login view called 
+views.py [ 731 ] -->POST Method Called
+views.py [ 734 ] -->Form is Valid 
+views.py [ 739 ] -->user is not None and user is_staff
+views.py [ 212 ] --> Running Counts Statistics are  <QuerySet []>
+views.py [ 220 ] --> SSL Statistics are [0, 0]
+views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 290 ] -->Records are --->[][]
+views.py [ 212 ] --> Running Counts Statistics are  <QuerySet []>
+views.py [ 220 ] --> SSL Statistics are [0, 0]
+views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 290 ] -->Records are --->[][]

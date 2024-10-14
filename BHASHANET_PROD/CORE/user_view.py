@@ -18,13 +18,14 @@ from django.http import HttpResponseRedirect
 import json
 env = environ.Env()
 environ.Env.read_env()
+from .utility import generate_otp_for_user_registration,validate_otp_for_user_registration
 
 
 
 ##----------   login view -----------
 def login_view(request):
-    if request.user.is_authenticated:
-        logout(request)
+    # if request.user.is_authenticated:
+    #     logout(request)
     if request.method == 'POST':
         form = LoginForm(request.POST.copy())
         if form.is_valid():
@@ -41,6 +42,7 @@ def login_view(request):
                 else:
                     # authenticate username and password 
                     user = authenticate(username=username, password=password)
+                    
                     if user is not None:
                         login(request, user)
                         
@@ -57,6 +59,9 @@ def login_view(request):
                                 return redirect('home')
                             elif user_role_obj.Role_Id.Role_Name == 'main_admin':
                                 print("main admin")
+                                return redirect('home')
+                            elif user_role_obj.Role_Id.Role_Name == 'DjangoSuperAdmin':
+                                print("DjangoSuperAdmin")
                                 return redirect('home')
                             else:
                                 return redirect("home")
@@ -79,138 +84,138 @@ def login_view(request):
         captcha_img_generator(captcha_value)
         print("captcha value ", captcha_value)
         form.fields['captcha_hidden'].initial = make_password(captcha_value)
-        
-        
     return render(request, 'core/user/user_login.html', {"form": form})
 
 
 ## ------ user  registration view -------
 def register_view(request):
-    if request.user.is_authenticated:
-        logout(request)
-    
-    if request.method == 'POST':
-        form = RegistrationForm(request.POST.copy())
-        
-        if form.is_valid():
+    if request.user.is_superuser :
+    #     logout(request)
+        if request.method == 'POST':
+            form = RegistrationForm(request.POST.copy())
             email = request.POST.get("email")
-            password = request.POST.get("password1")
-            
-            print("email : ", email, " password : ", password)
-            
-            if not User.objects.filter(username=email).exists():
-                user = User.objects.create(email=email, username=email)       
-                user.set_password(password)     
-                user.is_active = False
-                user.save()
-                
+
+            if form.is_valid():
+                    email = request.POST.get("email")
+                    password = request.POST.get("password1")
+                    password_confirm  = request.POST.get("password2")
+                    role  = request.POST.get("role")
+                    
+                    print("email : ", email, " password1 : ", password ," password_confirm : ", password_confirm,role)
+                    
+                    if not User.objects.filter(username=email).exists():
+                        user = User.objects.create(email=email, username=email)       
+                        user.set_password(password)     
+                        user.is_active = True
+                        user.save()
+
+                        role_id=UserRole.objects.get(id=role)
+                        UserRoleMapping.objects.create(User_Id=user,Role_Id=role_id)
+
+                        resp_data=generate_otp_for_user_registration(email,OTP_For_UserRegistration)
+                        if resp_data['status'] == 'success':
+                            messages.success(request, "OTP is sent to " + email, extra_tags="success")
+                            return redirect("verify_user_otp",email=email)
+                        
+                        # elif resp_data['Email_status'] == 'error':
+                        #     messages.success(request, resp_data['message'], extra_tags="danger")
+
+                        elif resp_data['status'] == 'error':
+                            messages.success(request, resp_data['message'], extra_tags="danger")
+                        
+                    else:
+                        user = User.objects.get(username=email)
+                        try:
+                            otp_user_obj=OTP_For_UserRegistration.objects.filter(OTP_Email=email)
+                        except:
+                            otp_user_obj=''
+                        if otp_user_obj:
+                            if otp_user_obj.OTP_Status:
+                                messages.error(request, 'Email address already exists', extra_tags="danger")
+                                captcha_value = random_captcha_generator()
+                                captcha_img_generator(captcha_value)
+                                print("captcha value ", captcha_value)
+                                form.fields['captcha_hidden'].initial = make_password(captcha_value)
+                                return render(request, "core/user/user_register.html", {'form': form})  
+                    
+                        resp_data=generate_otp_for_user_registration(email,OTP_For_UserRegistration)
+                        if resp_data['status'] == 'success' and resp_data['Email_status']=="success":
+                            messages.success(request, "OTP is sent to " + email, extra_tags="success")
+                            return redirect("verify_user_otp",email=email)
+                        
+                        # elif resp_data['Email_status'] == 'error':
+                        #     messages.success(request, resp_data['message'], extra_tags="danger")
+
+                        elif resp_data['status'] == 'error':
+                            messages.success(request, resp_data['message'], extra_tags="danger")
+
             else:
-                user = User.objects.get(username=email)
-                print("duplicate_user ", user.is_active)
-
-                if not user.is_active:
-                    user.set_password(password) 
-                    user.save()
-                else:
-                    messages.error(request, 'Email address already exists', extra_tags="danger")
-                    captcha_value = random_captcha_generator()
-                    captcha_img_generator(captcha_value)
-                    print("captcha value ", captcha_value)
-                    form.fields['captcha_hidden'].initial = make_password(captcha_value)
-                
-                    return render(request, "core/user/user_register.html", {'form': form})
-
-            
-            
-            if not user == None:
-                domain = request.get_host()
-                uid = urlsafe_base64_encode(force_bytes(user.pk))
-                token = account_activation_token.make_token(user)
-                link = reverse('user_activate', kwargs={"uid64": uid, "token": token})
-                activate_link = "http://" + domain + link
-                print("activate_link ", activate_link)
-                # messages.add_message(request, messages.SUCCESS, 'Regitrastion Successful')
-
-
-                ## send activation mail to user
-                try:
-                    send_mail(
-                    subject="Registration successful",
-                    message="",
-                    from_email=settings.DEFAULT_FROM_EMAIL,
-                    recipient_list=[email],
-                    fail_silently=False,
-                    html_message="Your registration is successful. To activate your accout please click on activation link:  "+'</br><a href={0}>{0}</a>'.format(activate_link)
-                )
-                    print("mail sent")
-                
-                except:
-                    print("mail not sent")
-                    messages.add_message(request, messages.ERROR, 'Error while sending activation link', extra_tags="danger")  # print("send mail ",send_mail('regitrastion successful', 'welcome to ict-ipr family'+activate_link, 'tanvip@cdac.in',['tanvipatil1413@gmail.com']))  #     #return redirect("ICT_IPR_App:Home")
-                messages.add_message(request, messages.SUCCESS, 'Registration Successful', extra_tags="success")
+                print("Unsuccessful registration. Invalid information.")
+                messages.error(request, "Unsuccessful Registration. Invalid Information.", extra_tags='danger')
+            captcha_value = random_captcha_generator()
+            captcha_img_generator(captcha_value)
+            form.data['captcha_input'] = ''
+            form.data['captcha_hidden'] = make_password(captcha_value)
+            return render(request, template_name="core/user/user_register.html", context={"form": form})
         else:
-            print("Unsuccessful registration. Invalid information.")
-            # messages.error(request, "Unsuccessful Registration. Invalid Information.", extra_tags='danger')
-        captcha_value = random_captcha_generator()
-        captcha_img_generator(captcha_value)
-        
-        
-        # form1 = LoginForm(request.POST.copy())
-        form.data['captcha_input'] = ''
-        form.data['captcha_hidden'] = make_password(captcha_value)
-          
-        return render(request, template_name="core/user/user_register.html", context={"form": form})
-        
+            form = RegistrationForm()
+            captcha_value = random_captcha_generator()
+            form.data['captcha_input'] = ''
+            form.data['captcha_hidden'] = make_password(captcha_value)
+            captcha_img_generator(captcha_value)
+            print("captcha value ", captcha_value)
+            form.fields['captcha_hidden'].initial = make_password(captcha_value)
+            return render(request, "core/user/user_register.html", {'form': form})
     else:
-        form = RegistrationForm()
-        captcha_value = random_captcha_generator()
-        captcha_img_generator(captcha_value)
-        print("captcha value ", captcha_value)
-        form.fields['captcha_hidden'].initial = make_password(captcha_value)
-    
-    return render(request, "core/user/user_register.html", {'form': form})
+        return redirect('home')
+
+        ## Verify OTP here 
 
 
 
-## ----- user activate view ------
-def user_activate_view(request, uid64, token):
-    uid = force_str(urlsafe_base64_decode(uid64))
-    user = User.objects.get(pk=uid)
-    joined_date = user.date_joined
-    expiry_date = joined_date + timedelta(hours=24)
-    
-    print("expiry date ", expiry_date)
-    print("date joined ", datetime.now(timezone.utc))
-    
-    if (expiry_date > datetime.now(timezone.utc)):
-        if user is not None and account_activation_token.check_token(user, token):
-            user.is_active = True
-            user.save()
-            messages.add_message(request, messages.SUCCESS, 'User activation successful', extra_tags="success")
-        else:
-            if user.is_active == True:
-               messages.add_message(request, messages.ERROR, "User already activated please login", extra_tags="danger")
+def verify_user_otp(request,email):
+    print("inside verify_user_otp",email)
+    otp_form=OTPForRegistrationForm()
+    if request.method == 'POST' and 'submit' in request.POST:
+        form = OTPForRegistrationForm(request.POST.copy())
+        print("form===============",form)
+        if form.is_valid():
+            otp_value = request.POST.get("otp")
+            status=validate_otp_for_user_registration(email, otp_value, OTP_For_UserRegistration)
+            print("Status==============",status)
+            if status:
+                otp_user_obj=OTP_For_UserRegistration.objects.filter(OTP_Email=email)
+                otp_user_obj.OTP_Status=True
+                messages.success(request, "OTP Verified, Now you can login ", extra_tags="success")
+                return redirect("login_view")
             else:
-               form = RegistrationForm()
-               messages.add_message(request, messages.ERROR, "User activattion failed please re-register yourself", extra_tags="danger")
-               return render(request, template_name="core/user/user_register.html", context={"register_form": form})
-        return redirect('login_view')
-    else:
-        messages.add_message(request, messages.ERROR, "Activation link expired please re-register yourself", extra_tags="danger")
-        return render(request, template_name='core/user/forgot_password_token_page.html')
+                messages.error(request, "Failed OTP Verification", extra_tags='danger')
+                return render(request, "core/user/otp_form.html", {'form': otp_form})
+    if request.method == 'POST' and 'resent' in request.POST:
+        otp_form=OTPForRegistrationForm()
+        resp_data=generate_otp_for_user_registration(email,OTP_For_UserRegistration)
+        if resp_data['status'] == 'success':
+            messages.success(request, "OTP is sent to " + email, extra_tags="success")
+            return redirect("verify_user_otp",email=email)
+        
+        # elif resp_data['Email_status'] == 'error':
+        #     messages.success(request, resp_data['message'], extra_tags="danger")
+
+        elif resp_data['status'] == 'error':
+            messages.success(request, resp_data['message'], extra_tags="danger")
+
+        return render(request, "core/user/otp_form.html", {'form': otp_form})
+    return render(request, "core/user/otp_form.html", {'form': otp_form})
 
 
-## ------- Loguot view --------
+
+
 @login_required()
 def logout_view(request):
-    
     logout(request)
-    
     messages.success(request, "You are successfully logged Out", extra_tags="success")
     return redirect("login_view")
 
-
-#### ------- Chnage password view ------- 
 @login_required()
 def change_password_view(request):
     print("in change password view")
@@ -373,7 +378,7 @@ def password_creation_view(request, uid, token):
         if user:
             if not user[0].is_active:
                 # messages.error(request, "User is not active", extra_tags="danger")
-                return render(request, 'core/user/forgot_password_token_page.html', {'message': "User account is not activated yet, please activate or register again", "link": "register_view"})
+                return render(request, 'core/user/forgot_password_token_page.html', {'message': "User account is not activated yet, please activate or register again", "link": "register"})
             token_data = CustomForgotPassword.objects.filter(forgot_password_token=token)
             print("Token ", token_data)
 
@@ -432,7 +437,7 @@ def password_creation_view(request, uid, token):
                 return render(request, 'core/user/forgot_password_token_page.html', {'message': "Activation link Expired!", "link": 'forgot_password'})
         else:
             print("User does not exists")
-            return render(request, 'core/user/forgot_password_token_page.html', {'message': "User not exists", "link": 'login_view'})
+            return render(request, 'core/user/forgot_password_token_page.html', {'message': "User not exists", "link": 'login'})
 
 
     except User.DoesNotExist:

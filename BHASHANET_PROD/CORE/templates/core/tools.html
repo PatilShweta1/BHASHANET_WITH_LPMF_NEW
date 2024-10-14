@@ -29,7 +29,7 @@
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                       <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                          <a href="{% url 'home' %}">Home</a>
+                          <a href="#" onclick="renderPathFunction('home'); return false;">Home</a>
                         </li>
                         <li class="breadcrumb-item">Tools</li>
                       </ol>
@@ -54,23 +54,46 @@
               <div class="tool-item-box d-flex">
                 <div class="tools-item">
                   <div class="tools-item-img">
-                    {% if tool.Tools_ExternalURL %}
-                    <a target="_blank" onclick="showAlert('{{tool.Tools_ExternalURL}}');">
+                    {% if tool.Tools_Name == 'Developer Keyboard' %}
+                      {% if tool.Tools_ExternalURL %}
+                        <a target="_blank" onclick="showAlert('{{tool.Tools_ExternalURL}}');">
                       {% else %}
-                      <a href="/{{tool.Tools_InternalURL}}">
-                        {% endif %}
-                        <img class="img-fluid" alt="Iconic image of {{tool.Tools_Name}}"
-                          src="/media/{{tool.Tools_Image}}" />
+                        <a href="/{{tool.Tools_InternalURL}}">
+                      {% endif %}
+                      <img class="img-fluid" alt="Iconic image of {{tool.Tools_Name}}"
+                            src="/media/{{tool.Tools_Image}}" />
                       </a>
                   </div>
                   <div class="tools-item-content">
                     <div class="ua-group d-flex"></div>
                     <h2 class="title h5">
+                    {% if tool.Tools_ExternalURL %}
+                    <a href="" target="_blank"
+                      onclick="showAlert('{{tool.Tools_ExternalURL}}');">{{tool.Tools_Name}}</a>
+                    {% else %}
+                    <a href="/{{tool.Tools_InternalURL}}">{{tool.Tools_Name}}</a>
+                    {% endif %}
+
+
+                    {% else %}
                       {% if tool.Tools_ExternalURL %}
-                      <a href="" target="_blank"
-                        onclick="showAlert('{{tool.Tools_ExternalURL}}');">{{tool.Tools_Name}}</a>
+                        <a target="_blank" onclick="showAlert('{{tool.Tools_ExternalURL}}');">
                       {% else %}
-                      <a href="/{{tool.Tools_InternalURL}}">{{tool.Tools_Name}}</a>
+                        <a href="#" onclick="renderPathFunction('{{tool.Tools_InternalURL}}'); return false;">
+                      {% endif %}
+                      <img class="img-fluid" alt="Iconic image of {{tool.Tools_Name}}"
+                            src="/media/{{tool.Tools_Image}}" />
+                        </a>
+                    </div>
+                    <div class="tools-item-content">
+                      <div class="ua-group d-flex"></div>
+                      <h2 class="title h5">
+                        {% if tool.Tools_ExternalURL %}
+                        <a href="" target="_blank"
+                          onclick="showAlert('{{tool.Tools_ExternalURL}}');">{{tool.Tools_Name}}</a>
+                        {% else %}
+                        <a href="#" onclick="renderPathFunction('{{tool.Tools_InternalURL}}'); return false;">{{tool.Tools_Name}}</a>
+                        {% endif %}
                       {% endif %}
                     </h2>
                     <div class="ua-small-info-box d-flex align-items-center">

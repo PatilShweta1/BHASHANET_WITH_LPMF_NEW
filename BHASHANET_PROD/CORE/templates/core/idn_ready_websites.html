@@ -44,7 +44,7 @@
                      <div class="breadcrumb-list">
                         <nav aria-label="breadcrumb" class="page-breadcrumb">
                            <ol class="breadcrumb">
-                              <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+                              <li class="breadcrumb-item"><a href="#" onclick="renderPathFunction('home'); return false;">Home</a></li>
                               {% comment %} <li class="breadcrumb-item">Resources</li> {% endcomment %}
                               <li class="breadcrumb-item">IDN Ready Websites</li>
                            </ol>
@@ -153,18 +153,37 @@
                         </div>
                         {%endfor%}
                         <div class="row">
-                           <ul class="pagination lms-page lms-pagination d-flex justify-content-center">
-                              {% for page_number in page_obj.paginator.page_range %}
+                           {% comment %} <ul class="pagination lms-page lms-pagination d-flex justify-content-center">
+                              {% for page_number in page.paginator.page_range %}
                               <li class="page-item">
                                  <a
                                     href="{% url 'idn_websites' page_number %}"
-                                    class="{% if page_number == page_obj.number %}current text-white{% endif %} page-link"
+                                    class="{% if page_number == page.number %}current text-white{% endif %} page-link"
                                  >
                                  {{page_number}}
                                  </a>
                               </li>
                               {% endfor %}
-                           </ul>
+                           </ul>  {% endcomment %}
+
+                           <div class="col-md-12">
+                              <p>Page:{{page.number}}/{{ page.paginator.num_pages}}</p>
+                              <ul class="pagination lms-page lms-pagination">
+                                 <li class="page-item prev"> {% if page.has_previous %} <a class="page-link"
+                                       href="?page={{page.previous_page_number}}" tabindex="-1">Prev</a>
+                                    {% endif %} </li> {% for num_page in page.paginator.page_range %} {% if page.number == num_page %}
+                                 <li class="page-item active"> <a class="page-link"
+                                       href="?page={{num_page}}">{{num_page}}<span
+                                          class="sr-only">(current)</span></a> </li> {% else %}
+                                 <li class="page-item"> <a class="page-link"
+                                       href="?page={{num_page}}">{{num_page}}<span
+                                          class="sr-only">(current)</span></a> </li> {% endif %} {% endfor %}
+                                 <li class="page-item next"> {% if page.has_next %} <a class="page-link"
+                                       href="?page={{page.next_page_number}}">Next</a> {% endif %} </li>
+                              </ul>
+                           </div>
+
+
                         </div>
                        
                      </div>

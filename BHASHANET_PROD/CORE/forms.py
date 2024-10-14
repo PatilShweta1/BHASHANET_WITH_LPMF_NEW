@@ -97,13 +97,13 @@ class Blog_form(ModelForm):
                                                    widget=forms.Select(
                                                        attrs={'class': 'form-control', 'id': 'Blog_CategoryType',
                                                             }))
-    # Blog_Status = (('Published', 'PUBLISHED'),
-    #                    ('Unpublished', 'UNPUBLISHED'))
-    # Blog_PublishedStatus = forms.ChoiceField(validators=[validators.MaxLengthValidator(15)], required=True,
-    #                                         help_text='Select Status',
-    #                                         choices=Blog_Status, widget=forms.Select(
-    #         attrs={'style': 'border-color: grey ;margin-bottom:20px', 'placeholder': 'select',
-    #                'id': 'Blog_PublishedStatus', 'class': 'form-control form-control-lg', 'autocomplete': 'off'}), )
+    Blog_Status = (('Published', 'PUBLISHED'),
+                       ('Unpublished', 'UNPUBLISHED'))
+    Blog_PublishedStatus = forms.ChoiceField(validators=[validators.MaxLengthValidator(15)], required=True,
+                                            help_text='Select Status',
+                                            choices=Blog_Status, widget=forms.Select(
+            attrs={'style': 'border-color: grey ;margin-bottom:20px', 'placeholder': 'select',
+                   'id': 'Blog_PublishedStatus', 'class': 'form-control form-control-lg', 'autocomplete': 'off'}), )
     
 
     class Meta:
@@ -113,6 +113,7 @@ class Blog_form(ModelForm):
             'Blog_Description',
             'Blog_Body',
             'Blog_CategoryType',
+            'Blog_PublishedStatus',
             'Blog_Thumbnail',
             'Blog_DocumentFile'
         ]
@@ -133,6 +134,9 @@ class RegistrationForm(forms.Form):
         attrs={'class': 'form-control', 'id': 'inputPassword', 'placeholder': 'Enter Password', 'name': 'password1'}))
     password2 = forms.CharField(required=True, strip=False, widget=forms.PasswordInput(
         attrs={'class': 'form-control', 'id': 'inputPassword1', 'placeholder': 'Confirm Password'}))
+    
+    role = forms.ModelChoiceField(required=True, queryset=UserRole.objects.all(),widget=forms.Select(attrs={'class': 'form-control',
+                                                                                                             'id': 'UserRole',}))
 
     captcha_hidden = forms.CharField(widget=forms.HiddenInput(), required="False")
     captcha_input = forms.CharField(max_length=5, required=True, widget=forms.TextInput(
@@ -290,3 +294,16 @@ class UserProfileForm(ModelForm):
         print("FORMS.PY FILE : CLEAN METHOD CALLING")
         super(UserProfileForm, self).clean()
         validate_user_profile_form(self)
+
+
+
+
+class OTPForRegistrationForm(forms.Form):
+    
+    otp=forms.IntegerField(required=True, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'id': 'inputOTP', 'placeholder': 'Enter OTP', 'autocomplete': 'off'}))
+
+    
+    def clean(self):
+        super(OTPForRegistrationForm, self).clean()
+        

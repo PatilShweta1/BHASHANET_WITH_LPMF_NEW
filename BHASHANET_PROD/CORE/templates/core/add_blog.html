@@ -33,13 +33,13 @@
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                       <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                          <a href="{% url 'home' %}">Home</a>
+                          <a href="#" onclick="renderPathFunction('home'); return false;">Home</a>
                         </li>
                         <li class="breadcrumb-item">
-                          <a href="{% url 'blogs' %}">Blogs</a>
+                          <a href="#" onclick="renderPathFunction('blogs'); return false;">Blogs</a>
                         </li>
                         <li class="breadcrumb-item">
-                          <a href="{% url 'admin_blog_datatable' %}">Blog Data Table</a>
+                          <a href="#" onclick="renderPathFunction('admin_blog_datatable'); return false;">Blog Data Table</a>
                         </li>
                         {% if flag_blog == 'Add' %}
                         <li class="breadcrumb-item">Add Blog</li>
@@ -101,6 +101,10 @@
                 {{Blog_form_obj.Blog_CategoryType}}
               </div> 
               <div class="form-group">
+                <label for="Blog_PublishedStatus" class="form-label">Blog Published Status</label>
+                {{Blog_form_obj.Blog_PublishedStatus}}
+              </div>
+              <div class="form-group">
                 <label for="Blog_Body" class="form-label">Blog Body</label>
                 {{Blog_form_obj.Blog_Body}}
               </div>
@@ -114,10 +118,8 @@
                 <label for="Blog_DocumentFile" class="form-label">Blog Document File</label>
                 {{Blog_form_obj.Blog_DocumentFile}}
               </div> 
-              {% comment %} <div class="form-group">
-                <label for="Blog_PublishedStatus" class="form-label">Blog Published Status' %}</label>
-                {{Blog_form_obj.Blog_PublishedStatus}}
-              </div>  {% endcomment %}
+
+              
               <div class="d-flex justify-content-center mt-3">
                 <button class="btn btn-primary btn-lg">Submit</button>
               </div>

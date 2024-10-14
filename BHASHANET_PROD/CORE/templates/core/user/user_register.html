@@ -2,6 +2,7 @@
 
 {% block user_register %}
 
+
 <div class="card-box ua-card-header--bg-blk">
   <div class="container">
     <div class="row">
@@ -27,7 +28,7 @@
                   <nav aria-label="breadcrumb" class="page-breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{% url 'home' %}">Home</a>
+                        <a href="#" onclick="renderPathFunction('home'); return false;">Home</a>
                       </li>
                       <li class="breadcrumb-item">Register</li>
                     </ol>
@@ -79,7 +80,11 @@
               {{form.password2}}
               {% comment %} {{forms.error}} {% endcomment %}
             </div>
-
+            <div class="form-group">
+              <label for="Feedback_Email" class="form-label">Select Role</label>
+              {{form.role}}
+              {% comment %} {{forms.error}} {% endcomment %}
+            </div>
               <!-- Captcha input -->
               <div class="form-outline mb-4 mt-2">
                 <div class="row">
@@ -100,11 +105,11 @@
               <button class="btn btn-primary btn-lg">Register</button>
             </div>
           </form>
-        <div class="text-center fw-bold fs-6 mt-2">Already Registered User | <a class="text-primary" href="{% url 'login_view'%}">Login</a></div>
+        <div class="text-center fw-bold fs-6 mt-2">Already Registered User | <a class="text-primary" href="#" onclick="renderPathFunction('login'); return false;">Login</a></div>
         </div>
   </div>
 </div>
-
+</div>
 </section>
 
 
