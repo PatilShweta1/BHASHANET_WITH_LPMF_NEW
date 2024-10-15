@@ -22,7 +22,7 @@ class Feedback_form(ModelForm):
                    'id': 'Feedback_Category', 'class': 'form-control form-control-lg', 'autocomplete': 'off'}), )
     Feedback_Message = forms.CharField(label=" Your Feedback", widget=forms.Textarea(
         attrs={'style': 'border-color: grey ;margin-bottom:20px', 'placeholder': 'Enter Your Feedback',
-               'id': 'Feedback_Message', 'class': 'form-control form-control-lg', 'autocomplete': 'off'}))
+               'id': 'Feedback_Message', 'class': 'NALOC form-control form-control-lg', 'autocomplete': 'off'}))
 
     captcha_hidden = forms.CharField(widget=forms.HiddenInput(), required="False")
     captcha_input = forms.CharField(max_length=5, required=True, widget=forms.TextInput(

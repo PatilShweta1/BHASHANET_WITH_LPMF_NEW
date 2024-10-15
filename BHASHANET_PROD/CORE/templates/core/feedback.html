@@ -106,7 +106,7 @@
           </div>
     </div>
         <div class="support-wrap shadow-sm bg-white px-3 py-5">
-          <form action="{% url 'feedback' %}" method="POST" novalidate>
+          <form method="POST" novalidate>
             {% csrf_token %}
             <div class="form-group">
               <label for="Feedback_FirstName" class="form-label">Name</label>

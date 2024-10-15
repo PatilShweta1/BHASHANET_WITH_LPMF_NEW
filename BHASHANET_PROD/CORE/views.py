@@ -521,7 +521,7 @@ def rateLimitEmails(throttle_email):
         if time == current_date:
            # print("Already Exsist and not the first Entry : " + str(time) + " current Date : " + str(current_date))
             #print("Same day new mail" + count)
-            if count < 10:
+            if count < 100:
                 print("Can send mail")
                 count = count + 1
                 user_object = LimitCheck.objects.get(Email=throttle_email)                  
@@ -542,82 +542,62 @@ def rateLimitEmails(throttle_email):
             user_object.save()
             return True
 
-def feedback(request):
-    # Checking post data
-    print("In get method")
-    if request.method == "POST":
-        print("In POST method")
-        try:
-            # Creating post from data object
-            feedback_form_obj = Feedback_form(request.POST.copy())
-            print("Inside feedback form 22222222222222222222",feedback_form_obj)
-            recipient_emails = ['gist-tdil@cdac.in', 'support@bhashanet.in']
-            throttle_email = feedback_form_obj.data['Feedback_Email'].strip()
-            # print("Throttle Email :  " + throttle_email)
-            #print("Does not exists check : " + str(LimitCheck.objects.filter(Email = throttle_email).exists()))
-    
-            # Checking isValid Condition
-            if feedback_form_obj.is_valid():
-                try:
-                # Fetching Form Data
-                    mail = feedback_form_obj.data['Feedback_Email'].strip()
-                    Feedback_Related_To_id = feedback_form_obj.data['Feedback_Related_To']
-                    FeedbackCategory_obj = FeedbackCategory.objects.get(id=Feedback_Related_To_id)
-                    subject=FeedbackCategory_obj.FeedbackCategory_Name
-                    print("subjectr subject",subject)
-                    message = feedback_form_obj.data['Feedback_Message'].strip()
-                    #print("Rate Limt Condition : "+ str(rateLimitEmails))
-                    if rateLimitEmails(mail) == True:
-                        if validate_email(mail):
-                            print("valid")
-                            # Saving data to database
-                            feedback_form_obj.save()
-                            # Sending Email to user
-                            RecipentMessage = "Thank you for your " + subject + " We Appriciate your concern!!"; 
-                            email_sent_status = send_mail(subject, message, env('SERVER_EMAIL'), recipient_emails)
-                            email_sent_status = send_mail(subject, RecipentMessage, env('SERVER_EMAIL'), [mail])
-                            messages.success(request, "Feedback Successfully Submitted", extra_tags="success")
-                            feedback_form_obj.data['Feedback_FirstName'] = ''
-                            feedback_form_obj.data['Feedback_Email'] = ''
-                            feedback_form_obj.data['Feedback_Related_To']= ''
-                            feedback_form_obj.data['Feedback_Message'] = ''
-                            # After successful submission of feedback form returning empty form
-                            # Checking Email is Sent Successfully
-                            if email_sent_status == 1:
-                                print("Email sent to email" + mail)
-                            
-                                # messages.error(request, "Email sent to " + user_email)
-                            else:
-                                print("Email not sent")
-                    else:
-                        print("Condition failed inside else")
-                        messages.error(request, "Email limit exceeded, please try after some time.(max limit 10)")
 
-                except EmailNotValidError as e:
-                    # raise forms.ValidationError(str(e)) 
-                    print("Message Check : ", str(e))
-                    messages.error(request, " " + str(e), extra_tags="danger")
-            else:
-            # messages.error(request, "Please Enter Valid data in fields", extra_tags="danger")
-                print("Validation fails")
-            captcha_value = random_captcha_generator()
-            captcha_img_generator(captcha_value)
-            feedback_form_obj.data['captcha_input'] = ''
-            feedback_form_obj.data['captcha_hidden'] = make_password(captcha_value)
-            
-            return render(request, 'core/feedback.html', {'feedback_form_obj': feedback_form_obj})
-        except Exception as e:
-            print("Error :" + str(e))
-            messages.error('Invalid Details', extra_tags="danger")
-    else:
-        feedback_form_obj = Feedback_form()
+
+
+def feedback(request):
+    feedback_form_obj = Feedback_form(request.POST or None)
+
+    if request.method == "POST":
+        if feedback_form_obj.is_valid():
+            try:
+                # Fetch and process form data
+                mail = feedback_form_obj.cleaned_data['Feedback_Email'].strip()
+                feedback_related_to_id = feedback_form_obj.cleaned_data['Feedback_Related_To']
+                print("Feedback Related ID: ",feedback_related_to_id)
+                
+    
+                feedback_category = FeedbackCategory.objects.get(FeedbackCategory_Name=feedback_related_to_id)
+                subject = feedback_category.FeedbackCategory_Name  # Use a field, not the whole object
+
+                message = feedback_form_obj.cleaned_data['Feedback_Message'].strip()
+
+                if rateLimitEmails(mail):
+                    try:
+                        validate_email(mail)
+                    except EmailNotValidError as e:
+                        messages.error(request, f"Invalid email: {str(e)}")
+                        return render(request, 'core/feedback.html', {'feedback_form_obj': feedback_form_obj})
+
+
+                    feedback_form_obj.save()
+
+                    # Send emails
+                    RecipentMessage = "Thank you for your " + subject + " We Appriciate your concern!!"; 
+                    recipient_list = ['gist-tdil@cdac.in', 'support@bhashanet.in']
+                    send_mail(subject, message, env('SERVER_EMAIL'), recipient_list)
+                    send_mail(subject, RecipentMessage, env('SERVER_EMAIL'), [mail])
+
+                    messages.success(request, "Feedback Successfully Submitted")
+
+                else:
+                    messages.error(request, "Email limit exceeded. Please try again later.")
+
+            except FeedbackCategory.DoesNotExist:
+                messages.error(request, "Invalid category selected.")
+            except Exception as e:
+                print(f"Error: {str(e)}")
+                messages.error(request, "There was an issue submitting your feedback.")
+        else:
+            messages.error(request, "Please provide valid data in all fields.")
+
+    # Generate and initialize captcha on GET request
+    if request.method == "GET" or request.method == "POST":
         captcha_value = random_captcha_generator()
         captcha_img_generator(captcha_value)
-        print("captcha value ", captcha_value)
         feedback_form_obj.fields['captcha_hidden'].initial = make_password(captcha_value)
 
     return render(request, 'core/feedback.html', {'feedback_form_obj': feedback_form_obj})
-
 
 
 # -------------  STARTS-----------------------
