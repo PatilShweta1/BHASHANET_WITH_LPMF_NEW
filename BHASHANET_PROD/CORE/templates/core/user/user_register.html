@@ -28,7 +28,7 @@
                   <nav aria-label="breadcrumb" class="page-breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="#" onclick="renderPathFunction('home'); return false;">Home</a>
+                        <a href="{% url 'home' %}">Home</a>
                       </li>
                       <li class="breadcrumb-item">Register</li>
                     </ol>
@@ -105,7 +105,7 @@
               <button class="btn btn-primary btn-lg">Register</button>
             </div>
           </form>
-        <div class="text-center fw-bold fs-6 mt-2">Already Registered User | <a class="text-primary" href="#" onclick="renderPathFunction('login'); return false;">Login</a></div>
+        <div class="text-center fw-bold fs-6 mt-2">Already Registered User | <a class="text-primary" href="{% url 'login_view' %}">Login</a></div>
         </div>
   </div>
 </div>

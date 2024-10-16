@@ -189,12 +189,12 @@
                                         <img class="img-fluid logo-width"
                                             src="{% static 'core/assets/img/contact-us.png' %}"
                                             alt="support icon">
-                                            <a  class="mx-2" href="#" onclick="renderPathFunction('support'); return false;">
+                                            <a  class="mx-2" href="{% url 'support' %}">
                                                Assistance
                                             </a>
                                              <!-- Feedback -->
                                        
-                                            <a href="#" onclick="renderPathFunction('feedback'); return false;"><i class="fa fa-comment"  aria-hidden="true"></i>
+                                            <a href="{% url 'feedback' %}"><i class="fa fa-comment"  aria-hidden="true"></i>
                                                 Feedback </a>
                                        
                                     </div>
@@ -279,17 +279,17 @@
                                                     <li class="my-2 text-danger fw-bold ps-3">{{request.user.username}} 
                                                        <!-- <br><span class="text-secondary">Role : </span> --> 
                                                     </li>
-                                                    <li><a href="#" onclick="renderPathFunction('user_profile'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>Profile</a></li>
+                                                    <li><a href="{% url 'user_profile' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Profile</a></li>
                                                     {% if request.user.is_superuser %}
-                                                    <li><a href="#" onclick="renderPathFunction('register'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>Registeration</a></li>
+                                                    <li><a href="{% url 'register_view' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Registration</a></li>
                                                     {% endif %}
-                                                    <li><a href="#" onclick="renderPathFunction('blog_datatable'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>My Blogs</a></li>
+                                                    <li><a href="{% url 'admin_blog_datatable' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>My Blogs</a></li>
                                                     {% if request.user.is_superuser %}
-                                                        <li><a href="#" onclick="renderPathFunction('admindashboard'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>Admin Dashboard</a></li>
+                                                        <li><a href="{% url 'admindashboard' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Admin Dashboard</a></li>
                                                     {% endif %}
-                                                    <li><a href="#" onclick="renderPathFunction('discussion_forum_topic_list'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>Discussion Forum</a></li>
-                                                    <li><a href="#" onclick="renderPathFunction('change_password'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>Change Password</a></li>
-                                                    <li><a href="#" onclick="renderPathFunction('logout'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i><span class='text-danger fw-bold'>Logout</span></a></li>
+                                                    <li><a href="{% url 'topic_list' %}" ><i class="fa fa-angle-right" aria-hidden="true"></i>Discussion Forum</a></li>
+                                                    <li><a href="{% url 'change_password' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Change Password</a></li>
+                                                    <li><a href="{% url 'logout_view' %}"><i class="fa fa-angle-right" aria-hidden="true"></i><span class='text-danger fw-bold'>Logout</span></a></li>
                                                 </ul>
                                             </li>
                 
@@ -314,7 +314,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="d-flex justify-content-between mx-auto align-items-center flex-wrap">
-                            <div class="py-3"> <a href="https://bhashanet.in"><img src="{% static 'core/assets/img/logo.png' %}" class="img-fluid"
+                            <div class="py-3"> <a href="{% url 'home' %}"><img src="{% static 'core/assets/img/logo.png' %}" class="img-fluid"
                                 alt="Universal Acceptance Logo" style="max-width: 220px;text-align: center;"></a></div>
                                 <!-- <div class="py-3"> <a href="https://nixi.in" target="_blank"><img src="{% static 'core/assets/img/nixi.png' %}" class="img-fluid"
                                     alt="National Internet Exchange of India logo" style="max-width: 120px;text-align: center;"></a></div> -->
@@ -409,7 +409,7 @@
                                 <div class="main-menu-wrapper">
                                     <div class="menu-header">
                                         <!-- Logo for mobile view -->
-                                        <a href="#" onclick="renderPathFunction('home'); return false;" class="menu-logo">
+                                        <a href="{% url 'home' %}" class="menu-logo">
                                             <img src="{% static 'core/assets/img/logo.png' %}" class="img-fluid" alt=" Universal Acceptance Logo for mobile view">
                                         </a>
                                         <!-- Close menu button -->
@@ -421,32 +421,32 @@
                                     <ul class="main-nav d-flex justify-content-start">
                                         <!-- Home -->
                                         <li id="home">
-                                            <a href="#" onclick="renderPathFunction('home'); return false;"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+                                            <a href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
                                         </li>
                                         <!-- About -->
                                         <li class="has-submenu" id="about">
-                                            <a href="#"><i class="fa fa-user" aria-hidden="true"></i>About<i class="fas fa-chevron-down"></i></a>
+                                            <a href=""><i class="fa fa-user" aria-hidden="true"></i>About<i class="fas fa-chevron-down"></i></a>
                                             <ul class="submenu">
                                                 <!-- UA India Programme -->
-                                                <li><a href="#" onclick="renderPathFunction('uaindiaprogramme'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>UA India Programme</a></li>
+                                                {% comment %} <li><a href="#" onclick="renderPathFunction('uaindiaprogramme'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>UA India Programme</a></li> {% endcomment %}
+                                                <li><a href="{% url 'uaindiaprogramme' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>UA India Programme</a></li>
                                                 <!-- IDN-ccTLDs -->
-                                                <li><a href="#" onclick="renderPathFunction('IDNCCTLD'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>.bharat IDN-ccTLDs</a></li>
+                                                {% comment %} <li><a href="#" onclick="renderPathFunction('IDNCCTLD'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>.bharat IDN-ccTLDs</a></li> {% endcomment %}
+                                                <li><a href="{% url 'IDNCCTLD' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>.bharat IDN-ccTLDs</a></li>
                                             </ul>
                                         </li>
                                         <!-- Resources -->
                                         <li class="has-submenu" id="resource2">
-                                            <a href="#"><i class="fa fa-file" aria-hidden="true"></i>Resources<i class="fas fa-chevron-down"></i></a>
+                                            <a href=""><i class="fa fa-file" aria-hidden="true"></i>Resources<i class="fas fa-chevron-down"></i></a>
                                             <ul class="submenu first-submenu">
                                                 <!-- Tools -->
-                                        <li id="tools">
-                                            <a href="#" onclick="renderPathFunction('tools'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>Tools</a>
-                                        </li>
+                                                <li id="tools"><a href="{% url 'tools' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Tools</a></li>
                                                 <!-- UA & Multilingual Internet Report -->
                                                 <li><a href="{% static 'core/assets/documents/UA_multilingial_internet_report.pdf' %}" target="_blank"><i class="fa fa-angle-right" aria-hidden="true"></i>UA & Multilingual<br/> Internet Report</a></li>
                                                 <!-- UA Documents -->
-                                                <li><a href="#" onclick="renderPathFunction('documentData'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>UA Documents</a></li>
+                                                <li><a href="{% url 'documentData' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>UA Documents</a></li>
                                                 <!-- Best Practices -->
-                                                <li><a href="#" onclick="renderPathFunction('bestpractices'); return false;"><i class="fa fa-angle-right" aria-hidden="true"></i>Best Practices</a></li>
+                                                <li><a href="{% url 'bestpractices' %}"><i class="fa fa-angle-right" aria-hidden="true"></i>Best Practices</a></li>
                                                 <!-- UA Sample Code -->
                                                 <li><a href="https://github.com/icann/ua-code-samples" target="_blank" onclick="return myFunction()"><i class="fa fa-angle-right" aria-hidden="true"></i>UA Sample Code</a></li>
                                             </ul>
@@ -454,16 +454,16 @@
                                         
                                         <!-- Events -->
                                         <li id="feedback">
-                                            <a href="#" onclick="renderPathFunction('event'); return false;"><i class="fa fa-newspaper"  aria-hidden="true"></i>
+                                            <a href="{% url 'event' %}"><i class="fa fa-newspaper"  aria-hidden="true"></i>
                                                 Events</a>
                                         </li>
                                        
                                        
                                         <!-- Three inline buttons for mobile -->
                                         <li class="d-grid gap-1 d-flex justify-content-center align-items-center flex-wrap">
-                                            <button class="btn btn-light mx-1 small-font-size" onclick="renderPathFunction('becomeuaready'); return false;">Become UA Ready</button>
-                                            <button class="btn btn-light mx-1 small-font-size" onclick="renderPathFunction('idn_websites'); return false;">IDN Websites</button>
-                                            <button class="btn btn-light mx-1 small-font-size" onclick="renderPathFunction('sop_tech_page'); return false;">Technical Corner</button>
+                                            <button class="btn btn-light mx-1 small-font-size" onclick="location.href='{% url 'becomeuaready' %}';">Become UA Ready</button>
+                                            <button class="btn btn-light mx-1 small-font-size" onclick="location.href='{% url 'idn_websites' 1  %}';">IDN Websites</button>
+                                            <button class="btn btn-light mx-1 small-font-size" onclick="location.href='{% url 'sop_tech_page' %}';">Technical Corner</button>
                                         </li>
                                         <!-- End of three inline buttons -->
                                     </ul>

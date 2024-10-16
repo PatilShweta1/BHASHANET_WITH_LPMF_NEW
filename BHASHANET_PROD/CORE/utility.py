@@ -11,7 +11,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 env = environ.Env()
 environ.Env.read_env()
-
+import smtplib
 ############################################################################3
 
 # ADDED BY SANJAYB
@@ -98,16 +98,16 @@ def generate_otp_for_user_registration(email,OTP_For_UserRegistration):
         
         
     # send mail to email address
-    print("opt valueeeee",otp_value)
+    print("opt valueeeee",otp_value,"===========================",env('SERVER_EMAIL'))
     RecipentMessage = "OTP For User Registration On Bhashanet Portal is " + str(otp_value); 
-    try:
-        email_sent_status = send_mail("OTP For User Registration On Bhashanet Portal", RecipentMessage, env('SERVER_EMAIL'), [email])
-        print("email status : ", email_sent_status)
-        data['Email_status']="success"
-    except:
-        print("error while sending email")
-        # data['Email_status']="error"
-        # data['message']="Error while sending email"
+    # try:
+    email_sent_status = send_mail("OTP For User Registration On Bhashanet Portal", RecipentMessage, 'pshweta@cdac.in', [email])
+    print("email status : ", email_sent_status)
+    data['Email_status']="success"
+# except:
+    print("error while sending email",email_sent_status)
+    # data['Email_status']="error"
+    # data['message']="Error while sending email"
 
     return data
 

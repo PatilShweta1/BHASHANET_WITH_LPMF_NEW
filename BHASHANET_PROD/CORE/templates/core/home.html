@@ -124,7 +124,7 @@
    <div class="container">
        <div class="row">
            <div class="col-lg-4 col-sm-6">
-               <a href="#" onclick="renderPathFunction('IDNCCTLD'); return false;" class="features-card mb-30 style-5">
+               <a href="{% url 'IDNCCTLD' %}" class="features-card mb-30 style-5">
                    <div class="icon">
                        <img src="{% static 'core/assets/img/idn-domain.png' %}" alt="IDN icon" style="width: 100%;">
                    </div>
@@ -142,7 +142,7 @@
                </a>
            </div>
            <div class="col-lg-4 col-sm-6">
-               <a href="#" onclick="renderPathFunction('EAI'); return false;" class="features-card mb-30 style-5">
+               <a href="{% url 'EAI' %}" class="features-card mb-30 style-5">
                    <div class="icon">
                        <img src="{% static 'core/assets/img/email.png' %}" alt="EAI icon" style="width: 100%;">
                    </div>
@@ -160,7 +160,7 @@
                </a>
            </div>
            <div class="col-lg-4 col-sm-6">
-               <a href="#" onclick="renderPathFunction('UA'); return false;" class="features-card mb-30 style-5">
+               <a href="{% url 'UA' %}" class="features-card mb-30 style-5">
                    <div class="icon">
                        <i class="fa fa-globe text-info fa-4x mb-1" aria-hidden="true"></i>
                    </div>
@@ -501,7 +501,7 @@
       </div>
       <p>Universal Acceptance Websites compliance with Internationalized Domain Names (IDNs) list</p>
       <div class="d-flex justify-content-center align-items-center flex-wrap">
-         <a href="#" onclick="renderPathFunction('idn_websites'); return false;" class="about-btn scrollto" >View List</a>
+         <a href="{% url 'idn_websites' 1 %}" class="about-btn scrollto" >View List</a>
       </div>
    </div>
 </section>  
@@ -530,7 +530,7 @@
       </div>
       <div class="section-header aos" data-aos="fade-up">
          <div class="all-btn all-category d-flex align-items-center">
-            <a href="#" onclick="renderPathFunction('gallery'); return false;" class="btn btn-primary">View Gallery</a>
+            <a href="{% url 'gallery' %}" class="btn btn-primary">View Gallery</a>
          </div>
       </div>
       <!-- <div class="section-text aos" data-aos="fade-up">

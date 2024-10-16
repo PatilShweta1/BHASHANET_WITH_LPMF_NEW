@@ -608,7 +608,7 @@ def feedback(request):
             return render(request, 'core/feedback.html', {'feedback_form_obj': feedback_form_obj})
         except Exception as e:
             print("Error :" + str(e))
-            messages.error('Invalid Details', extra_tags="danger")
+            messages.error(request,'Invalid Details', extra_tags="danger")
     else:
         feedback_form_obj = Feedback_form()
         captcha_value = random_captcha_generator()
@@ -783,14 +783,24 @@ def documentPage(request):
 
 
 def documentData(request):
+    print("==============================",len(request.get_full_path().split('?')))
    # DocumentCategory.objects.update(DocumentCategory_Status=False)
-    documentData = Document.objects.all()
-    categoryData=DocumentCategory.objects.all()
-    pagestatus = False
-    for cat in DocumentCategory.objects.all():
-        if cat.DocumentCategory_Status == True:
-            pagestatus = True
+    if len(request.get_full_path().split('?')) == 1:
+        print("inside ===================")
+        DocumentCategory.objects.update(DocumentCategory_Status=False)
+        categoryData=DocumentCategory.objects.all()
+        documentData = Document.objects.all()
+        pagestatus = False
+    else:
+        documentData = Document.objects.all()
+        categoryData=DocumentCategory.objects.all()
+        pagestatus = False
+        for cat in DocumentCategory.objects.all():
+            if cat.DocumentCategory_Status == True:
+                pagestatus = True
     if request.method == 'POST' and 'filter-button' in request.POST:
+        print("==============================",request)
+        print("Inside filter button called")
         DocumentCategory.objects.update(DocumentCategory_Status=False)
         filtered_DocumentDataWithCategory = Document.objects.none()
         checklist = request.POST.getlist('select_specialist')
@@ -957,16 +967,23 @@ def sop_document_page(request, id=None):
 
 
 def sop_document(request):
-    SOPTechnologyDocumentData = SOPTechnologyDocument.objects.all()
-    SOPTechnologyCategoryData = SOPTechnologyCategory.objects.all()
-    pagestatus = False
-    page = Paginator(SOPTechnologyDocumentData, 3)
-    page_list = request.GET.get('page')
-    page = page.get_page(page_list)
-    count = SOPTechnologyDocumentData.count()
-    for category in SOPTechnologyCategoryData:
-        if category.SOPTechnologyCategory_Status == True:
-            pagestatus = True
+    if len(request.get_full_path().split('?')) == 1:
+        print("inside ===================")
+        SOPTechnologyCategory.objects.all().update(SOPTechnologyCategory_Status=False)
+        SOPTechnologyDocumentData = SOPTechnologyDocument.objects.all()
+        SOPTechnologyCategoryData = SOPTechnologyCategory.objects.all()
+        pagestatus = False
+    else:
+        SOPTechnologyDocumentData = SOPTechnologyDocument.objects.all()
+        SOPTechnologyCategoryData = SOPTechnologyCategory.objects.all()
+        pagestatus = False
+        page = Paginator(SOPTechnologyDocumentData, 3)
+        page_list = request.GET.get('page')
+        page = page.get_page(page_list)
+        count = SOPTechnologyDocumentData.count()
+        for category in SOPTechnologyCategoryData:
+            if category.SOPTechnologyCategory_Status == True:
+                pagestatus = True
     if request.method == 'POST' and 'filter-button' in request.POST:
         print("Hellooooo Inside post method ")
         SOPTechnologyCategory.objects.all().update(SOPTechnologyCategory_Status=False)

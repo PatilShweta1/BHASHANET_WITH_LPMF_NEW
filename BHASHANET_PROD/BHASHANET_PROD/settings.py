@@ -212,14 +212,13 @@ LANGUAGE_COOKIE_NAME = 'cookie_language_appname'
 # DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
-
-SERVER_EMAIL = ''
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.cdac.in'
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+SERVER_EMAIL =''
 EMAIL_HOST_PASSWORD = ''  # please enter password
 EMAIL_HOST_USER = SERVER_EMAIL
-EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 

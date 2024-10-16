@@ -29,7 +29,7 @@
                   <nav aria-label="breadcrumb" class="page-breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="#" onclick="renderPathFunction('home'); return false;">Home</a>
+                        <a href="{% url 'home' %}">Home</a>
                       </li>
                       <li class="breadcrumb-item">Feeback</li>
                     </ol>
@@ -106,7 +106,7 @@
           </div>
     </div>
         <div class="support-wrap shadow-sm bg-white px-3 py-5">
-          <form action="{% url 'feedback' %}" method="POST" novalidate>
+          <form method="POST" novalidate>
             {% csrf_token %}
             <div class="form-group">
               <label for="Feedback_FirstName" class="form-label">Name</label>

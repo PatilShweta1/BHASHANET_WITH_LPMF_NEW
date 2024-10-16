@@ -8,4 +8,5 @@ admin.site.register(language_list)
 admin.site.register(URL_dashboard)
 admin.site.register(BulkEmail)
 admin.site.register(BulkEmailAttachments)
+admin.site.register(Test)
 

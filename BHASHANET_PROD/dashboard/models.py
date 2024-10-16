@@ -87,3 +87,14 @@ class BulkEmailAttachments(models.Model):
 
     class Meta:
         verbose_name_plural = "Bulk Email Attachment"
+
+
+
+class Test(models.Model):
+    Test = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.Test
+
+    class Meta:
+        verbose_name_plural = "Test"

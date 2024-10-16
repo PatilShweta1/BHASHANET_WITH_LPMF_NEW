@@ -1,28 +1,13 @@
-views.py [ 212 ] --> Running Counts Statistics are  <QuerySet []>
-views.py [ 220 ] --> SSL Statistics are [0, 0]
-views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
-views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-views.py [ 290 ] -->Records are --->[][]
-views.py [ 212 ] --> Running Counts Statistics are  <QuerySet []>
-views.py [ 220 ] --> SSL Statistics are [0, 0]
-views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
-views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-views.py [ 290 ] -->Records are --->[][]
-views.py [ 212 ] --> Running Counts Statistics are  <QuerySet []>
-views.py [ 220 ] --> SSL Statistics are [0, 0]
-views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
-views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-views.py [ 290 ] -->Records are --->[][]
-views.py [ 212 ] --> Running Counts Statistics are  <QuerySet []>
-views.py [ 220 ] --> SSL Statistics are [0, 0]
-views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
-views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-views.py [ 290 ] -->Records are --->[][]
-views.py [ 212 ] --> Running Counts Statistics are  <QuerySet []>
-views.py [ 220 ] --> SSL Statistics are [0, 0]
-views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
-views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-views.py [ 290 ] -->Records are --->[][]
+forms.py [ 42 ] -->forms.py file --  Inside Clean method of idn_dashboard_form 
+forms.py [ 44 ] -->forms.py file --  Function validate_idn_dashboard_form is being called for validations 
+validation.py [ 40 ] -->file -- Self object is False
+validation.py [ 41 ] -->validation starts for IDN Domain Form 
+validation.py [ 47 ] -->English Domain selected by user is - https://s3waas.gov.in/
+validation.py [ 48 ] -->Category selected by user is - Bodo
+validation.py [ 49 ] -->IDN Domain entered by user is - https://रक्षाजनसम्पर्कनिर्देशालय.सरकार.भारत
+forms.py [ 46 ] -->forms.py file --  All Validation Successfull For IDN Form
+views.py [ 726 ] -->admin_login view called 
+views.py [ 728 ] -->Admin is already login
 views.py [ 212 ] --> Running Counts Statistics are  <QuerySet []>
 views.py [ 220 ] --> SSL Statistics are [0, 0]
 views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
@@ -31,20 +16,87 @@ views.py [ 290 ] -->Records are --->[][]
 views.py [ 726 ] -->admin_login view called 
 views.py [ 751 ] -->GET Method Called
 views.py [ 726 ] -->admin_login view called 
-views.py [ 731 ] -->POST Method Called
-views.py [ 734 ] -->Form is Valid 
-views.py [ 743 ] -->user is  None and user is not staff
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
+views.py [ 726 ] -->admin_login view called 
+views.py [ 728 ] -->Admin is already login
+views.py [ 726 ] -->admin_login view called 
+views.py [ 728 ] -->Admin is already login
+views.py [ 212 ] --> Running Counts Statistics are  <QuerySet []>
+views.py [ 220 ] --> SSL Statistics are [0, 0]
+views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+views.py [ 290 ] -->Records are --->[][]
+forms.py [ 42 ] -->forms.py file --  Inside Clean method of idn_dashboard_form 
+forms.py [ 44 ] -->forms.py file --  Function validate_idn_dashboard_form is being called for validations 
+validation.py [ 40 ] -->file -- Self object is False
+validation.py [ 41 ] -->validation starts for IDN Domain Form 
+validation.py [ 47 ] -->English Domain selected by user is - https://www.meity.gov.in/
+validation.py [ 48 ] -->Category selected by user is - Urdu
+validation.py [ 49 ] -->IDN Domain entered by user is - https://रक्षाजनसम्पर्कनिर्देशालय.सरकार.भारत
+forms.py [ 46 ] -->forms.py file --  All Validation Successfull For IDN Form
+views.py [ 76 ] -->IDN Domain https://रक्षाजनसम्पर्कनिर्देशालय.सरकार.भारत Saved in Database 
+views.py [ 80 ] -->Calling Celery Functions to Check and Update parameters
+views.py [ 212 ] --> Running Counts Statistics are  <QuerySet ['']>
+views.py [ 220 ] --> SSL Statistics are [0, 0]
+views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
+views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+views.py [ 280 ] -->Content Langauges are ---- > 
+views.py [ 290 ] -->Records are --->[][]
+tasks.py [ 10 ] -->Checking and Updating Parameters for IDN Domain https://रक्षाजनसम्पर्कनिर्देशालय.सरकार.भारत
+helper.py [ 22 ] -->Checking and Updating Parameters for IDN Domain in instance https://रक्षाजनसम्पर्कनिर्देशालय.सरकार.भारत
+helper.py [ 29 ] -->current Remark in dictionary format is {'General': '', 'Domain': '', 'SSL': '', 'Content': ''}
+helper.py [ 53 ] -->Exception Timeout Occurred: HTTPSConnectionPool(host='xn--11bau5bibm5anbfc1a9cfs3hlp6nqegce.xn--11b7cb3a6a.xn--h2brj9c', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x0000012B972A24D0>, 'Connection to xn--11bau5bibm5anbfc1a9cfs3hlp6nqegce.xn--11b7cb3a6a.xn--h2brj9c timed out. (connect timeout=5)'))
+helper.py [ 72 ] -->Current Remark After Domain operation is {'General': '', 'Domain': 'Timeout Error', 'SSL': '', 'Content': ''}
+helper.py [ 98 ] -->helper.py file --> SSL running Exception: HTTPSConnectionPool(host='xn--11bau5bibm5anbfc1a9cfs3hlp6nqegce.xn--11b7cb3a6a.xn--h2brj9c', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x0000012B972A2890>, 'Connection to xn--11bau5bibm5anbfc1a9cfs3hlp6nqegce.xn--11b7cb3a6a.xn--h2brj9c timed out. (connect timeout=None)'))
+helper.py [ 99 ] -->IDN Domain https://रक्षाजनसम्पर्कनिर्देशालय.सरकार.भारत Exception for SSL
+helper.py [ 102 ] -->SSL Exception has been set  {'General': '', 'Domain': 'Timeout Error', 'SSL': 'SSL Exception', 'Content': ''}
+helper.py [ 104 ] -->Current Remark After SSL operation is {'General': '', 'Domain': 'Timeout Error', 'SSL': 'SSL Exception', 'Content': ''}
+helper.py [ 116 ] -->unicode url and and verify ssl value are ---https://रक्षाजनसम्पर्कनिर्देशालय.सरकार.भारत -- True
+helper.py [ 153 ] -->Exception Timeout Occurred: HTTPSConnectionPool(host='xn--11bau5bibm5anbfc1a9cfs3hlp6nqegce.xn--11b7cb3a6a.xn--h2brj9c', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x0000012B972A3190>, 'Connection to xn--11bau5bibm5anbfc1a9cfs3hlp6nqegce.xn--11b7cb3a6a.xn--h2brj9c timed out. (connect timeout=None)'))
+helper.py [ 173 ] -->Current Remark After Content Langauge operation is {'General': '', 'Domain': 'Timeout Error', 'SSL': 'SSL Exception', 'Content': 'Timeout Error'}
+helper.py [ 179 ] -->--> Updated Remark in dictionary format is {"General": "", "Domain": "Timeout Error", "SSL": "SSL Exception", "Content": "Timeout Error"}
+helper.py [ 182 ] -->--> Remark Has been updated for instance as {"General": "", "Domain": "Timeout Error", "SSL": "SSL Exception", "Content": "Timeout Error"}
+views.py [ 726 ] -->admin_login view called 
+views.py [ 751 ] -->GET Method Called
 views.py [ 726 ] -->admin_login view called 
 views.py [ 731 ] -->POST Method Called
 views.py [ 734 ] -->Form is Valid 
 views.py [ 739 ] -->user is not None and user is_staff
-views.py [ 212 ] --> Running Counts Statistics are  <QuerySet []>
-views.py [ 220 ] --> SSL Statistics are [0, 0]
+views.py [ 212 ] --> Running Counts Statistics are  <QuerySet ['False']>
+views.py [ 220 ] --> SSL Statistics are [0, 1]
 views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
-views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-views.py [ 290 ] -->Records are --->[][]
-views.py [ 212 ] --> Running Counts Statistics are  <QuerySet []>
-views.py [ 220 ] --> SSL Statistics are [0, 0]
-views.py [ 250 ] --> Languages are ['Hindi', 'Marathi', 'Bengali', 'Malayalam', 'Tamil', 'Telugu', 'Odia', 'Sanskrit', 'Kannada', 'Punjabi', 'Gujarati', 'Manipuri', 'Assamese', 'Bodo', 'Santhali', 'Dogri', 'Kashmiri', 'Maithili', 'Nepali', 'Sindhi', 'Urdu']
-views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-views.py [ 290 ] -->Records are --->[][]
+views.py [ 251 ] --> Languages Count are [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+views.py [ 280 ] -->Content Langauges are ---- > Timeout Error
+views.py [ 290 ] -->Records are --->['Timeout Error'][1]
