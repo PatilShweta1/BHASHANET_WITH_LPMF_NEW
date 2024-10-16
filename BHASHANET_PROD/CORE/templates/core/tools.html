@@ -56,7 +56,7 @@
                   <div class="tools-item-img">
                     {% if tool.Tools_Name == 'Developer Keyboard' %}
                       {% if tool.Tools_ExternalURL %}
-                        <a target="_blank" onclick="showAlert('{{tool.Tools_ExternalURL}}');">
+                        <a onclick="showAlert('{{tool.Tools_ExternalURL}}');">
                       {% else %}
                         <a href="/{{tool.Tools_InternalURL}}">
                       {% endif %}
@@ -68,7 +68,7 @@
                     <div class="ua-group d-flex"></div>
                     <h2 class="title h5">
                     {% if tool.Tools_ExternalURL %}
-                    <a href="" target="_blank"
+                    <a href="#" 
                       onclick="showAlert('{{tool.Tools_ExternalURL}}');">{{tool.Tools_Name}}</a>
                     {% else %}
                     <a href="/{{tool.Tools_InternalURL}}">{{tool.Tools_Name}}</a>
@@ -77,7 +77,7 @@
 
                     {% else %}
                       {% if tool.Tools_ExternalURL %}
-                        <a target="_blank" onclick="showAlert('{{tool.Tools_ExternalURL}}');">
+                        <a  onclick="showAlert('{{tool.Tools_ExternalURL}}');">
                       {% else %}
                         <a href="#" onclick="renderPathFunction('{{tool.Tools_InternalURL}}'); return false;">
                       {% endif %}
@@ -89,7 +89,7 @@
                       <div class="ua-group d-flex"></div>
                       <h2 class="title h5">
                         {% if tool.Tools_ExternalURL %}
-                        <a href="" target="_blank"
+                        <a href="#" 
                           onclick="showAlert('{{tool.Tools_ExternalURL}}');">{{tool.Tools_Name}}</a>
                         {% else %}
                         <a href="#" onclick="renderPathFunction('{{tool.Tools_InternalURL}}'); return false;">{{tool.Tools_Name}}</a>
@@ -103,14 +103,6 @@
                       </div>
                     </div>
 
-                    <!-- <div class="all-btn all-category d-flex align-items-center">
-                      {% if tool.Tools_ExternalURL %}
-                      <a href="{{tool.Tools_ExternalURL}}" target="_blank" onclick="myFunction();"
-                        class="btn btn-primary">Open</a>
-                      {% else %}
-                      <a href="/{{tool.Tools_InternalURL}}" class="btn btn-primary">Open</a>
-                      {% endif %}
-                    </div> -->
                   </div>
                 </div>
               </div>
@@ -137,6 +129,7 @@
             window.open(url, '_blank');
         }
         //alert("You are being redirected to an external website. Please note that Bhashanet is not responsible for external websites content & privacy policies. ");
+       
     }
 </script>
 </div>
