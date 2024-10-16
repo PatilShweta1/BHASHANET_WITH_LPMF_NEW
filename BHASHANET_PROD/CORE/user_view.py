@@ -42,10 +42,8 @@ def login_view(request):
                 else:
                     # authenticate username and password 
                     user = authenticate(username=username, password=password)
-                    
                     if user is not None:
                         login(request, user)
-                        
                         # User authenticated successful
                         try:
                             user_role_obj = UserRoleMapping.objects.get(User_Id=user)     
@@ -53,20 +51,21 @@ def login_view(request):
                            
                             if user_role_obj.Role_Id.Role_Name == 'nixi_admin':
                                 print("Nixi admin")
-                                return redirect('home')
+                                return redirect('dashboard2')
                             elif user_role_obj.Role_Id.Role_Name == 'ficci_admin':
                                 print("Ficci admin")
-                                return redirect('home')
+                                return redirect('dashboard2')
                             elif user_role_obj.Role_Id.Role_Name == 'main_admin':
                                 print("main admin")
-                                return redirect('home')
+                                return redirect('dashboard2')
                             elif user_role_obj.Role_Id.Role_Name == 'DjangoSuperAdmin':
                                 print("DjangoSuperAdmin")
-                                return redirect('home')
+                                print("redirect","dashboard2")
+                                return redirect('dashboard2')
                             else:
-                                return redirect("home")
+                                return redirect("dashboard2")
                         except:
-                            return redirect("home")
+                            return redirect("dashboard2")
                     else:
                         messages.error(request, 'Incorrect login credentials', extra_tags="danger")
             except:
@@ -187,7 +186,7 @@ def verify_user_otp(request,email):
                 otp_user_obj=OTP_For_UserRegistration.objects.filter(OTP_Email=email)
                 otp_user_obj.OTP_Status=True
                 messages.success(request, "OTP Verified, Now you can login ", extra_tags="success")
-                return redirect("login_view")
+                return redirect("dashboard2")
             else:
                 messages.error(request, "Failed OTP Verification", extra_tags='danger')
                 return render(request, "core/user/otp_form.html", {'form': otp_form})
@@ -249,7 +248,7 @@ def forgot_password_view(request):
     print("in forgot password view")
     # check user is authenticated or NOT
     if request.user.is_authenticated:
-        return redirect("admin_blog_datatable")
+        return redirect("home")
     # form = ForgotPasswordForm()
 
     if request.method == 'POST':

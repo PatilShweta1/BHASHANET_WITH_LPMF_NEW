@@ -27,7 +27,7 @@
                   <nav aria-label="breadcrumb" class="page-breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="#" onclick="renderPathFunction('home'); return false;">Home</a>
+                        <a href="{% url 'home' %}">Home</a>
                       </li>
                       <li class="breadcrumb-item">Login</li>
                     </ol>
@@ -97,11 +97,11 @@
           <div class="text-center text-lg-start mt-2 pt-2">
             <p class="small fw-bold mt-1 pt-1 mb-0 fs-6">
               Does not have an account ?
-              <a href="#" onclick="renderPathFunction('register'); return false;" class="link-danger">Register</a>
+              <a href="{% url 'register_view' %}" class="link-danger">Register</a>
             </p>
           </div>
           <div class="d-flex justify-content-between fs-6 align-items-center">
-            <a href="#" onclick="renderPathFunction('forgot_password'); return false;" class="link-danger fw-bold">Forgot password?</a>
+            <a href="{% url 'forgot_password' %}" class="link-danger fw-bold">Forgot password?</a>
           </div>
         </div>
   </div>

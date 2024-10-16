@@ -33,13 +33,13 @@
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                       <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                          <a href="#" onclick="renderPathFunction('home'); return false;">Home</a>
+                          <a href="{% url 'home' %}">Home</a>
                         </li>
                         <li class="breadcrumb-item">
-                          <a href="#" onclick="renderPathFunction('blogs'); return false;">Blogs</a>
+                          <a href="{% url 'blogs' %}">Blogs</a>
                         </li>
                         <li class="breadcrumb-item">
-                          <a href="#" onclick="renderPathFunction('admin_blog_datatable'); return false;">Blog Data Table</a>
+                          <a href="{% url 'admin_blog_datatable' %}">Blog Data Table</a>
                         </li>
                         {% if flag_blog == 'Add' %}
                         <li class="breadcrumb-item">Add Blog</li>

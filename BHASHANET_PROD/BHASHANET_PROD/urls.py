@@ -56,7 +56,7 @@ urlpatterns = [
     path('update_json', core_views.update_json, name="update_json"),
     path('display_table2', core_views.display_table2, name="display_table2"),
     path('idn_rediness_dashboard', core_views.idn_rediness_dashboard, name="idn_rediness_dashboard"),  
-    path('bhashanet_dashborad/', include('dashboard.urls')),   
+    path('bhashanet_dashboard/', include('dashboard.urls')),   
 ]
 
 

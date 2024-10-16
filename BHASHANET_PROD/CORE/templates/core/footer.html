@@ -44,15 +44,15 @@
                     <div class="footer-widget footer-menu">
                         <h2 class="footer-title">Other Links</h2>
                         <ul>
-                            <li><a href="#" onclick="renderPathFunction('home'); return false;"><i class="fa fa-link"></i>Home</a></li>
-                            <li><a href="#" onclick="renderPathFunction('FAQS'); return false;"><i class="fa fa-link"></i>FAQs</a></li>
-                            <li><a href="#" onclick="renderPathFunction('blogs'); return false;"><i class="fa fa-link"></i>Blogs</a></li>
+                            <li><a href="{% url 'home' %}"><i class="fa fa-link"></i>Home</a></li>
+                            <li><a href="{% url 'FAQs' %}"><i class="fa fa-link"></i>FAQs</a></li>
+                            <li><a href="{% url 'blogs' %}"><i class="fa fa-link"></i>Blogs</a></li>
                              <!-- Gallery -->
-                             <li id="gallery"><a href="#" onclick="renderPathFunction('gallery'); return false;"><i class="fa fa-link"  aria-hidden="true"></i>Gallery</a></li>
+                             <li id="gallery"><a href="{% url 'gallery' %}"><i class="fa fa-link"  aria-hidden="true"></i>Gallery</a></li>
                             {% comment %} <li><a href="{% url 'idn_websites_request' %}"><i class="fa fa-link"></i>Submit Your IDN Website' %}</a></li> {% endcomment %}
-                            <li><a href="#" onclick="renderPathFunction('privacypolicy'); return false;"><i class="fa fa-link"></i>Privacy Policy</a></li>
-                            <li><a href="#" onclick="renderPathFunction('termsandconditions'); return false;"><i class="fa fa-link"></i>Terms & Conditions</a></li>
-                            <li><a href="#" onclick="renderPathFunction('dashboard'); return false;"><i class="fa fa-link"></i>Dashboard</a></li>
+                            <li><a href="{% url 'privacypolicy' %}"><i class="fa fa-link"></i>Privacy Policy</a></li>
+                            <li><a href="{% url 'termsandconditions' %}"><i class="fa fa-link"></i>Terms & Conditions</a></li>
+                            <li><a href="{% url 'dashboard' %}"><i class="fa fa-link"></i>Dashboard</a></li>
 
 			    <!-- <li><a href="{% url 'blogs' %}"><i class="fa fa-link"></i>Blogs'%}</a></li>-->
                             {% comment %} <li><a href="https://registry.gov.in/idndomain_reporting_module/login_idnreport.php"><i class="fa fa-link"></i>Test'%}</a></li> {% endcomment %}
