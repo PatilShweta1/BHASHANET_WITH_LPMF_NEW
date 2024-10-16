@@ -265,11 +265,11 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="profilemenu">
+                                    {% comment %} <div class="profilemenu">
                                         <ul class="main-nav">
                                             {% if user.is_authenticated %}
                                             <li class="has-submenu" id="resource1">
-                                                {% comment %} <a href="#"><i class="fa-solid fa-user" style="font-size: 16px;"></i> {{request.user.username}} <i {% endcomment %}
+                                                <a href="#"><i class="fa-solid fa-user" style="font-size: 16px;"></i> {{request.user.username}}
                                                 <a href="#" class="text-primary">
                                                     <img src="{% static 'core/assets/img/profile-blue.png' %}" alt="profile-icon" width='31' height='33' /> 
                                                     <span class=' py-1 text-danger'>
@@ -294,15 +294,15 @@
                                             </li>
                 
                                             {% else %}
-                                            {% comment %} <div class="search-form my-1">
+                                            <div class="search-form my-1">
                                                 <a href="{% url 'login_view' %}" class='btn btn-danger'>Login</a>
-                                            </div> {% endcomment %}
+                                            </div>
                                             {% endif %}
                                         </ul>
                                     </div>
                                    
                                 </div>
-                            </div>
+                            </div> {% endcomment %}
 
 
                         </div>

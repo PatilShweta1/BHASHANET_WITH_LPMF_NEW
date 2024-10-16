@@ -1458,7 +1458,7 @@ class OTP_For_IDNRequestForUserWebsites(models.Model):
     def __str__(self):
         return self.OTP_Email
     
-
+# Map with user
 class OTP_For_UserRegistration(models.Model):
     OTP_Email = models.CharField(max_length=500, blank=True, null=True)
     OTP_Value = models.IntegerField()
@@ -1471,6 +1471,6 @@ class OTP_For_UserRegistration(models.Model):
         verbose_name_plural = "OTP FOR User Registration"
 
     def __str__(self):
-        return self.OTP_Email+'For User'
+        return self.OTP_Email
     
 

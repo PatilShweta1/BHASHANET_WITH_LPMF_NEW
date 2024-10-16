@@ -1,4 +1,4 @@
-{% extends 'core/base.html' %} {% load static %} {% load i18n %}
+{% extends 'dashboard/base.html' %} {% load static %} {% load i18n %}
 
 {% block user_register %}
 
@@ -26,12 +26,12 @@
               <div class="col-md-12 col-12">
                 <div class="breadcrumb-list">
                   <nav aria-label="breadcrumb" class="page-breadcrumb">
-                    <ol class="breadcrumb">
+                    {% comment %} <ol class="breadcrumb">
                       <li class="breadcrumb-item">
                         <a href="{% url 'home' %}">Home</a>
                       </li>
                       <li class="breadcrumb-item">Register</li>
-                    </ol>
+                    </ol> {% endcomment %}
                   </nav>
                 </div>
               </div>

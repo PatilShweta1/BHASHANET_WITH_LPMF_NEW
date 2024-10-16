@@ -33,6 +33,42 @@
           </li>
         </ul>
       </li>
+      {% if user.is_authenticated %}
+
+      <li>
+        <a href="{% url 'admin_blog_datatable' %}" aria-expanded="false">
+          <i class="fas fa-blog"></i>
+          <span class="nav-text">My Blogs</span>
+        </a>
+      </li>
+      {% comment %} {% if request.user.is_superuser %}
+      <li>
+        <a href="{% url 'admindashboard' %}" aria-expanded="false">
+          <i class="fa fa-angle-right"></i>
+          <span class="nav-text">Admin Dashboard</span>
+        </a>
+      </li>
+      {% endif %} {% endcomment %}
+
+      <li>
+        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+          <i class="fa fa-comments-o menu-icon"></i>
+          <span class="nav-text">Discussion Forum</span>
+        </a>
+        <ul>
+          <li>
+            <a href="{% url 'topic_list' %}" aria-expanded="false">All Topics</a>
+          </li>
+          <li>
+            <a href="{% url 'user_topic_list' %}" aria-expanded="false">My Topics</a>
+          </li>
+          <li>
+            <a href="{% url 'add_topic' %}" aria-expanded="false">Add New Topic</a>
+          </li>
+        </ul>
+      </li>
+    {% endif %}
+  
 
       <li>
         <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
