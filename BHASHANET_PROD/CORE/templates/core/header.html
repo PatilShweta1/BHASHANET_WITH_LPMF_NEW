@@ -48,6 +48,8 @@
                 transform: translate3d(65px, 40px, 0px) !important;
             }
         </style>
+        {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> ## because of keyboard was not working finely {% endcomment %} 
+        <script type="TEXT/JAVASCRIPT" src="{% static 'core/assets/js/jquery.min.js'%}"></script>
         <link rel="shortcut icon" type="image/x-icon" href="{% static 'core/assets/img/favicon.ico' %}">
         <!-- ====== bootstrap css ====== -->
         <link rel="stylesheet" href="{% static 'core/assets/css/bootstrap.min.css' %}">
@@ -91,21 +93,18 @@
         <link rel="stylesheet" href="{% static 'core/assets/css/control.css' %}">
         <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css'>
         <link rel='stylesheet' href='https://codepen.io/fancyapps/pen/Kxdwjj.css'>       
-       
-        <link rel="stylesheet" type="text/css" href="{% static 'core/assets/css/jquery-ui.min.css'%}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'core/assets/css/custom.css'%}" />
-
-        <script type="TEXT/JAVASCRIPT" src="{% static 'core/assets/js/jquery.min.js'%}"></script>
-
-        <script type="TEXT/JAVASCRIPT" src="{% static 'core/assets/js/jquery-ui.min.js'%}"></script>
+        
+        {% comment %} <script type="TEXT/JAVASCRIPT" src="{% static 'core/assets/js/jquery-ui.min.js'%}"></script> {% endcomment %}
         <script type="TEXT/JAVASCRIPT" src="{% static 'core/assets/js/LanguagesArray.js'%}"></script>
         <script type="TEXT/JAVASCRIPT" src="{% static 'core/assets/js/KeyboardScript2.js'%}"></script>
         <link rel="stylesheet"  href="{% static 'core/assets/css/idn_websites.css'%}"></link>
         <link rel='stylesheet' href="{% static 'core/assets/css/blog_details.css' %}"> 
+        <link rel="stylesheet" type="text/css" href="{% static 'core/assets/css/jquery-ui.min.css'%}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'core/assets/css/custom.css'%}" />
 
                 
         <!--DATA Tables Scripts and css-->
-        {% comment %} <script src="https://code.jquery.com/jquery-3.5.1.js"></script>  {% endcomment %}
+        
         <script src=" https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
         <script src=" https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
         <link
@@ -117,7 +116,7 @@
             href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css"
         /> 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        
       {% comment %} {% get_current_language as LANGUAGE_CODE %}
         {{ LANGUAGE_CODE }}  {% endcomment %}
         
